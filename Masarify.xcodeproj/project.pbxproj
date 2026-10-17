@@ -7,49 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62CC4FDE822D44ABB0592B21 /* MasarifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BF4728DEB14555AB199F7B /* MasarifyApp.swift */; };
-		73C2F0440D8B40F884AAEE37 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = F758B2FC677E44728B16C9C2 /* Expense.swift */; };
-		EF4C3B7220C447AABE80ECA5 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF0155718E4233823623A9 /* ExpenseCategory.swift */; };
-		B3361807C8914F4D80F3E0AF /* ReceiptOCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8E86C272EF4266A5893D61 /* ReceiptOCRService.swift */; };
-		391E480F34E2431A8F87D7F2 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083523417C53407DA2B3E801 /* SpeechRecognizer.swift */; };
-		824F9346DC744A1F89C075A7 /* VoiceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF74D62A801B420FBF0D3836 /* VoiceParser.swift */; };
-		A48030F0A67A4ACCB9E46A85 /* BrandTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8F2848A894788AC5E07B6 /* BrandTheme.swift */; };
-		C33B57CDBED14FEFB3268705 /* BrandHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B63E4E0E84450B4613E05 /* BrandHeroView.swift */; };
-		C92FEEF999AB405F8340744D /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86593239B3441291FAA5E8 /* ExpenseRowView.swift */; };
-		702D94AD8D8146E3848DD90A /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB6DB3D3EB142588E08205A /* DailyReportView.swift */; };
-		1191C187CCA5453B8CB5DA3E /* ExpenseFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4CEB3E7E114138B673BB4A /* ExpenseFormView.swift */; };
-		826B6D19401842AAAD945221 /* ExpensesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F354B8B2673435CA9223299 /* ExpensesListView.swift */; };
-		2281F189F4D045C58ED0D20F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEFC371D0B54F2B87786AB5 /* HomeView.swift */; };
-		6F135A2C19B24076A045D21D /* ReceiptCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2093E304D54A3D865383E0 /* ReceiptCaptureView.swift */; };
-		BD79005174144455887B9EFF /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CDD04C990E45D2A5D3A71F /* RootTabView.swift */; };
-		F3BE60324F8540398D1453F9 /* VoiceEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923CE174EAC415C9CA9C164 /* VoiceEntryView.swift */; };
-		111928233BA542EEB9D2EBC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE0817D0C2C5476E815C7A36 /* Assets.xcassets */; };
+		C412434A623D49CEAE7D97D4 /* MasarifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4BBCE79C347CE95F21DAE /* MasarifyApp.swift */; };
+		B5E935659B1248478C064D51 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999A20F34BB4530A08802E5 /* Expense.swift */; };
+		EB253431E9B244BFAE034ED3 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AFB1C93379438286A2D01D /* ExpenseCategory.swift */; };
+		6F8CC8CC845842FCBEDE5C63 /* MonthlyBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E3C18A87C4FEABDF0A045 /* MonthlyBudget.swift */; };
+		F24E8F69F9BC44D298EE9D06 /* BudgetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A86F352984E87BD185FDF /* BudgetMonitor.swift */; };
+		4BAC4D212D804C73B12CCB8A /* ReceiptOCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0314D568842C896C78551 /* ReceiptOCRService.swift */; };
+		48AC6EC5B9C2472CAF529E2F /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E20F2376B4205840DB9E5 /* SpeechRecognizer.swift */; };
+		BEDEDDBB040B49DBB4EF266B /* VoiceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B82BCECBA46D9B8AB0D82 /* VoiceParser.swift */; };
+		D23F217714AD40B29C31875B /* AppTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53D50ECC794E02B90012F8 /* AppTypography.swift */; };
+		7BB50CBAFEB94C97BC81068F /* BrandTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D7CCFAC2743998976CFB2 /* BrandTheme.swift */; };
+		D8DCFBA757BE4E4EB21B00B0 /* BudgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2705401AA45D4C8A971F0F64 /* BudgetsView.swift */; };
+		66A58FA9BC6C470CB5E7A126 /* BrandHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F9796AAE34336A30F2678 /* BrandHeroView.swift */; };
+		E2016107D6F14536B418CE34 /* BudgetAlertBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5962AAF8F58046C89E2361B1 /* BudgetAlertBanner.swift */; };
+		CCE0C85E1A6A4D749F216411 /* BudgetProgressRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CA0A23258043ABB7115B5A /* BudgetProgressRow.swift */; };
+		91440A8D2514482582B356CF /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB8B9BB57BA4B11997D46B4 /* ExpenseRowView.swift */; };
+		FF002323DE5747008FCDE449 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54EFAFB47D4E5BA23311B6 /* DailyReportView.swift */; };
+		6410DF8B768B41DD9A2C839A /* ExpenseFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB4B2D8941241E6AB356AF9 /* ExpenseFormView.swift */; };
+		49D9DA1CAD9F4E6AA748922A /* ExpensesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EC440C75214F07A95061EE /* ExpensesListView.swift */; };
+		F94DB922BD324CD3BA7E683F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84478F65E345239D9B42AE /* HomeView.swift */; };
+		0349FE91794E4B77B2D228C8 /* ReceiptCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD6AAFA56B24E8FAD0625B5 /* ReceiptCaptureView.swift */; };
+		78AE6AF0D7D14860984A5FA0 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E678973906C49F1B115089E /* RootTabView.swift */; };
+		DEC6D119E3584438849AFB3E /* VoiceEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CDD42A26C1476F938C6ED3 /* VoiceEntryView.swift */; };
+		688C0961009B4692BBE02F86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8A52C1C5B0145E9956F3A9D /* Assets.xcassets */; };
+		03DB75A22E5A435D976B0B40 /* Tajawal-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 321E789898464E95A9B298DF /* Tajawal-Bold.ttf */; };
+		3155F647D7E94DCD804ACF9E /* Tajawal-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90FD7895F34C42B29BF05997 /* Tajawal-ExtraBold.ttf */; };
+		461623485CFD4BED880F011B /* Tajawal-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB5CF610740BFBEFDFC02 /* Tajawal-Medium.ttf */; };
+		D485A87A3EC34421B870ECDB /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07A506BB6ECD44E09094A8FA /* Tajawal-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		66EE119794654A7C9173C612 /* Masarify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masarify.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		12BF4728DEB14555AB199F7B /* MasarifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyApp.swift; sourceTree = "<group>"; };
-		F758B2FC677E44728B16C9C2 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
-		8CFF0155718E4233823623A9 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
-		4F8E86C272EF4266A5893D61 /* ReceiptOCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptOCRService.swift; sourceTree = "<group>"; };
-		083523417C53407DA2B3E801 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
-		CF74D62A801B420FBF0D3836 /* VoiceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceParser.swift; sourceTree = "<group>"; };
-		35B8F2848A894788AC5E07B6 /* BrandTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandTheme.swift; sourceTree = "<group>"; };
-		A83B63E4E0E84450B4613E05 /* BrandHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandHeroView.swift; sourceTree = "<group>"; };
-		DA86593239B3441291FAA5E8 /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
-		0EB6DB3D3EB142588E08205A /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportView.swift; sourceTree = "<group>"; };
-		5F4CEB3E7E114138B673BB4A /* ExpenseFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseFormView.swift; sourceTree = "<group>"; };
-		1F354B8B2673435CA9223299 /* ExpensesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesListView.swift; sourceTree = "<group>"; };
-		8BEFC371D0B54F2B87786AB5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		DE2093E304D54A3D865383E0 /* ReceiptCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCaptureView.swift; sourceTree = "<group>"; };
-		B2CDD04C990E45D2A5D3A71F /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
-		D923CE174EAC415C9CA9C164 /* VoiceEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceEntryView.swift; sourceTree = "<group>"; };
-		FE0817D0C2C5476E815C7A36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E436396CCEBA46FEAD4D164F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13C5FA2E8243454D8195E919 /* Masarify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masarify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		67A4BBCE79C347CE95F21DAE /* MasarifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyApp.swift; sourceTree = "<group>"; };
+		3999A20F34BB4530A08802E5 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		36AFB1C93379438286A2D01D /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
+		F81E3C18A87C4FEABDF0A045 /* MonthlyBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyBudget.swift; sourceTree = "<group>"; };
+		783A86F352984E87BD185FDF /* BudgetMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetMonitor.swift; sourceTree = "<group>"; };
+		16A0314D568842C896C78551 /* ReceiptOCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptOCRService.swift; sourceTree = "<group>"; };
+		EF8E20F2376B4205840DB9E5 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		B59B82BCECBA46D9B8AB0D82 /* VoiceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceParser.swift; sourceTree = "<group>"; };
+		6E53D50ECC794E02B90012F8 /* AppTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTypography.swift; sourceTree = "<group>"; };
+		501D7CCFAC2743998976CFB2 /* BrandTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandTheme.swift; sourceTree = "<group>"; };
+		2705401AA45D4C8A971F0F64 /* BudgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsView.swift; sourceTree = "<group>"; };
+		A59F9796AAE34336A30F2678 /* BrandHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandHeroView.swift; sourceTree = "<group>"; };
+		5962AAF8F58046C89E2361B1 /* BudgetAlertBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetAlertBanner.swift; sourceTree = "<group>"; };
+		97CA0A23258043ABB7115B5A /* BudgetProgressRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetProgressRow.swift; sourceTree = "<group>"; };
+		0AB8B9BB57BA4B11997D46B4 /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
+		5B54EFAFB47D4E5BA23311B6 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportView.swift; sourceTree = "<group>"; };
+		5BB4B2D8941241E6AB356AF9 /* ExpenseFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseFormView.swift; sourceTree = "<group>"; };
+		43EC440C75214F07A95061EE /* ExpensesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesListView.swift; sourceTree = "<group>"; };
+		BA84478F65E345239D9B42AE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4DD6AAFA56B24E8FAD0625B5 /* ReceiptCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCaptureView.swift; sourceTree = "<group>"; };
+		2E678973906C49F1B115089E /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		29CDD42A26C1476F938C6ED3 /* VoiceEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceEntryView.swift; sourceTree = "<group>"; };
+		321E789898464E95A9B298DF /* Tajawal-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tajawal-Bold.ttf; sourceTree = "<group>"; };
+		90FD7895F34C42B29BF05997 /* Tajawal-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tajawal-ExtraBold.ttf; sourceTree = "<group>"; };
+		DC9AB5CF610740BFBEFDFC02 /* Tajawal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tajawal-Medium.ttf; sourceTree = "<group>"; };
+		07A506BB6ECD44E09094A8FA /* Tajawal-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tajawal-Regular.ttf; sourceTree = "<group>"; };
+		A8A52C1C5B0145E9956F3A9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		644F06BDBAE34273BCC873B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9A276B5B35BF41498D785810 /* Frameworks */ = {
+		4BD0E1FF89C94DD3897580F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,97 +79,123 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		420C7C63C7694648A3888086 = {
+		C959F7B9271940C6BF3018F3 = {
 			isa = PBXGroup;
 			children = (
-				70B0254F2393469DA2D656F2 /* Masarify */,
-				665D1014F375440A8C90E438 /* Products */,
+				6FE7DEAD6CEC4E358CF29169 /* Masarify */,
+				4AB9FD0126424EC5892E65D3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		665D1014F375440A8C90E438 /* Products */ = {
+		4AB9FD0126424EC5892E65D3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				66EE119794654A7C9173C612 /* Masarify.app */,
+				13C5FA2E8243454D8195E919 /* Masarify.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		70B0254F2393469DA2D656F2 /* Masarify */ = {
+		6FE7DEAD6CEC4E358CF29169 /* Masarify */ = {
 			isa = PBXGroup;
 			children = (
-				12BF4728DEB14555AB199F7B /* MasarifyApp.swift */,
-				2C6AAD29CB384F4CBD7BB89F /* Models */,
-				47F890DDA26E4127B2EB41AF /* Services */,
-				9A9E01661D964A96A1EEB7AF /* Theme */,
-				DC33C3C16EB84523B8003CE3 /* Views */,
-				FE0817D0C2C5476E815C7A36 /* Assets.xcassets */,
-				E436396CCEBA46FEAD4D164F /* Info.plist */,
+				67A4BBCE79C347CE95F21DAE /* MasarifyApp.swift */,
+				ABD512936C5249319210C812 /* Models */,
+				D2E93A7A4F3649B182712C8F /* Services */,
+				96ADE9A0A35B4C1E8964F493 /* Theme */,
+				11DD056499DD4A4DAD34CD26 /* Views */,
+				B4BCB98BBD834034877398B3 /* Resources */,
+				A8A52C1C5B0145E9956F3A9D /* Assets.xcassets */,
+				644F06BDBAE34273BCC873B7 /* Info.plist */,
 			);
 			path = Masarify;
 			sourceTree = "<group>";
 		};
-		2C6AAD29CB384F4CBD7BB89F /* Models */ = {
+		ABD512936C5249319210C812 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F758B2FC677E44728B16C9C2 /* Expense.swift */,
-				8CFF0155718E4233823623A9 /* ExpenseCategory.swift */,
+				3999A20F34BB4530A08802E5 /* Expense.swift */,
+				36AFB1C93379438286A2D01D /* ExpenseCategory.swift */,
+				F81E3C18A87C4FEABDF0A045 /* MonthlyBudget.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		47F890DDA26E4127B2EB41AF /* Services */ = {
+		D2E93A7A4F3649B182712C8F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				4F8E86C272EF4266A5893D61 /* ReceiptOCRService.swift */,
-				083523417C53407DA2B3E801 /* SpeechRecognizer.swift */,
-				CF74D62A801B420FBF0D3836 /* VoiceParser.swift */,
+				783A86F352984E87BD185FDF /* BudgetMonitor.swift */,
+				16A0314D568842C896C78551 /* ReceiptOCRService.swift */,
+				EF8E20F2376B4205840DB9E5 /* SpeechRecognizer.swift */,
+				B59B82BCECBA46D9B8AB0D82 /* VoiceParser.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		9A9E01661D964A96A1EEB7AF /* Theme */ = {
+		96ADE9A0A35B4C1E8964F493 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				35B8F2848A894788AC5E07B6 /* BrandTheme.swift */,
+				6E53D50ECC794E02B90012F8 /* AppTypography.swift */,
+				501D7CCFAC2743998976CFB2 /* BrandTheme.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
 		};
-		DC33C3C16EB84523B8003CE3 /* Views */ = {
+		11DD056499DD4A4DAD34CD26 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0EB6DB3D3EB142588E08205A /* DailyReportView.swift */,
-				5F4CEB3E7E114138B673BB4A /* ExpenseFormView.swift */,
-				1F354B8B2673435CA9223299 /* ExpensesListView.swift */,
-				8BEFC371D0B54F2B87786AB5 /* HomeView.swift */,
-				DE2093E304D54A3D865383E0 /* ReceiptCaptureView.swift */,
-				B2CDD04C990E45D2A5D3A71F /* RootTabView.swift */,
-				D923CE174EAC415C9CA9C164 /* VoiceEntryView.swift */,
-				6281AEEBF1E840938493FE2F /* Components */,
+				2705401AA45D4C8A971F0F64 /* BudgetsView.swift */,
+				5B54EFAFB47D4E5BA23311B6 /* DailyReportView.swift */,
+				5BB4B2D8941241E6AB356AF9 /* ExpenseFormView.swift */,
+				43EC440C75214F07A95061EE /* ExpensesListView.swift */,
+				BA84478F65E345239D9B42AE /* HomeView.swift */,
+				4DD6AAFA56B24E8FAD0625B5 /* ReceiptCaptureView.swift */,
+				2E678973906C49F1B115089E /* RootTabView.swift */,
+				29CDD42A26C1476F938C6ED3 /* VoiceEntryView.swift */,
+				9133C7553E25425EB0BEF843 /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		6281AEEBF1E840938493FE2F /* Components */ = {
+		9133C7553E25425EB0BEF843 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A83B63E4E0E84450B4613E05 /* BrandHeroView.swift */,
-				DA86593239B3441291FAA5E8 /* ExpenseRowView.swift */,
+				A59F9796AAE34336A30F2678 /* BrandHeroView.swift */,
+				5962AAF8F58046C89E2361B1 /* BudgetAlertBanner.swift */,
+				97CA0A23258043ABB7115B5A /* BudgetProgressRow.swift */,
+				0AB8B9BB57BA4B11997D46B4 /* ExpenseRowView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B4BCB98BBD834034877398B3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				500FCD471ABE499DB161FD04 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		500FCD471ABE499DB161FD04 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				321E789898464E95A9B298DF /* Tajawal-Bold.ttf */,
+				90FD7895F34C42B29BF05997 /* Tajawal-ExtraBold.ttf */,
+				DC9AB5CF610740BFBEFDFC02 /* Tajawal-Medium.ttf */,
+				07A506BB6ECD44E09094A8FA /* Tajawal-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AFD48347B79841CEABB5B84E /* Masarify */ = {
+		AB672BF0FD664635B4DE48FF /* Masarify */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E28AC975075A4A05BC2F304D /* Build configuration list for PBXNativeTarget "Masarify" */;
+			buildConfigurationList = 2404B6D342A44808B60F21FD /* Build configuration list for PBXNativeTarget "Masarify" */;
 			buildPhases = (
-				9F080259986F4B0B9AF48D0E /* Sources */,
-				9A276B5B35BF41498D785810 /* Frameworks */,
-				3E1A1580C5A24942BB6F8A61 /* Resources */,
+				6F9809AC51964C13BE56DF4C /* Sources */,
+				4BD0E1FF89C94DD3897580F1 /* Frameworks */,
+				1F55763F75824358B94F9BFD /* Resources */,
 			);
 			buildRules = (
 			);
@@ -157,25 +203,25 @@
 			);
 			name = Masarify;
 			productName = Masarify;
-			productReference = 66EE119794654A7C9173C612 /* Masarify.app */;
+			productReference = 13C5FA2E8243454D8195E919 /* Masarify.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B61B60C1A0BF49A18370933D /* Project object */ = {
+		043E97EF6D6F484CBDF7D277 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					AFD48347B79841CEABB5B84E = {
+					AB672BF0FD664635B4DE48FF = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
-			buildConfigurationList = FBA5BB70737C4155B84DBB3A /* Build configuration list for PBXProject "Masarify" */;
+			buildConfigurationList = B7CBCEB40F2C44949E8D651E /* Build configuration list for PBXProject "Masarify" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = ar;
 			hasScannedForEncodings = 0;
@@ -184,55 +230,65 @@
 				ar,
 				Base,
 			);
-			mainGroup = 420C7C63C7694648A3888086;
-			productRefGroup = 665D1014F375440A8C90E438 /* Products */;
+			mainGroup = C959F7B9271940C6BF3018F3;
+			productRefGroup = 4AB9FD0126424EC5892E65D3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AFD48347B79841CEABB5B84E /* Masarify */,
+				AB672BF0FD664635B4DE48FF /* Masarify */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3E1A1580C5A24942BB6F8A61 /* Resources */ = {
+		1F55763F75824358B94F9BFD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				111928233BA542EEB9D2EBC0 /* Assets.xcassets in Resources */,
+				688C0961009B4692BBE02F86 /* Assets.xcassets in Resources */,
+				03DB75A22E5A435D976B0B40 /* Tajawal-Bold.ttf in Resources */,
+				3155F647D7E94DCD804ACF9E /* Tajawal-ExtraBold.ttf in Resources */,
+				461623485CFD4BED880F011B /* Tajawal-Medium.ttf in Resources */,
+				D485A87A3EC34421B870ECDB /* Tajawal-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9F080259986F4B0B9AF48D0E /* Sources */ = {
+		6F9809AC51964C13BE56DF4C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62CC4FDE822D44ABB0592B21 /* MasarifyApp.swift in Sources */,
-				73C2F0440D8B40F884AAEE37 /* Expense.swift in Sources */,
-				EF4C3B7220C447AABE80ECA5 /* ExpenseCategory.swift in Sources */,
-				B3361807C8914F4D80F3E0AF /* ReceiptOCRService.swift in Sources */,
-				391E480F34E2431A8F87D7F2 /* SpeechRecognizer.swift in Sources */,
-				824F9346DC744A1F89C075A7 /* VoiceParser.swift in Sources */,
-				A48030F0A67A4ACCB9E46A85 /* BrandTheme.swift in Sources */,
-				C33B57CDBED14FEFB3268705 /* BrandHeroView.swift in Sources */,
-				C92FEEF999AB405F8340744D /* ExpenseRowView.swift in Sources */,
-				702D94AD8D8146E3848DD90A /* DailyReportView.swift in Sources */,
-				1191C187CCA5453B8CB5DA3E /* ExpenseFormView.swift in Sources */,
-				826B6D19401842AAAD945221 /* ExpensesListView.swift in Sources */,
-				2281F189F4D045C58ED0D20F /* HomeView.swift in Sources */,
-				6F135A2C19B24076A045D21D /* ReceiptCaptureView.swift in Sources */,
-				BD79005174144455887B9EFF /* RootTabView.swift in Sources */,
-				F3BE60324F8540398D1453F9 /* VoiceEntryView.swift in Sources */,
+				C412434A623D49CEAE7D97D4 /* MasarifyApp.swift in Sources */,
+				B5E935659B1248478C064D51 /* Expense.swift in Sources */,
+				EB253431E9B244BFAE034ED3 /* ExpenseCategory.swift in Sources */,
+				6F8CC8CC845842FCBEDE5C63 /* MonthlyBudget.swift in Sources */,
+				F24E8F69F9BC44D298EE9D06 /* BudgetMonitor.swift in Sources */,
+				4BAC4D212D804C73B12CCB8A /* ReceiptOCRService.swift in Sources */,
+				48AC6EC5B9C2472CAF529E2F /* SpeechRecognizer.swift in Sources */,
+				BEDEDDBB040B49DBB4EF266B /* VoiceParser.swift in Sources */,
+				D23F217714AD40B29C31875B /* AppTypography.swift in Sources */,
+				7BB50CBAFEB94C97BC81068F /* BrandTheme.swift in Sources */,
+				D8DCFBA757BE4E4EB21B00B0 /* BudgetsView.swift in Sources */,
+				66A58FA9BC6C470CB5E7A126 /* BrandHeroView.swift in Sources */,
+				E2016107D6F14536B418CE34 /* BudgetAlertBanner.swift in Sources */,
+				CCE0C85E1A6A4D749F216411 /* BudgetProgressRow.swift in Sources */,
+				91440A8D2514482582B356CF /* ExpenseRowView.swift in Sources */,
+				FF002323DE5747008FCDE449 /* DailyReportView.swift in Sources */,
+				6410DF8B768B41DD9A2C839A /* ExpenseFormView.swift in Sources */,
+				49D9DA1CAD9F4E6AA748922A /* ExpensesListView.swift in Sources */,
+				F94DB922BD324CD3BA7E683F /* HomeView.swift in Sources */,
+				0349FE91794E4B77B2D228C8 /* ReceiptCaptureView.swift in Sources */,
+				78AE6AF0D7D14860984A5FA0 /* RootTabView.swift in Sources */,
+				DEC6D119E3584438849AFB3E /* VoiceEntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		EC71FCC1516047F580EF6F9B /* Debug */ = {
+		DB32235BBC3E4AB6ABB95783 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -251,7 +307,7 @@
 			};
 			name = Debug;
 		};
-		591157B7B70E4CBE902E1DC4 /* Release */ = {
+		22BD9F6A34094908BF0AB1B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -266,7 +322,7 @@
 			};
 			name = Release;
 		};
-		215C06CA0BF24B7B97183DD2 /* Debug */ = {
+		8302DEF011554EFFAE9E8FF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -278,9 +334,6 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Masarify/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "مصاريفي";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +349,7 @@
 			};
 			name = Debug;
 		};
-		4E692031D85242C0BC28584C /* Release */ = {
+		F213E749169747F9A79EBF6B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -308,9 +361,6 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Masarify/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "مصاريفي";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,25 +379,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FBA5BB70737C4155B84DBB3A /* Build configuration list for PBXProject "Masarify" */ = {
+		B7CBCEB40F2C44949E8D651E /* Build configuration list for PBXProject "Masarify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC71FCC1516047F580EF6F9B /* Debug */,
-				591157B7B70E4CBE902E1DC4 /* Release */,
+				DB32235BBC3E4AB6ABB95783 /* Debug */,
+				22BD9F6A34094908BF0AB1B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E28AC975075A4A05BC2F304D /* Build configuration list for PBXNativeTarget "Masarify" */ = {
+		2404B6D342A44808B60F21FD /* Build configuration list for PBXNativeTarget "Masarify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				215C06CA0BF24B7B97183DD2 /* Debug */,
-				4E692031D85242C0BC28584C /* Release */,
+				8302DEF011554EFFAE9E8FF0 /* Debug */,
+				F213E749169747F9A79EBF6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B61B60C1A0BF49A18370933D /* Project object */;
+	rootObject = 043E97EF6D6F484CBDF7D277 /* Project object */;
 }

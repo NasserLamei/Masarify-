@@ -8,7 +8,7 @@ struct RootTabView: View {
     @State private var showManualAdd = false
 
     enum Tab: Hashable {
-        case home, expenses, report
+        case home, expenses, budgets, report
     }
 
     var body: some View {
@@ -19,7 +19,8 @@ struct RootTabView: View {
                         onVoice: { showVoice = true },
                         onCamera: { showReceipt = true },
                         onAdd: { showManualAdd = true },
-                        onSeeAll: { selectedTab = .expenses }
+                        onSeeAll: { selectedTab = .expenses },
+                        onBudgets: { selectedTab = .budgets }
                     )
                 }
                 .tabItem { Label("الرئيسية", systemImage: "house.fill") }
@@ -30,6 +31,12 @@ struct RootTabView: View {
                 }
                 .tabItem { Label("المصروفات", systemImage: "list.bullet.rectangle") }
                 .tag(Tab.expenses)
+
+                NavigationStack {
+                    BudgetsView()
+                }
+                .tabItem { Label("الميزانية", systemImage: "chart.pie.fill") }
+                .tag(Tab.budgets)
 
                 NavigationStack {
                     DailyReportView()
@@ -84,6 +91,8 @@ struct RootTabView: View {
             selectedTab = .report
         } else if args.contains("-demoExpenses") {
             selectedTab = .expenses
+        } else if args.contains("-demoBudgets") {
+            selectedTab = .budgets
         }
     }
 }
@@ -99,7 +108,7 @@ private struct PrimaryActionButton: View {
             HStack(spacing: 8) {
                 Image(systemName: systemImage)
                 Text(title)
-                    .font(.system(.headline, design: .rounded))
+                    .font(AppFont.headline())
             }
             .foregroundStyle(.white)
             .frame(maxWidth: .infinity)
@@ -116,5 +125,5 @@ private struct PrimaryActionButton: View {
 
 #Preview {
     RootTabView()
-        .modelContainer(for: Expense.self, inMemory: true)
+        .modelContainer(for: [Expense.self, MonthlyBudget.self], inMemory: true)
 }

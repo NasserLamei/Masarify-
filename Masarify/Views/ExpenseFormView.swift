@@ -26,7 +26,7 @@ struct ExpenseFormView: View {
             Section("المبلغ") {
                 TextField("٠٫٠٠", text: $amountText)
                     .keyboardType(.decimalPad)
-                    .font(.system(.title2, design: .rounded).weight(.semibold))
+                    .font(AppFont.title2())
             }
 
             Section("الفئة") {

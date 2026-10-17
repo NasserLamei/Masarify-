@@ -16,11 +16,11 @@ struct ReceiptCaptureView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 Text("فاتورة")
-                    .font(.system(.largeTitle, design: .rounded).weight(.bold))
+                    .font(AppFont.title())
                     .foregroundStyle(BrandTheme.ink)
 
                 Text("صورة → قراءة النص → مراجعة → حفظ.")
-                    .font(.system(.body, design: .rounded))
+                    .font(AppFont.body())
                     .foregroundStyle(BrandTheme.muted)
 
                 if let previewImage {
@@ -50,22 +50,22 @@ struct ReceiptCaptureView: View {
                 }
 
                 Text(status)
-                    .font(.system(.subheadline, design: .rounded))
+                    .font(AppFont.subheadline())
                     .foregroundStyle(BrandTheme.muted)
 
                 if let extract {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("نتيجة القراءة · \(extract.confidence.rawValue)")
-                            .font(.system(.caption, design: .rounded).weight(.semibold))
+                            .font(AppFont.caption())
                             .foregroundStyle(BrandTheme.azure)
                         ForEach(extract.rawHints, id: \.self) { hint in
                             Text("• \(hint)")
-                                .font(.system(.caption, design: .rounded))
+                                .font(AppFont.caption())
                                 .foregroundStyle(BrandTheme.muted)
                         }
                         if !extract.recognizedText.isEmpty {
                             Text(extract.recognizedText)
-                                .font(.system(.footnote, design: .rounded))
+                                .font(AppFont.footnote())
                                 .foregroundStyle(BrandTheme.ink)
                                 .padding(12)
                                 .background(Color.white.opacity(0.85))

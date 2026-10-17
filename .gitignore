@@ -1,36 +1,33 @@
-# Xcode
-build/
-DerivedData/
-*.xcuserstate
-*.xcuserdata/
-*.moved-aside
-*.hmap
-*.ipa
-*.dSYM.zip
-*.dSYM
-timeline.xctimeline
-playground.xcworkspace
-
-# Swift Package Manager
-.build/
-.swiftpm/
-Packages/
-Package.resolved
 
 # CocoaPods / Carthage
-Pods/
-Carthage/Build/
-
-# macOS
-.DS_Store
-**/.DS_Store
-
 # IDE
-.idea/
-*.swp
-*~
-
 # Secrets
+# Swift Package Manager
+# Xcode
+# macOS
+**/.DS_Store
+*.dSYM
+*.dSYM.zip
+*.hmap
+*.ipa
+*.moved-aside
 *.pem
+*.swp
+*.xcuserdata/
+*.xcuserstate
+*~
+.DS_Store
+.build/
 .env
 .env.*
+.idea/
+.swiftpm/
+Carthage/Build/
+DerivedData/
+Package.resolved
+Packages/
+Pods/
+build/
+playground.xcworkspace
+timeline.xctimeline
+xcuserdata/

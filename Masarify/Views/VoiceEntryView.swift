@@ -12,11 +12,11 @@ struct VoiceEntryView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 Text("بالصوت")
-                    .font(.system(.largeTitle, design: .rounded).weight(.bold))
+                    .font(AppFont.title())
                     .foregroundStyle(BrandTheme.ink)
 
                 Text("قل المبلغ والفئة والملاحظة بالعربية أو الإنجليزية.")
-                    .font(.system(.body, design: .rounded))
+                    .font(AppFont.body())
                     .foregroundStyle(BrandTheme.muted)
 
                 VStack(spacing: 16) {
@@ -47,7 +47,7 @@ struct VoiceEntryView: View {
                     .frame(maxWidth: .infinity)
 
                     Text(recognizer.statusMessage)
-                        .font(.system(.subheadline, design: .rounded))
+                        .font(AppFont.subheadline())
                         .foregroundStyle(BrandTheme.muted)
                         .frame(maxWidth: .infinity)
                 }
@@ -56,10 +56,10 @@ struct VoiceEntryView: View {
                 if !recognizer.transcript.isEmpty {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("النص")
-                            .font(.system(.caption, design: .rounded).weight(.semibold))
+                            .font(AppFont.caption())
                             .foregroundStyle(BrandTheme.muted)
                         Text(recognizer.transcript)
-                            .font(.system(.title3, design: .rounded))
+                            .font(AppFont.title3())
                             .foregroundStyle(BrandTheme.ink)
                             .padding(16)
                             .frame(maxWidth: .infinity, alignment: .leading)

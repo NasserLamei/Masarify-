@@ -2,12 +2,17 @@
 
 Native **SwiftUI iOS** app for personal expense tracking. Arabic-first (RTL), SwiftData persistence, voice entry, and receipt capture with Vision OCR (with honest mock fallback).
 
+## Typography
+
+Bundled **Tajawal** (OFL) for Arabic + Latin display/body text — not system SF.
+
 ## Features (MVP)
 
 1. **Expenses by category** — create, list, edit, delete (أكل، مواصلات، فواتير، ترفيه، تسوق، صحة، أخرى). Stored with **SwiftData**.
 2. **Voice entry** — Speech framework (`ar-EG` / `en-US`) + bilingual amount/category/note parser. If speech is unavailable, use **تجربة تجريبية**.
 3. **Receipt / invoice** — camera or photo library → Vision OCR (or heuristic/mock) → review → save.
-4. **Daily report** — today total, category breakdown, recent entries on Home and Report tabs.
+4. **Daily report**
+5. **Monthly budgets & alerts** — overall + per-category limits, progress, ~80% and over-budget banners. — today total, category breakdown, recent entries on Home and Report tabs.
 5. **Native iOS UI** — `TabView`, large titles, mic + camera primary actions, Masarify brand hero.
 
 ## Requirements
@@ -66,4 +71,4 @@ Masarify/
 
 ## Stack
 
-SwiftUI · SwiftData · Speech · Vision · PhotosUI
+SwiftUI · SwiftData · Speech · Vision · PhotosUI · Tajawal

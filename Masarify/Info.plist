@@ -44,5 +44,12 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Tajawal-Regular.ttf</string>
+		<string>Tajawal-Medium.ttf</string>
+		<string>Tajawal-Bold.ttf</string>
+		<string>Tajawal-ExtraBold.ttf</string>
+	</array>
 </dict>
 </plist>

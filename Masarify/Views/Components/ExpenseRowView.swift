@@ -15,17 +15,17 @@ struct ExpenseRowView: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(expense.note.isEmpty ? expense.category.labelAr : expense.note)
-                    .font(.system(.headline, design: .rounded))
+                    .font(AppFont.headline())
                     .foregroundStyle(BrandTheme.ink)
                     .lineLimit(1)
                 HStack(spacing: 8) {
                     Text(expense.category.labelAr)
-                        .font(.system(.caption, design: .rounded))
+                        .font(AppFont.caption())
                         .foregroundStyle(expense.category.tint)
                     Text("·")
                         .foregroundStyle(BrandTheme.muted)
                     Text(expense.source.labelAr)
-                        .font(.system(.caption, design: .rounded))
+                        .font(AppFont.caption())
                         .foregroundStyle(BrandTheme.muted)
                 }
             }
@@ -33,7 +33,7 @@ struct ExpenseRowView: View {
             Spacer()
 
             Text(CurrencyFormat.egp(expense.amount))
-                .font(.system(.headline, design: .rounded))
+                .font(AppFont.headline())
                 .foregroundStyle(BrandTheme.ink)
         }
         .padding(.vertical, 6)

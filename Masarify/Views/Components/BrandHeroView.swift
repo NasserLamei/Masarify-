@@ -6,19 +6,19 @@ struct BrandHeroView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("مصاريفي")
-                .font(.system(size: 44, weight: .bold, design: .rounded))
+                .font(AppFont.brand(46))
                 .foregroundStyle(BrandTheme.ink)
                 .opacity(appeared ? 1 : 0)
                 .offset(y: appeared ? 0 : 12)
 
             Text("Masarify")
-                .font(.system(size: 18, weight: .semibold, design: .rounded))
+                .font(AppFont.custom(.medium, size: 20))
                 .foregroundStyle(BrandTheme.deepTeal)
                 .opacity(appeared ? 1 : 0)
                 .offset(y: appeared ? 0 : 8)
 
             Text("تتبّع مصاريفك بالصوت والكاميرا — عربي أولاً.")
-                .font(.system(.body, design: .rounded))
+                .font(AppFont.body())
                 .foregroundStyle(BrandTheme.muted)
                 .fixedSize(horizontal: false, vertical: true)
                 .opacity(appeared ? 1 : 0)

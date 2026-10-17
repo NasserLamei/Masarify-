@@ -3,11 +3,13 @@ import SwiftData
 
 struct HomeView: View {
     @Query(sort: \Expense.createdAt, order: .reverse) private var expenses: [Expense]
+    @Query private var budgets: [MonthlyBudget]
 
     let onVoice: () -> Void
     let onCamera: () -> Void
     let onAdd: () -> Void
     let onSeeAll: () -> Void
+    var onBudgets: (() -> Void)? = nil
 
     private var todayExpenses: [Expense] {
         let start = Calendar.current.startOfDay(for: .now)
@@ -25,17 +27,39 @@ struct HomeView: View {
         })?.key
     }
 
+    private var budgetAlerts: [BudgetProgress] {
+        BudgetMonitor.activeAlerts(
+            from: BudgetMonitor.progress(for: budgets, expenses: expenses)
+        )
+    }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 BrandHeroView()
 
+                if !budgetAlerts.isEmpty {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("تنبيهات الميزانية")
+                            .font(AppFont.title3())
+                            .foregroundStyle(BrandTheme.ink)
+                        ForEach(budgetAlerts.prefix(3)) { alert in
+                            BudgetAlertBanner(progress: alert)
+                        }
+                        if let onBudgets {
+                            Button("إدارة الميزانية", action: onBudgets)
+                                .font(AppFont.subheadline())
+                                .foregroundStyle(BrandTheme.deepTeal)
+                        }
+                    }
+                }
+
                 VStack(alignment: .leading, spacing: 8) {
                     Text("تقرير اليوم")
-                        .font(.system(.title2, design: .rounded).weight(.bold))
+                        .font(AppFont.title2())
                         .foregroundStyle(BrandTheme.ink)
                     Text("ملخص سريع لما صرفته النهاردة.")
-                        .font(.system(.subheadline, design: .rounded))
+                        .font(AppFont.subheadline())
                         .foregroundStyle(BrandTheme.muted)
 
                     HStack(spacing: 12) {
@@ -50,16 +74,16 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
                         Text("آخر المصروفات")
-                            .font(.system(.title3, design: .rounded).weight(.semibold))
+                            .font(AppFont.title3())
                         Spacer()
                         Button("عرض الكل", action: onSeeAll)
-                            .font(.system(.subheadline, design: .rounded).weight(.semibold))
+                            .font(AppFont.custom(.medium, size: 14))
                             .foregroundStyle(BrandTheme.deepTeal)
                     }
 
                     if todayExpenses.isEmpty {
                         Text("لسه مفيش مصروفات النهاردة. سجّل بالصوت أو الكاميرا.")
-                            .font(.system(.body, design: .rounded))
+                            .font(AppFont.body())
                             .foregroundStyle(BrandTheme.muted)
                             .padding(.vertical, 8)
                     } else {
@@ -72,7 +96,7 @@ struct HomeView: View {
 
                 Button(action: onAdd) {
                     Label("إضافة مصروف", systemImage: "plus.circle.fill")
-                        .font(.system(.headline, design: .rounded))
+                        .font(AppFont.headline())
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
                 }
@@ -115,10 +139,10 @@ private struct StatBlock: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title)
-                .font(.system(.caption, design: .rounded))
+                .font(AppFont.caption())
                 .foregroundStyle(BrandTheme.muted)
             Text(value)
-                .font(.system(.title3, design: .rounded).weight(.bold))
+                .font(AppFont.custom(.bold, size: 18))
                 .foregroundStyle(BrandTheme.ink)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
