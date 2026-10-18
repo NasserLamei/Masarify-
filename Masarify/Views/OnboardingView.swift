@@ -7,6 +7,7 @@ struct OnboardingView: View {
 
     @State private var page = 0
     @State private var orbPhase = false
+    @State private var dragOffset: CGFloat = 0
 
     private let pages: [OnboardingPage] = [
         OnboardingPage(
@@ -47,27 +48,34 @@ struct OnboardingView: View {
             VStack(spacing: 0) {
                 topBar
                     .padding(.horizontal, BrandTheme.screenInset)
-                    .padding(.top, 8)
+                    .padding(.top, 10)
 
-                TabView(selection: $page) {
-                    ForEach(Array(pages.enumerated()), id: \.offset) { index, item in
-                        OnboardingPageView(page: item, isActive: page == index)
-                            .tag(index)
+                // Middle band: true vertical center for art + copy
+                GeometryReader { geo in
+                    let width = geo.size.width
+                    ZStack {
+                        ForEach(Array(pages.enumerated()), id: \.offset) { index, item in
+                            OnboardingPageView(page: item, isActive: page == index)
+                                .frame(width: width, height: geo.size.height)
+                                .offset(x: CGFloat(index - page) * width + dragOffset)
+                        }
                     }
+                    .frame(width: width, height: geo.size.height, alignment: .center)
+                    .clipped()
+                    .gesture(pageDrag(width: width))
                 }
-                .tabViewStyle(.page(indexDisplayMode: .never))
-                .animation(.spring(response: 0.55, dampingFraction: 0.86), value: page)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
 
                 pageDots
-                    .padding(.top, 4)
+                    .padding(.top, 8)
                     .padding(.bottom, 14)
 
                 primaryButton
                     .padding(.horizontal, BrandTheme.screenInset)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 22)
             }
             .safeAreaPadding(.top, 4)
-            .safeAreaPadding(.bottom, 8)
+            .safeAreaPadding(.bottom, 6)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
@@ -76,6 +84,27 @@ struct OnboardingView: View {
                 orbPhase = true
             }
         }
+    }
+
+    private func pageDrag(width: CGFloat) -> some Gesture {
+        DragGesture(minimumDistance: 24)
+            .onChanged { value in
+                // RTL: swipe right advances in Arabic layout feel; keep LTR math and flip by layout
+                let dx = settings.language == .arabic ? -value.translation.width : value.translation.width
+                dragOffset = dx
+            }
+            .onEnded { value in
+                let dx = settings.language == .arabic ? -value.translation.width : value.translation.width
+                let threshold = width * 0.22
+                withAnimation(.spring(response: 0.48, dampingFraction: 0.86)) {
+                    if dx < -threshold, page < pages.count - 1 {
+                        page += 1
+                    } else if dx > threshold, page > 0 {
+                        page -= 1
+                    }
+                    dragOffset = 0
+                }
+            }
     }
 
     private var topBar: some View {
@@ -124,14 +153,12 @@ struct OnboardingView: View {
                 .frame(width: 300, height: 300)
                 .blur(radius: 48)
                 .offset(x: orbPhase ? -70 : 40, y: orbPhase ? -180 : -120)
-                .animation(.easeInOut(duration: 3.6).repeatForever(autoreverses: true), value: orbPhase)
 
             Circle()
                 .fill(current.secondary.opacity(0.20))
                 .frame(width: 240, height: 240)
                 .blur(radius: 42)
                 .offset(x: orbPhase ? 90 : -20, y: orbPhase ? 220 : 160)
-                .animation(.easeInOut(duration: 4.4).repeatForever(autoreverses: true), value: orbPhase)
         }
         .allowsHitTesting(false)
     }
@@ -171,7 +198,7 @@ struct OnboardingView: View {
             if isLast {
                 finish()
             } else {
-                withAnimation(.spring(response: 0.5, dampingFraction: 0.84)) { page += 1 }
+                withAnimation(.spring(response: 0.48, dampingFraction: 0.86)) { page += 1 }
             }
         } label: {
             Text(isLast ? settings.t(.onboardStart) : settings.t(.onboardNext))
@@ -220,54 +247,50 @@ private struct OnboardingPageView: View {
     @State private var ring = false
 
     var body: some View {
-        GeometryReader { geo in
-            VStack(spacing: 0) {
-                Spacer(minLength: 0)
+        // Equal spacers = true vertical center of art + copy as one block
+        VStack(spacing: 0) {
+            Spacer(minLength: 0)
 
-                VStack(spacing: 22) {
-                    artStage
-                        .frame(width: min(geo.size.width - 48, 320), height: min(geo.size.height * 0.34, 240))
-                        .scaleEffect(entered ? 1 : 0.72)
+            VStack(spacing: 20) {
+                artStage
+                    .frame(maxWidth: 300)
+                    .frame(height: 210)
+                    .scaleEffect(entered ? 1 : 0.78)
+                    .opacity(entered ? 1 : 0)
+
+                VStack(spacing: 10) {
+                    Text(settings.t(.appName))
+                        .font(AppFont.brand(32))
+                        .foregroundStyle(page.accent)
+                        .minimumScaleFactor(0.8)
+                        .lineLimit(1)
                         .opacity(entered ? 1 : 0)
-                        .rotation3DEffect(
-                            .degrees(entered ? 0 : 12),
-                            axis: (x: 0.4, y: 1, z: 0)
-                        )
+                        .offset(y: entered ? 0 : 16)
 
-                    VStack(spacing: 10) {
-                        Text(settings.t(.appName))
-                            .font(AppFont.brand(32))
-                            .foregroundStyle(page.accent)
-                            .minimumScaleFactor(0.8)
-                            .lineLimit(1)
-                            .opacity(entered ? 1 : 0)
-                            .offset(y: entered ? 0 : 18)
+                    Text(settings.t(page.titleKey))
+                        .font(AppFont.display(24))
+                        .foregroundStyle(BrandTheme.ink)
+                        .multilineTextAlignment(.center)
+                        .minimumScaleFactor(0.85)
+                        .opacity(entered ? 1 : 0)
+                        .offset(y: entered ? 0 : 18)
 
-                        Text(settings.t(page.titleKey))
-                            .font(AppFont.display(24))
-                            .foregroundStyle(BrandTheme.ink)
-                            .multilineTextAlignment(.center)
-                            .minimumScaleFactor(0.85)
-                            .opacity(entered ? 1 : 0)
-                            .offset(y: entered ? 0 : 22)
-
-                        Text(settings.t(page.bodyKey))
-                            .font(AppFont.subheadline())
-                            .foregroundStyle(BrandTheme.muted)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.horizontal, 4)
-                            .opacity(entered ? 1 : 0)
-                            .offset(y: entered ? 0 : 26)
-                    }
-                    .padding(.horizontal, BrandTheme.screenInset)
+                    Text(settings.t(page.bodyKey))
+                        .font(AppFont.subheadline())
+                        .foregroundStyle(BrandTheme.muted)
+                        .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.horizontal, 8)
+                        .opacity(entered ? 1 : 0)
+                        .offset(y: entered ? 0 : 20)
                 }
-                .frame(maxWidth: .infinity)
-
-                Spacer(minLength: 0)
+                .padding(.horizontal, BrandTheme.screenInset)
             }
-            .frame(width: geo.size.width, height: geo.size.height)
+            .frame(maxWidth: .infinity)
+
+            Spacer(minLength: 0)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear { playEntrance() }
         .onChange(of: isActive) { _, active in
             if active { playEntrance() }
@@ -295,23 +318,19 @@ private struct OnboardingPageView: View {
                 )
                 .shadow(color: page.accent.opacity(0.18), radius: 18, y: 8)
 
-            // Expanding accent ring
             Circle()
                 .stroke(page.accent.opacity(ring ? 0.0 : 0.35), lineWidth: 2)
-                .frame(width: ring ? 210 : 90, height: ring ? 210 : 90)
+                .frame(width: ring ? 200 : 80, height: ring ? 200 : 80)
                 .animation(.easeOut(duration: 2.2).repeatForever(autoreverses: false), value: ring)
 
             switch page.art {
-            case .welcome:
-                welcomeArt
-            case .capture:
-                captureArt
-            case .insights:
-                insightsArt
-            case .secure:
-                secureArt
+            case .welcome: welcomeArt
+            case .capture: captureArt
+            case .insights: insightsArt
+            case .secure: secureArt
             }
         }
+        .padding(.horizontal, BrandTheme.screenInset)
     }
 
     private var welcomeArt: some View {
@@ -319,8 +338,8 @@ private struct OnboardingPageView: View {
             Image("AppLogo")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 108, height: 108)
-                .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
+                .frame(width: 100, height: 100)
+                .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
                 .shadow(color: page.accent.opacity(0.35), radius: 16, y: 8)
                 .scaleEffect(bob ? 1.05 : 0.96)
                 .rotationEffect(.degrees(bob ? 2 : -2))
@@ -344,7 +363,7 @@ private struct OnboardingPageView: View {
 
     private var insightsArt: some View {
         ZStack {
-            symbolBubble("chart.pie.fill", tint: page.accent, size: 92)
+            symbolBubble("chart.pie.fill", tint: page.accent, size: 88)
                 .rotationEffect(.degrees(spin * 0.15))
                 .scaleEffect(bob ? 1.06 : 0.96)
 
@@ -355,16 +374,15 @@ private struct OnboardingPageView: View {
 
     private var secureArt: some View {
         ZStack {
-            symbolBubble("faceid", tint: page.accent, size: 92)
+            symbolBubble("faceid", tint: page.accent, size: 88)
                 .scaleEffect(bob ? 1.08 : 0.95)
-                .opacity(bob ? 1 : 0.88)
 
             orbitChip("iCloud", angle: spin + 40)
             orbitChip("Face ID", angle: spin + 220)
         }
     }
 
-    private func symbolBubble(_ name: String, tint: Color, size: CGFloat = 78) -> some View {
+    private func symbolBubble(_ name: String, tint: Color, size: CGFloat = 76) -> some View {
         Image(systemName: name)
             .font(.system(size: size * 0.4, weight: .semibold))
             .foregroundStyle(.white)
@@ -379,7 +397,7 @@ private struct OnboardingPageView: View {
 
     private func orbitChip(_ text: String, angle: Double) -> some View {
         let radians = angle * .pi / 180
-        let radius: CGFloat = 92
+        let radius: CGFloat = 86
         return Text(text)
             .font(AppFont.caption())
             .foregroundStyle(BrandTheme.ink)
