@@ -6,7 +6,7 @@ final class MonthlyBudget {
     var id: UUID
     /// `yyyy-MM` for the calendar month this limit applies to.
     var monthKey: String
-    /// `nil` means overall monthly limit; otherwise an `ExpenseCategory.rawValue`.
+    /// `nil` means overall monthly limit; otherwise a `CategoryItem.id`.
     var categoryRaw: String?
     var limitAmount: Double
     var createdAt: Date
@@ -15,32 +15,29 @@ final class MonthlyBudget {
     init(
         id: UUID = UUID(),
         monthKey: String = MonthlyBudget.currentMonthKey(),
-        category: ExpenseCategory? = nil,
+        categoryId: String? = nil,
         limitAmount: Double,
         createdAt: Date = .now,
         updatedAt: Date = .now
     ) {
         self.id = id
         self.monthKey = monthKey
-        self.categoryRaw = category?.rawValue
+        self.categoryRaw = categoryId
         self.limitAmount = limitAmount
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }
 
-    var category: ExpenseCategory? {
-        get {
-            guard let categoryRaw else { return nil }
-            return ExpenseCategory(rawValue: categoryRaw)
-        }
-        set { categoryRaw = newValue?.rawValue }
+    var categoryId: String? {
+        get { categoryRaw }
+        set { categoryRaw = newValue }
     }
 
     var isOverall: Bool { categoryRaw == nil }
 
-    var titleAr: String {
-        if let category { return category.labelAr }
-        return "الإجمالي الشهري"
+    func titleAr(categories: [CategoryItem]) -> String {
+        guard let categoryId else { return "الإجمالي الشهري" }
+        return CategoryItem.resolve(id: categoryId, in: categories)?.labelAr ?? categoryId
     }
 
     static func currentMonthKey(for date: Date = .now, calendar: Calendar = .current) -> String {
@@ -66,11 +63,15 @@ enum BudgetAlertLevel: Equatable {
     case nearLimit   // ~80%+
     case overBudget
 
-    var bannerTitle: String {
-        switch self {
-        case .ok: return ""
-        case .nearLimit: return "قربت من الحد"
-        case .overBudget: return "تجاوزت الميزانية"
+    var bannerTitle: String { bannerTitle(language: .arabic) }
+
+    func bannerTitle(language: AppLanguage) -> String {
+        switch (self, language) {
+        case (.ok, _): return ""
+        case (.nearLimit, .arabic): return "قربت من الحد"
+        case (.nearLimit, .english): return "Near limit"
+        case (.overBudget, .arabic): return "تجاوزت الميزانية"
+        case (.overBudget, .english): return "Over budget"
         }
     }
 }
@@ -79,6 +80,7 @@ struct BudgetProgress: Identifiable, Equatable {
     var id: UUID { budget.id }
     let budget: MonthlyBudget
     let spent: Double
+    let category: CategoryItem?
 
     var limit: Double { budget.limitAmount }
     var ratio: Double {
@@ -92,5 +94,11 @@ struct BudgetProgress: Identifiable, Equatable {
         if spent > limit { return .overBudget }
         if ratio >= 0.8 { return .nearLimit }
         return .ok
+    }
+
+    static func == (lhs: BudgetProgress, rhs: BudgetProgress) -> Bool {
+        lhs.budget.id == rhs.budget.id
+            && lhs.spent == rhs.spent
+            && lhs.category?.id == rhs.category?.id
     }
 }

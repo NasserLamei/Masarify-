@@ -7,33 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C81ONBOBF01B2C3D4E5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81ONBO01B2C3D4E5F607 /* OnboardingView.swift */; };
-		C81TOURBF01B2C3D4E5 /* FeatureTourOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81TOUR01B2C3D4E5F607 /* FeatureTourOverlay.swift */; };
-		C91COACHBF01B2C3D4E /* FinancialCoachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91COACH01B2C3D4E5F6 /* FinancialCoachView.swift */; };
-		C91COACHSVCBF01B2C3 /* FinancialCoachService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91COACHSVC01B2C3D4E /* FinancialCoachService.swift */; };
-		C91SPEECHBF01B2C3D4 /* CoachSpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91SPEECH01B2C3D4E5 /* CoachSpeechService.swift */; };
-		D92LOANBF01B2C3D4E5 /* DebtLoan.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92LOAN01B2C3D4E5F607 /* DebtLoan.swift */; };
-		D92NOTIBF01B2C3D4E5 /* DebtLoanNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92NOTI01B2C3D4E5F607 /* DebtLoanNotifier.swift */; };
-		D92VIEWBF01B2C3D4E5 /* DebtLoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92VIEW01B2C3D4E5F607 /* DebtLoanView.swift */; };
-		D92PCFSBF01B2C3D4E5 /* PredictiveCashFlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92PCFS01B2C3D4E5F607 /* PredictiveCashFlowService.swift */; };
-		D92PCFVBF01B2C3D4E5 /* PredictiveCashFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92PCFV01B2C3D4E5F607 /* PredictiveCashFlowView.swift */; };
-		D92SHOPBF01B2C3D4E5 /* SmartShoppingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92SHOPS01B2C3D4E5F6 /* SmartShoppingService.swift */; };
-		D92SHOPVBF01B2C3D4E /* SmartShoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92SHOPV01B2C3D4E5F6 /* SmartShoppingView.swift */; };
-		C71TRUEBF01B2C3D4E5 /* TrueCostSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71TRUE01B2C3D4E5F607 /* TrueCostSettingsView.swift */; };
-		C71DSUMBF01B2C3D4E5 /* DailySummarySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71DSUM01B2C3D4E5F607 /* DailySummarySettingsView.swift */; };
-		C61PRIVBF01B2C3D4E5 /* PrivacySecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61PRIV01B2C3D4E5F607 /* PrivacySecurityView.swift */; };
-		C61LOCKBF01B2C3D4E5 /* BiometricLockOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61LOCK01B2C3D4E5F607 /* BiometricLockOverlay.swift */; };
-		C61CLDBF01B2C3D4E5F6 /* CloudAccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61CLD01B2C3D4E5F60718 /* CloudAccountStore.swift */; };
-		C61BIOBF01B2C3D4E5F6 /* BiometricAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61BIO01B2C3D4E5F60718 /* BiometricAuthService.swift */; };
-		C51CHARTBF01B2C3D4E5 /* SpendingChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51CHART01B2C3D4E5F6 /* SpendingChartsView.swift */; };
-		C51EXPBF01B2C3D4E5F6 /* ExpenseExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51EXP01B2C3D4E5F60718 /* ExpenseExportService.swift */; };
-		C51ANALBF01B2C3D4E5 /* SpendingAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51ANAL01B2C3D4E5F607 /* SpendingAnalytics.swift */; };
-		C41DNOTIBF01B2C3D4E5 /* DailySummaryNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DNOTI01B2C3D4E5F607 /* DailySummaryNotifier.swift */; };
-		C41DSNAPBF01B2C3D4E5 /* DailySummarySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DSNAP01B2C3D4E5F607 /* DailySummarySnapshot.swift */; };
-		C41RFIELDBF01B2C3D4E5 /* ReceiptFieldParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41RFIELD01B2C3D4E5F6 /* ReceiptFieldParser.swift */; };
-		C41MATCHBF01B2C3D4E5 /* CategoryMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41MATCH01B2C3D4E5F607 /* CategoryMatcher.swift */; };
-		A31TripModel01B2C3D4 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31TripModel01B2C3D5 /* Trip.swift */; };
-		A31TripView01B2C3D4 /* TripModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31TripView01B2C3D5 /* TripModeView.swift */; };
+		0102030405060708090A0B0C /* success-check.json in Resources */ = {isa = PBXBuildFile; fileRef = 02030405060708090A0B0C0D /* success-check.json */; };
 		0349FE91794E4B77B2D228C8 /* ReceiptCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD6AAFA56B24E8FAD0625B5 /* ReceiptCaptureView.swift */; };
 		03DB75A22E5A435D976B0B40 /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 321E789898464E95A9B298DF /* Cairo-Bold.ttf */; };
 		3155F647D7E94DCD804ACF9E /* Cairo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90FD7895F34C42B29BF05997 /* Cairo-ExtraBold.ttf */; };
@@ -49,17 +23,59 @@
 		7BB50CBAFEB94C97BC81068F /* BrandTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D7CCFAC2743998976CFB2 /* BrandTheme.swift */; };
 		91440A8D2514482582B356CF /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB8B9BB57BA4B11997D46B4 /* ExpenseRowView.swift */; };
 		932A2165B86348C49929C36D /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60C028AF1E4CD0BF70EC06 /* AppAppearance.swift */; };
+		A11L10n0001B2C3D4E5F60718 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11L10n0001B2C3D4E5F60719 /* L10n.swift */; };
+		A11Settings01B2C3D4E5F607 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11Settings01B2C3D4E5F608 /* AppSettings.swift */; };
+		A11SettingsViewB2C3D4E5F6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11SettingsViewB2C3D4E5F7 /* SettingsView.swift */; };
 		A1B2C3D4E5F60718293A4B5C /* MasarifyFormControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E2D3C4B5A69788796A5B4C /* MasarifyFormControls.swift */; };
+		A21Emergency01B2C3D4 /* EmergencyModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21Emergency01B2C3D5 /* EmergencyModeView.swift */; };
+		A21GoalsView01B2C3D4 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21GoalsView01B2C3D5 /* GoalsView.swift */; };
+		A21Insights01B2C3D4 /* InsightsHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21Insights01B2C3D5 /* InsightsHubView.swift */; };
+		A21SavingsGoal01B2C3D4 /* SavingsGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21SavingsGoal01B2C3D5 /* SavingsGoal.swift */; };
+		A21SmartMoney01B2C3D4 /* SmartMoneyServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21SmartMoney01B2C3D5 /* SmartMoneyServices.swift */; };
+		A21VoicePlan01B2C3D4 /* VoicePlanParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21VoicePlan01B2C3D5 /* VoicePlanParser.swift */; };
+		A21VoicePlanV01B2C3D4 /* VoicePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21VoicePlanV01B2C3D5 /* VoicePlanView.swift */; };
+		A22MoneyMotion01B2C3D4 /* MoneyMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22MoneyMotion01B2C3D5 /* MoneyMotion.swift */; };
+		A31TripModel01B2C3D4 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31TripModel01B2C3D5 /* Trip.swift */; };
+		A31TripView01B2C3D4 /* TripModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31TripView01B2C3D5 /* TripModeView.swift */; };
+		A41AMOUNTBF01B2C3D4E5F6 /* MasarifyAmountField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41AMOUNT01B2C3D4E5F607 /* MasarifyAmountField.swift */; };
+		A51MYEXPBF01B2C3D4E5F6 /* MyExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51MYEXP01B2C3D4E5F607 /* MyExpensesView.swift */; };
+		A61MoreViewBF01B2C3D4E5 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61MoreView01B2C3D4E5F6 /* MoreView.swift */; };
+		AA11BB22CC33DD44EE55FF01 /* PodIntegrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB22CC33DD44EE55FF010203 /* PodIntegrations.swift */; };
 		B2C3D4E5F60718293A4B5C6D /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4E5F60718293A4B5C6D7E /* CategoryItem.swift */; };
 		B5E935659B1248478C064D51 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999A20F34BB4530A08802E5 /* Expense.swift */; };
 		BEDEDDBB040B49DBB4EF266B /* VoiceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B82BCECBA46D9B8AB0D82 /* VoiceParser.swift */; };
 		C412434A623D49CEAE7D97D4 /* MasarifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4BBCE79C347CE95F21DAE /* MasarifyApp.swift */; };
+		C41DNOTIBF01B2C3D4E5 /* DailySummaryNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DNOTI01B2C3D4E5F607 /* DailySummaryNotifier.swift */; };
+		C41DSNAPBF01B2C3D4E5 /* DailySummarySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DSNAP01B2C3D4E5F607 /* DailySummarySnapshot.swift */; };
+		C41MATCHBF01B2C3D4E5 /* CategoryMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41MATCH01B2C3D4E5F607 /* CategoryMatcher.swift */; };
+		C41RFIELDBF01B2C3D4E5 /* ReceiptFieldParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41RFIELD01B2C3D4E5F6 /* ReceiptFieldParser.swift */; };
+		C51ANALBF01B2C3D4E5 /* SpendingAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51ANAL01B2C3D4E5F607 /* SpendingAnalytics.swift */; };
+		C51CHARTBF01B2C3D4E5 /* SpendingChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51CHART01B2C3D4E5F6 /* SpendingChartsView.swift */; };
+		C51EXPBF01B2C3D4E5F6 /* ExpenseExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51EXP01B2C3D4E5F60718 /* ExpenseExportService.swift */; };
+		C61BIOBF01B2C3D4E5F6 /* BiometricAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61BIO01B2C3D4E5F60718 /* BiometricAuthService.swift */; };
+		C61CLDBF01B2C3D4E5F6 /* CloudAccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61CLD01B2C3D4E5F60718 /* CloudAccountStore.swift */; };
+		C61LOCKBF01B2C3D4E5 /* BiometricLockOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61LOCK01B2C3D4E5F607 /* BiometricLockOverlay.swift */; };
+		C61PRIVBF01B2C3D4E5 /* PrivacySecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61PRIV01B2C3D4E5F607 /* PrivacySecurityView.swift */; };
+		C71DSUMBF01B2C3D4E5 /* DailySummarySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71DSUM01B2C3D4E5F607 /* DailySummarySettingsView.swift */; };
+		C71TRUEBF01B2C3D4E5 /* TrueCostSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71TRUE01B2C3D4E5F607 /* TrueCostSettingsView.swift */; };
+		C81ONBOBF01B2C3D4E5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81ONBO01B2C3D4E5F607 /* OnboardingView.swift */; };
+		C81TOURBF01B2C3D4E5 /* FeatureTourOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81TOUR01B2C3D4E5F607 /* FeatureTourOverlay.swift */; };
+		C91COACHBF01B2C3D4E /* FinancialCoachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91COACH01B2C3D4E5F6 /* FinancialCoachView.swift */; };
+		C91COACHSVCBF01B2C3 /* FinancialCoachService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91COACHSVC01B2C3D4E /* FinancialCoachService.swift */; };
+		C91SPEECHBF01B2C3D4 /* CoachSpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91SPEECH01B2C3D4E5 /* CoachSpeechService.swift */; };
 		CBB0480D4D24085E641B2E1F /* Pods_Masarify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F619A8200D189564DEBFF89 /* Pods_Masarify.framework */; };
 		CCE0C85E1A6A4D749F216411 /* BudgetProgressRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CA0A23258043ABB7115B5A /* BudgetProgressRow.swift */; };
 		D23F217714AD40B29C31875B /* AppTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53D50ECC794E02B90012F8 /* AppTypography.swift */; };
 		D485A87A3EC34421B870ECDB /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07A506BB6ECD44E09094A8FA /* Cairo-Regular.ttf */; };
 		D4E5F60718293A4B5C6D7E8F /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F60718293A4B5C6D7E8F90 /* CategoriesView.swift */; };
 		D8DCFBA757BE4E4EB21B00B0 /* BudgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2705401AA45D4C8A971F0F64 /* BudgetsView.swift */; };
+		D92LOANBF01B2C3D4E5 /* DebtLoan.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92LOAN01B2C3D4E5F607 /* DebtLoan.swift */; };
+		D92NOTIBF01B2C3D4E5 /* DebtLoanNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92NOTI01B2C3D4E5F607 /* DebtLoanNotifier.swift */; };
+		D92PCFSBF01B2C3D4E5 /* PredictiveCashFlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92PCFS01B2C3D4E5F607 /* PredictiveCashFlowService.swift */; };
+		D92PCFVBF01B2C3D4E5 /* PredictiveCashFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92PCFV01B2C3D4E5F607 /* PredictiveCashFlowView.swift */; };
+		D92SHOPBF01B2C3D4E5 /* SmartShoppingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92SHOPS01B2C3D4E5F6 /* SmartShoppingService.swift */; };
+		D92SHOPVBF01B2C3D4E /* SmartShoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92SHOPV01B2C3D4E5F6 /* SmartShoppingView.swift */; };
+		D92VIEWBF01B2C3D4E5 /* DebtLoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92VIEW01B2C3D4E5F607 /* DebtLoanView.swift */; };
 		DEC6D119E3584438849AFB3E /* VoiceEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CDD42A26C1476F938C6ED3 /* VoiceEntryView.swift */; };
 		E2016107D6F14536B418CE34 /* BudgetAlertBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5962AAF8F58046C89E2361B1 /* BudgetAlertBanner.swift */; };
 		EB253431E9B244BFAE034ED3 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AFB1C93379438286A2D01D /* ExpenseCategory.swift */; };
@@ -67,69 +83,49 @@
 		F60718293A4B5C6D7E8F9012 /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60718293A4B5C6D7E8F9012 /* Motion.swift */; };
 		F94DB922BD324CD3BA7E683F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84478F65E345239D9B42AE /* HomeView.swift */; };
 		FF002323DE5747008FCDE449 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54EFAFB47D4E5BA23311B6 /* DailyReportView.swift */; };
-		AA11BB22CC33DD44EE55FF01 /* PodIntegrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB22CC33DD44EE55FF010203 /* PodIntegrations.swift */; };
-		EE55FF010203040506070809 /* coin-spin.json in Resources */ = {isa = PBXBuildFile; fileRef = FF0102030405060708090A0B /* coin-spin.json */; };
-		0102030405060708090A0B0C /* success-check.json in Resources */ = {isa = PBXBuildFile; fileRef = 02030405060708090A0B0C0D /* success-check.json */; };
-		A11Settings01B2C3D4E5F607 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11Settings01B2C3D4E5F608 /* AppSettings.swift */; };
-		A11L10n0001B2C3D4E5F60718 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11L10n0001B2C3D4E5F60719 /* L10n.swift */; };
-		A11SettingsViewB2C3D4E5F6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11SettingsViewB2C3D4E5F7 /* SettingsView.swift */; };
-		A61MoreViewBF01B2C3D4E5 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61MoreView01B2C3D4E5F6 /* MoreView.swift */; };
-		A21SavingsGoal01B2C3D4 /* SavingsGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21SavingsGoal01B2C3D5 /* SavingsGoal.swift */; };
-		A21SmartMoney01B2C3D4 /* SmartMoneyServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21SmartMoney01B2C3D5 /* SmartMoneyServices.swift */; };
-		A21VoicePlan01B2C3D4 /* VoicePlanParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21VoicePlan01B2C3D5 /* VoicePlanParser.swift */; };
-		A21Emergency01B2C3D4 /* EmergencyModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21Emergency01B2C3D5 /* EmergencyModeView.swift */; };
-		A21GoalsView01B2C3D4 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21GoalsView01B2C3D5 /* GoalsView.swift */; };
-		A21Insights01B2C3D4 /* InsightsHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21Insights01B2C3D5 /* InsightsHubView.swift */; };
-		A21VoicePlanV01B2C3D4 /* VoicePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21VoicePlanV01B2C3D5 /* VoicePlanView.swift */; };
-		A22MoneyMotion01B2C3D4 /* MoneyMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22MoneyMotion01B2C3D5 /* MoneyMotion.swift */; };
-
-		W41STOREAPP01B2C3D4E5 /* WidgetBudgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41STORE01B2C3D4E5F607 /* WidgetBudgetStore.swift */; };
-		W41PUBLISHAPP01B2C3D4 /* WidgetBudgetPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41PUBLISH01B2C3D4E5 /* WidgetBudgetPublisher.swift */; };
-		W41DEEPLINKAPP01B2C3 /* MasarifyDeepLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41DEEPLINK01B2C3D4 /* MasarifyDeepLinks.swift */; };
-		W41INTENTAPP01B2C3D4 /* OpenVoiceIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41INTENT01B2C3D4E5F6 /* OpenVoiceIntent.swift */; };
-		W41STOREW01B2C3D4E5F6 /* WidgetBudgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41STORE01B2C3D4E5F607 /* WidgetBudgetStore.swift */; };
-		W41BUNDLEW01B2C3D4E5F6 /* MasarifyWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41BUNDLE01B2C3D4E5F6 /* MasarifyWidgetsBundle.swift */; };
-		W41REMAINW01B2C3D4E5 /* RemainingBudgetWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41REMAIN01B2C3D4E5F6 /* RemainingBudgetWidget.swift */; };
-		W41INTENTW01B2C3D4E5F6 /* OpenVoiceIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41INTENT01B2C3D4E5F6 /* OpenVoiceIntent.swift */; };
 		W41ASSETSW01B2C3D4E5F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = W41ASSETS01B2C3D4E5F6 /* Assets.xcassets */; };
-		W41EMBEDBF01B2C3D4E5F6 /* MasarifyWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = W41APPEX01B2C3D4E5F607 /* MasarifyWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		W41BUNDLEW01B2C3D4E5F6 /* MasarifyWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41BUNDLE01B2C3D4E5F6 /* MasarifyWidgetsBundle.swift */; };
 		W41CHROMEW01B2C3D4E5 /* WidgetChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41CHROME01B2C3D4E5F6 /* WidgetChrome.swift */; };
+		W41DEEPLINKAPP01B2C3 /* MasarifyDeepLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41DEEPLINK01B2C3D4 /* MasarifyDeepLinks.swift */; };
+		W41EMBEDBF01B2C3D4E5F6 /* MasarifyWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = W41APPEX01B2C3D4E5F607 /* MasarifyWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		W41FONTBOLDW01B2C3D4 /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 321E789898464E95A9B298DF /* Cairo-Bold.ttf */; };
 		W41FONTEXTRAW01B2C3 /* Cairo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90FD7895F34C42B29BF05997 /* Cairo-ExtraBold.ttf */; };
 		W41FONTMEDW01B2C3D4 /* Cairo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB5CF610740BFBEFDFC02 /* Cairo-Medium.ttf */; };
 		W41FONTREGW01B2C3D4 /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07A506BB6ECD44E09094A8FA /* Cairo-Regular.ttf */; };
-		A41AMOUNTBF01B2C3D4E5F6 /* MasarifyAmountField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41AMOUNT01B2C3D4E5F607 /* MasarifyAmountField.swift */; };
-		A51MYEXPBF01B2C3D4E5F6 /* MyExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51MYEXP01B2C3D4E5F607 /* MyExpensesView.swift */; };
+		W41INTENTAPP01B2C3D4 /* OpenVoiceIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41INTENT01B2C3D4E5F6 /* OpenVoiceIntent.swift */; };
+		W41INTENTW01B2C3D4E5F6 /* OpenVoiceIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41INTENT01B2C3D4E5F6 /* OpenVoiceIntent.swift */; };
+		W41PUBLISHAPP01B2C3D4 /* WidgetBudgetPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41PUBLISH01B2C3D4E5 /* WidgetBudgetPublisher.swift */; };
+		W41REMAINW01B2C3D4E5 /* RemainingBudgetWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41REMAIN01B2C3D4E5F6 /* RemainingBudgetWidget.swift */; };
+		W41STOREAPP01B2C3D4E5 /* WidgetBudgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41STORE01B2C3D4E5F607 /* WidgetBudgetStore.swift */; };
+		W41STOREW01B2C3D4E5F6 /* WidgetBudgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41STORE01B2C3D4E5F607 /* WidgetBudgetStore.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		W41WPROXY01B2C3D4E5F607 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 043E97EF6D6F484CBDF7D277 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = W41WTARGET01B2C3D4E5F6;
+			remoteInfo = MasarifyWidgets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		W41EMBEDPH01B2C3D4E5F6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				W41EMBEDBF01B2C3D4E5F6 /* MasarifyWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		C81ONBO01B2C3D4E5F607 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		C81TOUR01B2C3D4E5F607 /* FeatureTourOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTourOverlay.swift; sourceTree = "<group>"; };
-		C91COACH01B2C3D4E5F6 /* FinancialCoachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialCoachView.swift; sourceTree = "<group>"; };
-		C91COACHSVC01B2C3D4E /* FinancialCoachService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialCoachService.swift; sourceTree = "<group>"; };
-		C91SPEECH01B2C3D4E5 /* CoachSpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachSpeechService.swift; sourceTree = "<group>"; };
-		D92LOAN01B2C3D4E5F607 /* DebtLoan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtLoan.swift; sourceTree = "<group>"; };
-		D92NOTI01B2C3D4E5F607 /* DebtLoanNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtLoanNotifier.swift; sourceTree = "<group>"; };
-		D92VIEW01B2C3D4E5F607 /* DebtLoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtLoanView.swift; sourceTree = "<group>"; };
-		D92PCFS01B2C3D4E5F607 /* PredictiveCashFlowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveCashFlowService.swift; sourceTree = "<group>"; };
-		D92PCFV01B2C3D4E5F607 /* PredictiveCashFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveCashFlowView.swift; sourceTree = "<group>"; };
-		D92SHOPS01B2C3D4E5F6 /* SmartShoppingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartShoppingService.swift; sourceTree = "<group>"; };
-		D92SHOPV01B2C3D4E5F6 /* SmartShoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartShoppingView.swift; sourceTree = "<group>"; };
-		C71TRUE01B2C3D4E5F607 /* TrueCostSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueCostSettingsView.swift; sourceTree = "<group>"; };
-		C71DSUM01B2C3D4E5F607 /* DailySummarySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummarySettingsView.swift; sourceTree = "<group>"; };
-		C61PRIV01B2C3D4E5F607 /* PrivacySecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySecurityView.swift; sourceTree = "<group>"; };
-		C61LOCK01B2C3D4E5F607 /* BiometricLockOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricLockOverlay.swift; sourceTree = "<group>"; };
-		C61CLD01B2C3D4E5F60718 /* CloudAccountStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAccountStore.swift; sourceTree = "<group>"; };
-		C61BIO01B2C3D4E5F60718 /* BiometricAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthService.swift; sourceTree = "<group>"; };
-		C51CHART01B2C3D4E5F6 /* SpendingChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingChartsView.swift; sourceTree = "<group>"; };
-		C51EXP01B2C3D4E5F60718 /* ExpenseExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseExportService.swift; sourceTree = "<group>"; };
-		C51ANAL01B2C3D4E5F607 /* SpendingAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingAnalytics.swift; sourceTree = "<group>"; };
-		C41DNOTI01B2C3D4E5F607 /* DailySummaryNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryNotifier.swift; sourceTree = "<group>"; };
-		C41DSNAP01B2C3D4E5F607 /* DailySummarySnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummarySnapshot.swift; sourceTree = "<group>"; };
-		C41RFIELD01B2C3D4E5F6 /* ReceiptFieldParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptFieldParser.swift; sourceTree = "<group>"; };
-		C41MATCH01B2C3D4E5F607 /* CategoryMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMatcher.swift; sourceTree = "<group>"; };
-		A31TripModel01B2C3D5 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
-		A31TripView01B2C3D5 /* TripModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModeView.swift; sourceTree = "<group>"; };
+		02030405060708090A0B0C0D /* success-check.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "success-check.json"; sourceTree = "<group>"; };
 		07A506BB6ECD44E09094A8FA /* Cairo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Regular.ttf"; sourceTree = "<group>"; };
 		0AB8B9BB57BA4B11997D46B4 /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
 		12759B8AC4BDC7917C549CED /* Pods-Masarify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Masarify.release.xcconfig"; path = "Target Support Files/Pods-Masarify/Pods-Masarify.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,48 +151,72 @@
 		90FD7895F34C42B29BF05997 /* Cairo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-ExtraBold.ttf"; sourceTree = "<group>"; };
 		97CA0A23258043ABB7115B5A /* BudgetProgressRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetProgressRow.swift; sourceTree = "<group>"; };
 		9F619A8200D189564DEBFF89 /* Pods_Masarify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Masarify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11L10n0001B2C3D4E5F60719 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		A11Settings01B2C3D4E5F608 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		A11SettingsViewB2C3D4E5F7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A21Emergency01B2C3D5 /* EmergencyModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyModeView.swift; sourceTree = "<group>"; };
+		A21GoalsView01B2C3D5 /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
+		A21Insights01B2C3D5 /* InsightsHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsHubView.swift; sourceTree = "<group>"; };
+		A21SavingsGoal01B2C3D5 /* SavingsGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoal.swift; sourceTree = "<group>"; };
+		A21SmartMoney01B2C3D5 /* SmartMoneyServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartMoneyServices.swift; sourceTree = "<group>"; };
+		A21VoicePlan01B2C3D5 /* VoicePlanParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePlanParser.swift; sourceTree = "<group>"; };
+		A21VoicePlanV01B2C3D5 /* VoicePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePlanView.swift; sourceTree = "<group>"; };
+		A22MoneyMotion01B2C3D5 /* MoneyMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyMotion.swift; sourceTree = "<group>"; };
+		A31TripModel01B2C3D5 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		A31TripView01B2C3D5 /* TripModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModeView.swift; sourceTree = "<group>"; };
+		A41AMOUNT01B2C3D4E5F607 /* MasarifyAmountField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyAmountField.swift; sourceTree = "<group>"; };
+		A51MYEXP01B2C3D4E5F607 /* MyExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExpensesView.swift; sourceTree = "<group>"; };
 		A59F9796AAE34336A30F2678 /* BrandHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandHeroView.swift; sourceTree = "<group>"; };
 		A60718293A4B5C6D7E8F9012 /* Motion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
-		BB22CC33DD44EE55FF010203 /* PodIntegrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodIntegrations.swift; sourceTree = "<group>"; };
-		FF0102030405060708090A0B /* coin-spin.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "coin-spin.json"; sourceTree = "<group>"; };
-		A11Settings01B2C3D4E5F608 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		A11L10n0001B2C3D4E5F60719 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
-		A11SettingsViewB2C3D4E5F7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A61MoreView01B2C3D4E5F6 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
-		02030405060708090A0B0C0D /* success-check.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "success-check.json"; sourceTree = "<group>"; };
 		A8A52C1C5B0145E9956F3A9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B59B82BCECBA46D9B8AB0D82 /* VoiceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceParser.swift; sourceTree = "<group>"; };
 		BA84478F65E345239D9B42AE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BB22CC33DD44EE55FF010203 /* PodIntegrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodIntegrations.swift; sourceTree = "<group>"; };
 		C3D4E5F60718293A4B5C6D7E /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		C41DNOTI01B2C3D4E5F607 /* DailySummaryNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryNotifier.swift; sourceTree = "<group>"; };
+		C41DSNAP01B2C3D4E5F607 /* DailySummarySnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummarySnapshot.swift; sourceTree = "<group>"; };
+		C41MATCH01B2C3D4E5F607 /* CategoryMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMatcher.swift; sourceTree = "<group>"; };
+		C41RFIELD01B2C3D4E5F6 /* ReceiptFieldParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptFieldParser.swift; sourceTree = "<group>"; };
+		C51ANAL01B2C3D4E5F607 /* SpendingAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingAnalytics.swift; sourceTree = "<group>"; };
+		C51CHART01B2C3D4E5F6 /* SpendingChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingChartsView.swift; sourceTree = "<group>"; };
+		C51EXP01B2C3D4E5F60718 /* ExpenseExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseExportService.swift; sourceTree = "<group>"; };
+		C61BIO01B2C3D4E5F60718 /* BiometricAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthService.swift; sourceTree = "<group>"; };
+		C61CLD01B2C3D4E5F60718 /* CloudAccountStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAccountStore.swift; sourceTree = "<group>"; };
+		C61LOCK01B2C3D4E5F607 /* BiometricLockOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricLockOverlay.swift; sourceTree = "<group>"; };
+		C61PRIV01B2C3D4E5F607 /* PrivacySecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySecurityView.swift; sourceTree = "<group>"; };
+		C71DSUM01B2C3D4E5F607 /* DailySummarySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummarySettingsView.swift; sourceTree = "<group>"; };
+		C71TRUE01B2C3D4E5F607 /* TrueCostSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueCostSettingsView.swift; sourceTree = "<group>"; };
+		C81ONBO01B2C3D4E5F607 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		C81TOUR01B2C3D4E5F607 /* FeatureTourOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTourOverlay.swift; sourceTree = "<group>"; };
+		C91COACH01B2C3D4E5F6 /* FinancialCoachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialCoachView.swift; sourceTree = "<group>"; };
+		C91COACHSVC01B2C3D4E /* FinancialCoachService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialCoachService.swift; sourceTree = "<group>"; };
+		C91SPEECH01B2C3D4E5 /* CoachSpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachSpeechService.swift; sourceTree = "<group>"; };
+		D92LOAN01B2C3D4E5F607 /* DebtLoan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtLoan.swift; sourceTree = "<group>"; };
+		D92NOTI01B2C3D4E5F607 /* DebtLoanNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtLoanNotifier.swift; sourceTree = "<group>"; };
+		D92PCFS01B2C3D4E5F607 /* PredictiveCashFlowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveCashFlowService.swift; sourceTree = "<group>"; };
+		D92PCFV01B2C3D4E5F607 /* PredictiveCashFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveCashFlowView.swift; sourceTree = "<group>"; };
+		D92SHOPS01B2C3D4E5F6 /* SmartShoppingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartShoppingService.swift; sourceTree = "<group>"; };
+		D92SHOPV01B2C3D4E5F6 /* SmartShoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartShoppingView.swift; sourceTree = "<group>"; };
+		D92VIEW01B2C3D4E5F607 /* DebtLoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtLoanView.swift; sourceTree = "<group>"; };
 		DA60C028AF1E4CD0BF70EC06 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		DC9AB5CF610740BFBEFDFC02 /* Cairo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Medium.ttf"; sourceTree = "<group>"; };
 		E5F60718293A4B5C6D7E8F90 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		EF8E20F2376B4205840DB9E5 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		F1E2D3C4B5A69788796A5B4C /* MasarifyFormControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyFormControls.swift; sourceTree = "<group>"; };
 		F81E3C18A87C4FEABDF0A045 /* MonthlyBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyBudget.swift; sourceTree = "<group>"; };
-		A21SavingsGoal01B2C3D5 /* SavingsGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoal.swift; sourceTree = "<group>"; };
-		A21SmartMoney01B2C3D5 /* SmartMoneyServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartMoneyServices.swift; sourceTree = "<group>"; };
-		A21VoicePlan01B2C3D5 /* VoicePlanParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePlanParser.swift; sourceTree = "<group>"; };
-		A21Emergency01B2C3D5 /* EmergencyModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyModeView.swift; sourceTree = "<group>"; };
-		A21GoalsView01B2C3D5 /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
-		A21Insights01B2C3D5 /* InsightsHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsHubView.swift; sourceTree = "<group>"; };
-		A21VoicePlanV01B2C3D5 /* VoicePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePlanView.swift; sourceTree = "<group>"; };
-		A22MoneyMotion01B2C3D5 /* MoneyMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyMotion.swift; sourceTree = "<group>"; };
-
-		W41STORE01B2C3D4E5F607 /* WidgetBudgetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBudgetStore.swift; sourceTree = "<group>"; };
-		W41PUBLISH01B2C3D4E5 /* WidgetBudgetPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBudgetPublisher.swift; sourceTree = "<group>"; };
-		W41DEEPLINK01B2C3D4 /* MasarifyDeepLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyDeepLinks.swift; sourceTree = "<group>"; };
-		W41BUNDLE01B2C3D4E5F6 /* MasarifyWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyWidgetsBundle.swift; sourceTree = "<group>"; };
-		W41REMAIN01B2C3D4E5F6 /* RemainingBudgetWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingBudgetWidget.swift; sourceTree = "<group>"; };
-		W41INTENT01B2C3D4E5F6 /* OpenVoiceIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenVoiceIntent.swift; sourceTree = "<group>"; };
-		W41INFO01B2C3D4E5F607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		W41ASSETS01B2C3D4E5F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		W41APPENT01B2C3D4E5F6 /* Masarify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Masarify.entitlements; sourceTree = "<group>"; };
-		W41WIDENT01B2C3D4E5F6 /* MasarifyWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MasarifyWidgets.entitlements; sourceTree = "<group>"; };
 		W41APPEX01B2C3D4E5F607 /* MasarifyWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MasarifyWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		W41ASSETS01B2C3D4E5F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		W41BUNDLE01B2C3D4E5F6 /* MasarifyWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyWidgetsBundle.swift; sourceTree = "<group>"; };
 		W41CHROME01B2C3D4E5F6 /* WidgetChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetChrome.swift; sourceTree = "<group>"; };
-		A41AMOUNT01B2C3D4E5F607 /* MasarifyAmountField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyAmountField.swift; sourceTree = "<group>"; };
-		A51MYEXP01B2C3D4E5F607 /* MyExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExpensesView.swift; sourceTree = "<group>"; };
+		W41DEEPLINK01B2C3D4 /* MasarifyDeepLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyDeepLinks.swift; sourceTree = "<group>"; };
+		W41INFO01B2C3D4E5F607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		W41INTENT01B2C3D4E5F6 /* OpenVoiceIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenVoiceIntent.swift; sourceTree = "<group>"; };
+		W41PUBLISH01B2C3D4E5 /* WidgetBudgetPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBudgetPublisher.swift; sourceTree = "<group>"; };
+		W41REMAIN01B2C3D4E5F6 /* RemainingBudgetWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingBudgetWidget.swift; sourceTree = "<group>"; };
+		W41STORE01B2C3D4E5F607 /* WidgetBudgetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBudgetStore.swift; sourceTree = "<group>"; };
+		W41WIDENT01B2C3D4E5F6 /* MasarifyWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MasarifyWidgets.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +238,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A0B0C0D0E0F101112131415 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				02030405060708090A0B0C0D /* success-check.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		11DD056499DD4A4DAD34CD26 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,7 +316,6 @@
 				5CF113FBB9C6F74EC60CA684 /* Pods-Masarify.debug.xcconfig */,
 				12759B8AC4BDC7917C549CED /* Pods-Masarify.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -360,15 +387,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		0A0B0C0D0E0F101112131415 /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-				FF0102030405060708090A0B /* coin-spin.json */,
-				02030405060708090A0B0C0D /* success-check.json */,
-			);
-			path = Animations;
-			sourceTree = "<group>";
-		};
 		C959F7B9271940C6BF3018F3 = {
 			isa = PBXGroup;
 			children = (
@@ -408,7 +426,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-
 		W41SHAREDGRP01B2C3D4 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,7 +472,6 @@
 			productReference = 13C5FA2E8243454D8195E919 /* Masarify.app */;
 			productType = "com.apple.product-type.application";
 		};
-
 		W41WTARGET01B2C3D4E5F6 /* MasarifyWidgets */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = W41WCFGLIST01B2C3D4E5 /* Build configuration list for PBXNativeTarget "MasarifyWidgets" */;
@@ -511,38 +527,6 @@
 		};
 /* End PBXProject section */
 
-
-/* Begin PBXCopyFilesBuildPhase section */
-		W41EMBEDPH01B2C3D4E5F6 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				W41EMBEDBF01B2C3D4E5F6 /* MasarifyWidgets.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXContainerItemProxy section */
-		W41WPROXY01B2C3D4E5F607 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 043E97EF6D6F484CBDF7D277 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = W41WTARGET01B2C3D4E5F6;
-			remoteInfo = MasarifyWidgets;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXTargetDependency section */
-		W41WDEP01B2C3D4E5F60718 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = W41WTARGET01B2C3D4E5F6 /* MasarifyWidgets */;
-			targetProxy = W41WPROXY01B2C3D4E5F607 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 /* Begin PBXResourcesBuildPhase section */
 		1F55763F75824358B94F9BFD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -553,7 +537,6 @@
 				3155F647D7E94DCD804ACF9E /* Cairo-ExtraBold.ttf in Resources */,
 				461623485CFD4BED880F011B /* Cairo-Medium.ttf in Resources */,
 				D485A87A3EC34421B870ECDB /* Cairo-Regular.ttf in Resources */,
-				EE55FF010203040506070809 /* coin-spin.json in Resources */,
 				0102030405060708090A0B0C /* success-check.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,9 +564,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Masarify/Pods-Masarify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Masarify/Pods-Masarify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -709,6 +696,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		W41WDEP01B2C3D4E5F60718 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = W41WTARGET01B2C3D4E5F6 /* MasarifyWidgets */;
+			targetProxy = W41WPROXY01B2C3D4E5F607 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		22BD9F6A34094908BF0AB1B9 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -802,7 +797,6 @@
 			};
 			name = Release;
 		};
-
 		W41WDEBUG01B2C3D4E5F607 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -878,7 +872,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-
 		W41WCFGLIST01B2C3D4E5 /* Build configuration list for PBXNativeTarget "MasarifyWidgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

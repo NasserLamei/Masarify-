@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct BudgetProgressRow: View {
+    @EnvironmentObject private var settings: AppSettings
     let progress: BudgetProgress
 
     private var barColor: Color {
@@ -12,52 +13,41 @@ struct BudgetProgressRow: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 10) {
             HStack {
-                if let category = progress.budget.category {
-                    Label(category.labelAr, systemImage: category.systemImage)
+                if let category = progress.category {
+                    Label(settings.categoryLabel(category), systemImage: category.systemImage)
                         .font(AppFont.headline())
                         .foregroundStyle(category.tint)
+                        .symbolEffect(.pulse, options: .nonRepeating, value: progress.level != .ok)
                 } else {
-                    Label("الإجمالي الشهري", systemImage: "chart.pie.fill")
-                        .font(AppFont.headline())
-                        .foregroundStyle(BrandTheme.deepTeal)
+                    Label(
+                        settings.language == .arabic ? "الإجمالي الشهري" : "Monthly total",
+                        systemImage: "chart.pie.fill"
+                    )
+                    .font(AppFont.headline())
+                    .foregroundStyle(BrandTheme.deepTeal)
                 }
                 Spacer()
-                Text("\(CurrencyFormat.egp(progress.spent)) / \(CurrencyFormat.egp(progress.limit))")
+                Text("\(CurrencyFormat.egp(progress.spent, language: settings.language)) / \(CurrencyFormat.egp(progress.limit, language: settings.language))")
                     .font(AppFont.caption())
                     .foregroundStyle(BrandTheme.ink)
+                    .contentTransition(.numericText())
             }
 
-            GeometryReader { geo in
-                Capsule()
-                    .fill(barColor.opacity(0.15))
-                    .overlay(alignment: .leading) {
-                        Capsule()
-                            .fill(barColor)
-                            .frame(width: max(6, geo.size.width * CGFloat(min(progress.ratio, 1))))
-                    }
-            }
-            .frame(height: 10)
+            AnimatedProgressBar(progress: progress.ratio, tint: barColor)
 
             HStack {
                 Text(statusLabel)
                     .font(AppFont.caption())
                     .foregroundStyle(barColor)
                 Spacer()
-                Text("متبقي \(CurrencyFormat.egp(progress.remaining))")
-                    .font(AppFont.caption())
-                    .foregroundStyle(BrandTheme.muted)
             }
         }
-        .padding(.vertical, 6)
+        .padding(.vertical, 8)
     }
 
     private var statusLabel: String {
-        switch progress.level {
-        case .ok: return "ضمن الحد"
-        case .nearLimit: return "قرب النهاية (٨٠٪+)"
-        case .overBudget: return "فوق الميزانية"
-        }
+        progress.level.bannerTitle(language: settings.language)
     }
 }

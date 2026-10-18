@@ -1,0 +1,69 @@
+PODS:
+  - AlertToast (1.3.9)
+  - IQKeyboardCore (1.0.5)
+  - IQKeyboardManagerSwift (7.2.0):
+    - IQKeyboardManagerSwift/Appearance (= 7.2.0)
+    - IQKeyboardManagerSwift/Core (= 7.2.0)
+    - IQKeyboardManagerSwift/IQKeyboardReturnKeyHandler (= 7.2.0)
+    - IQKeyboardManagerSwift/IQKeyboardToolbarManager (= 7.2.0)
+    - IQKeyboardManagerSwift/IQTextView (= 7.2.0)
+    - IQKeyboardManagerSwift/Resign (= 7.2.0)
+    - IQKeyboardNotification (= 1.0.3)
+    - IQTextInputViewNotification (= 1.0.5)
+  - IQKeyboardManagerSwift/Appearance (7.2.0):
+    - IQKeyboardManagerSwift/Core
+    - IQKeyboardNotification (= 1.0.3)
+    - IQTextInputViewNotification (= 1.0.5)
+  - IQKeyboardManagerSwift/Core (7.2.0):
+    - IQKeyboardNotification (= 1.0.3)
+    - IQTextInputViewNotification (= 1.0.5)
+  - IQKeyboardManagerSwift/IQKeyboardReturnKeyHandler (7.2.0):
+    - IQKeyboardNotification (= 1.0.3)
+    - IQTextInputViewNotification (= 1.0.5)
+  - IQKeyboardManagerSwift/IQKeyboardToolbarManager (7.2.0):
+    - IQKeyboardManagerSwift/Core
+    - IQKeyboardManagerSwift/IQKeyboardToolbarManager/IQKeyboardToolbar (= 7.2.0)
+    - IQKeyboardNotification (= 1.0.3)
+    - IQTextInputViewNotification (= 1.0.5)
+  - IQKeyboardManagerSwift/IQKeyboardToolbarManager/IQKeyboardToolbar (7.2.0):
+    - IQKeyboardManagerSwift/Core
+    - IQKeyboardNotification (= 1.0.3)
+    - IQTextInputViewNotification (= 1.0.5)
+  - IQKeyboardManagerSwift/IQTextView (7.2.0):
+    - IQKeyboardManagerSwift/IQKeyboardToolbarManager/IQKeyboardToolbar
+    - IQKeyboardNotification (= 1.0.3)
+    - IQTextInputViewNotification (= 1.0.5)
+  - IQKeyboardManagerSwift/Resign (7.2.0):
+    - IQKeyboardManagerSwift/Core
+    - IQKeyboardNotification (= 1.0.3)
+    - IQTextInputViewNotification (= 1.0.5)
+  - IQKeyboardNotification (1.0.3)
+  - IQTextInputViewNotification (1.0.5):
+    - IQKeyboardCore (= 1.0.5)
+  - lottie-ios (4.6.1)
+
+DEPENDENCIES:
+  - AlertToast (~> 1.3)
+  - IQKeyboardManagerSwift (~> 7.0)
+  - lottie-ios (~> 4.5)
+
+SPEC REPOS:
+  trunk:
+    - AlertToast
+    - IQKeyboardCore
+    - IQKeyboardManagerSwift
+    - IQKeyboardNotification
+    - IQTextInputViewNotification
+    - lottie-ios
+
+SPEC CHECKSUMS:
+  AlertToast: e8db15da727beff75500bcf33a78cd617f408fa1
+  IQKeyboardCore: 28c8bf3bcd8ba5aa1570b318cbc4da94b861711e
+  IQKeyboardManagerSwift: 12d6ae3632ef744ccd033c048b566af13cc10d49
+  IQKeyboardNotification: d7382c4466c5a5adef92c7452ebf861b36050088
+  IQTextInputViewNotification: 4381fb828881983205fbee38f17da8a9fe2e835c
+  lottie-ios: 6467ca7035120c5b0e0acee58bb679cf15875686
+
+PODFILE CHECKSUM: fd30fd00ea4ab0231378bff860868c320a4d1ab8
+
+COCOAPODS: 1.16.2

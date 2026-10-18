@@ -2,60 +2,118 @@ import SwiftUI
 import SwiftData
 
 struct DailyReportView: View {
+    @EnvironmentObject private var settings: AppSettings
     @Query(sort: \Expense.date, order: .reverse) private var expenses: [Expense]
     @Query private var budgets: [MonthlyBudget]
+    @Query(sort: \CategoryItem.sortOrder) private var categories: [CategoryItem]
     @State private var appeared = false
+    @State private var dayMode: DayMode = .today
 
-    private var todayExpenses: [Expense] {
-        let start = Calendar.current.startOfDay(for: .now)
-        return expenses.filter { $0.date >= start }
+    enum DayMode: String, CaseIterable, Identifiable {
+        case today, yesterday
+        var id: String { rawValue }
     }
 
-    private var total: Double {
-        todayExpenses.reduce(0) { $0 + $1.amount }
+    private var focusDay: Date {
+        let cal = Calendar.current
+        switch dayMode {
+        case .today: return .now
+        case .yesterday: return cal.date(byAdding: .day, value: -1, to: .now) ?? .now
+        }
     }
 
-    private var categoryTotals: [(ExpenseCategory, Double)] {
-        Dictionary(grouping: todayExpenses, by: \.category)
-            .map { ($0.key, $0.value.reduce(0) { $0 + $1.amount }) }
+    private var snapshot: DailySummarySnapshot {
+        DailySummarySnapshot.build(
+            day: focusDay,
+            expenses: expenses,
+            budgets: budgets,
+            categories: categories,
+            language: settings.language
+        )
+    }
+
+    private var dayExpenses: [Expense] {
+        let cal = Calendar.current
+        let start = cal.startOfDay(for: focusDay)
+        guard let end = cal.date(byAdding: .day, value: 1, to: start) else { return [] }
+        return expenses.filter { $0.date >= start && $0.date < end }
+    }
+
+    private var categoryTotals: [(CategoryItem, Double)] {
+        Dictionary(grouping: dayExpenses, by: \.categoryId)
+            .compactMap { id, items -> (CategoryItem, Double)? in
+                guard let category = CategoryItem.resolve(id: id, in: categories) else { return nil }
+                return (category, items.reduce(0) { $0 + $1.amount })
+            }
             .sorted { $0.1 > $1.1 }
     }
 
     private var monthProgress: [BudgetProgress] {
-        BudgetMonitor.progress(for: budgets, expenses: expenses)
+        BudgetMonitor.progress(for: budgets, expenses: expenses, categories: categories)
+    }
+
+    private var titleText: String {
+        switch dayMode {
+        case .today: return settings.t(.todayReport)
+        case .yesterday: return settings.t(.yesterdayReport)
+        }
+    }
+
+    private var subtitleText: String {
+        switch dayMode {
+        case .today: return settings.t(.todayReportSubtitle)
+        case .yesterday: return settings.t(.yesterdayReportSubtitle)
+        }
     }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("تقرير اليوم")
-                        .font(AppFont.title())
-                        .foregroundStyle(BrandTheme.ink)
-                    Text("إجمالي اليوم، أعلى الفئات، وآخر القيود.")
-                        .font(AppFont.body())
-                        .foregroundStyle(BrandTheme.muted)
+                Picker("", selection: $dayMode) {
+                    Text(settings.t(.filterToday)).tag(DayMode.today)
+                    Text(settings.t(.yesterday)).tag(DayMode.yesterday)
                 }
+                .pickerStyle(.segmented)
+                .padding(.top, 4)
+
+                Text(subtitleText)
+                    .font(AppFont.subheadline())
+                    .foregroundStyle(BrandTheme.muted)
 
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("إجمالي اليوم")
+                    Text(settings.t(.total))
                         .font(AppFont.caption())
-                        .foregroundStyle(BrandTheme.muted)
-                    Text(CurrencyFormat.egp(total))
-                        .font(AppFont.display(40))
-                        .foregroundStyle(BrandTheme.ink)
-                        .scaleEffect(appeared ? 1 : 0.92)
+                        .foregroundStyle(BrandTheme.ink.opacity(0.65))
+                    Text(CurrencyFormat.egp(snapshot.total, language: settings.language))
+                        .font(AppFont.display(42))
+                        .foregroundStyle(BrandTheme.deepTeal)
+                        .contentTransition(.numericText())
+                        .scaleEffect(appeared ? 1 : 0.9)
                         .opacity(appeared ? 1 : 0)
+                        .offset(y: appeared ? 0 : 12)
+
+                    if let top = snapshot.topCategoryLabel {
+                        Text("\(settings.t(.topCategory)): \(top)")
+                            .font(AppFont.subheadline())
+                            .foregroundStyle(BrandTheme.muted)
+                    }
+
+                    if let remaining = snapshot.remainingBudget {
+                        Text("\(settings.t(.balanceRemaining)): \(CurrencyFormat.egp(remaining, language: settings.language))")
+                            .font(AppFont.caption())
+                            .foregroundStyle(BrandTheme.deepTeal)
+                    }
                 }
-                .padding(20)
+                .padding(18)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(BrandTheme.heroGradient)
-                .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+                .masarifyCard(cornerRadius: 22, accent: BrandTheme.deepTeal, fillOpacity: 0.72)
+                .masarifyAppear(0)
 
                 if !monthProgress.isEmpty {
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("الميزانية الشهرية")
+                        Text(settings.t(.budgets))
                             .font(AppFont.title3())
+                            .foregroundStyle(BrandTheme.ink)
                         ForEach(monthProgress.prefix(4)) { item in
                             BudgetProgressRow(progress: item)
                         }
@@ -63,56 +121,55 @@ struct DailyReportView: View {
                 }
 
                 VStack(alignment: .leading, spacing: 14) {
-                    Text("حسب الفئة")
+                    Text(settings.t(.categories))
                         .font(AppFont.title3())
+                        .foregroundStyle(BrandTheme.ink)
 
                     if categoryTotals.isEmpty {
-                        Text("مفيش بيانات لعرضها النهاردة.")
+                        Text(dayMode == .today ? settings.t(.emptyToday) : settings.t(.emptyYesterday))
                             .font(AppFont.body())
                             .foregroundStyle(BrandTheme.muted)
                     } else {
-                        ForEach(categoryTotals, id: \.0) { item in
+                        ForEach(categoryTotals, id: \.0.id) { item in
                             let (category, amount) = item
                             VStack(alignment: .leading, spacing: 6) {
                                 HStack {
-                                    Label(category.labelAr, systemImage: category.systemImage)
+                                    Label(settings.categoryLabel(category), systemImage: category.systemImage)
                                         .font(AppFont.headline())
                                         .foregroundStyle(category.tint)
                                     Spacer()
-                                    Text(CurrencyFormat.egp(amount))
+                                    Text(CurrencyFormat.egp(amount, language: settings.language))
                                         .font(AppFont.custom(.medium, size: 14))
+                                        .foregroundStyle(BrandTheme.ink)
                                 }
-                                GeometryReader { geo in
-                                    Capsule()
-                                        .fill(category.tint.opacity(0.15))
-                                        .overlay(alignment: .leading) {
-                                            Capsule()
-                                                .fill(category.tint)
-                                                .frame(width: max(8, geo.size.width * CGFloat(amount / max(total, 1))))
-                                        }
-                                }
-                                .frame(height: 10)
+                                AnimatedProgressBar(
+                                    progress: amount / max(snapshot.total, 1),
+                                    tint: category.tint
+                                )
                             }
                         }
                     }
                 }
 
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("آخر القيود")
+                    Text(settings.t(.recentExpenses))
                         .font(AppFont.title3())
-                    ForEach(todayExpenses.prefix(8)) { expense in
+                        .foregroundStyle(BrandTheme.ink)
+                    ForEach(dayExpenses.prefix(8)) { expense in
                         ExpenseRowView(expense: expense)
                         Divider().opacity(0.3)
                     }
                 }
             }
-            .padding(20)
+            .masarifyScreenInsets()
+            .padding(.vertical, 20)
             .padding(.bottom, 100)
+            .animation(Motion.gentle, value: dayMode)
         }
-        .background(BrandTheme.foam.ignoresSafeArea())
-        .navigationBarTitleDisplayMode(.inline)
+        .masarifyScreenBackground()
+        .masarifyLeadingTrailingChrome(title: titleText)
         .onAppear {
-            withAnimation(.spring(response: 0.65, dampingFraction: 0.8)) {
+            withAnimation(Motion.softSpring) {
                 appeared = true
             }
         }

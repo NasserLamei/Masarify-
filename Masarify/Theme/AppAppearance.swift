@@ -2,7 +2,7 @@ import SwiftUI
 import UIKit
 import CoreText
 
-/// Applies Tajawal to UIKit chrome that SwiftUI does not style (tab bar, nav bar, pickers, fields).
+/// Applies Cairo to UIKit chrome that SwiftUI does not style (tab bar, nav bar, pickers, fields).
 enum AppAppearance {
     static func apply() {
         registerBundledFontsIfNeeded()
@@ -18,7 +18,7 @@ enum AppAppearance {
         refreshLiveChrome()
     }
 
-    /// Re-apply onto already-created tab/nav bars and force Tajawal onto live UIKit text chrome.
+    /// Re-apply onto already-created tab/nav bars and force Cairo onto live UIKit text chrome.
     static func refreshLiveChrome() {
         let tabAppearance = makeTabBarAppearance()
         let navAppearance = makeNavigationBarAppearance()
@@ -26,7 +26,7 @@ enum AppAppearance {
             guard let windowScene = scene as? UIWindowScene else { continue }
             for window in windowScene.windows {
                 apply(tabAppearance: tabAppearance, navAppearance: navAppearance, in: window)
-                forceTajawalFonts(in: window)
+                forceAppFonts(in: window)
             }
         }
     }
@@ -77,8 +77,8 @@ enum AppAppearance {
         }
     }
 
-    /// Walk the live view tree and replace system fonts with Tajawal (Form/Picker/Menu chrome).
-    private static func forceTajawalFonts(in root: UIView) {
+    /// Walk the live view tree and replace system fonts with Cairo (Form/Picker/Menu chrome).
+    private static func forceAppFonts(in root: UIView) {
         if let label = root as? UILabel {
             label.font = remapped(label.font, defaultSize: 16)
             if let attributed = label.attributedText, attributed.length > 0 {
@@ -96,17 +96,40 @@ enum AppAppearance {
             }
         }
         if let field = root as? UITextField {
-            field.font = remapped(field.font, defaultSize: 17)
-            if let placeholder = field.attributedPlaceholder {
-                field.attributedPlaceholder = remappedAttributed(placeholder)
-            } else if let text = field.placeholder {
-                field.attributedPlaceholder = NSAttributedString(
-                    string: text,
-                    attributes: [
-                        .font: AppFont.ui(.regular, size: field.font?.pointSize ?? 17),
-                        .foregroundColor: UIColor.placeholderText
-                    ]
-                )
+            let placeholderSize = field.font?.pointSize ?? 17
+            let placeholderText = field.attributedPlaceholder?.string ?? field.placeholder
+
+            // Amount fields: keep system digits for typed value, but Cairo for placeholder.
+            if field is VisibleAmountTextField || field.accessibilityIdentifier == "masarify.amount.field" {
+                field.textColor = .black
+                if let placeholderText, !placeholderText.isEmpty {
+                    field.attributedPlaceholder = AppFont.placeholderAttributed(
+                        placeholderText,
+                        size: max(15, placeholderSize - 2),
+                        weight: .medium
+                    )
+                }
+            } else if field.isFirstResponder {
+                // Don't fight the caret while typing — still refresh placeholder font.
+                field.textColor = .label
+                if let placeholderText, !placeholderText.isEmpty {
+                    field.attributedPlaceholder = AppFont.placeholderAttributed(
+                        placeholderText,
+                        size: placeholderSize,
+                        weight: .medium
+                    )
+                }
+            } else {
+                field.font = remapped(field.font, defaultSize: 17)
+                field.textColor = .label
+                field.tintColor = UIColor(BrandTheme.deepTeal)
+                if let placeholderText, !placeholderText.isEmpty {
+                    field.attributedPlaceholder = AppFont.placeholderAttributed(
+                        placeholderText,
+                        size: field.font?.pointSize ?? 17,
+                        weight: .medium
+                    )
+                }
             }
         }
         if let textView = root as? UITextView {
@@ -120,7 +143,7 @@ enum AppAppearance {
             }
         }
         for child in root.subviews {
-            forceTajawalFonts(in: child)
+            forceAppFonts(in: child)
         }
     }
 
@@ -130,7 +153,7 @@ enum AppAppearance {
         preferMedium: Bool = false
     ) -> UIFont {
         let size = font?.pointSize ?? defaultSize
-        if let font, isTajawal(font) { return font }
+        if let font, isAppFont(font) { return font }
         let weight = preferMedium ? AppFont.Weight.medium : inferredWeight(font)
         return AppFont.ui(weight, size: size)
     }
@@ -146,10 +169,10 @@ enum AppAppearance {
         return mutable
     }
 
-    private static func isTajawal(_ font: UIFont) -> Bool {
+    private static func isAppFont(_ font: UIFont) -> Bool {
         let name = font.fontName.lowercased()
         let family = font.familyName.lowercased()
-        return name.contains("tajawal") || family.contains("tajawal")
+        return name.contains("cairo") || family.contains("cairo")
     }
 
     private static func inferredWeight(_ font: UIFont?) -> AppFont.Weight {
@@ -168,14 +191,14 @@ enum AppAppearance {
     }
 
     private static func assertFontsLoaded() {
-        let names = ["Tajawal-Regular", "Tajawal-Medium", "Tajawal-Bold", "Tajawal-ExtraBold"]
+        let names = ["Cairo-Regular", "Cairo-Medium", "Cairo-Bold", "Cairo-ExtraBold"]
         let loaded = names.compactMap { UIFont(name: $0, size: 16) }
         #if DEBUG
         if loaded.count < 4 {
-            let families = UIFont.familyNames.filter { $0.localizedCaseInsensitiveContains("tajawal") }
-            print("Masarify warning: Tajawal fonts not fully loaded (\(loaded.count)/4). Families: \(families)")
+            let families = UIFont.familyNames.filter { $0.localizedCaseInsensitiveContains("cairo") }
+            print("Masarify warning: Cairo fonts not fully loaded (\(loaded.count)/4). Families: \(families)")
         } else {
-            print("Masarify: Tajawal fonts loaded OK")
+            print("Masarify: Cairo fonts loaded OK")
         }
         #endif
     }
@@ -184,10 +207,10 @@ enum AppAppearance {
 
     private static func registerBundledFontsIfNeeded() {
         let fileNames = [
-            "Tajawal-Regular.ttf",
-            "Tajawal-Medium.ttf",
-            "Tajawal-Bold.ttf",
-            "Tajawal-ExtraBold.ttf"
+            "Cairo-Regular.ttf",
+            "Cairo-Medium.ttf",
+            "Cairo-Bold.ttf",
+            "Cairo-ExtraBold.ttf"
         ]
         let bundleURLs = Bundle.main.urls(forResourcesWithExtension: "ttf", subdirectory: nil)
             ?? Bundle.main.urls(forResourcesWithExtension: "ttf", subdirectory: "Fonts")
@@ -205,7 +228,10 @@ enum AppAppearance {
     private static func makeNavigationBarAppearance() -> UINavigationBarAppearance {
         let ink = UIColor(BrandTheme.ink)
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithDefaultBackground()
+        // Transparent so money wallpaper shows through the top bar
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = .clear
+        appearance.shadowColor = .clear
         appearance.titleTextAttributes = [
             .font: AppFont.ui(.medium, size: 17),
             .foregroundColor: ink
@@ -241,16 +267,38 @@ enum AppAppearance {
 
     private static func makeTabBarAppearance() -> UITabBarAppearance {
         let itemFont = AppFont.ui(.medium, size: 10)
-        let normal: [NSAttributedString.Key: Any] = [.font: itemFont]
-        let selected: [NSAttributedString.Key: Any] = [.font: itemFont]
+        let selectedColor = UIColor(BrandTheme.deepTeal)
+        let normalColor = UIColor(BrandTheme.muted)
+        let normal: [NSAttributedString.Key: Any] = [
+            .font: itemFont,
+            .foregroundColor: normalColor
+        ]
+        let selected: [NSAttributedString.Key: Any] = [
+            .font: itemFont,
+            .foregroundColor: selectedColor
+        ]
 
         let tabAppearance = UITabBarAppearance()
-        tabAppearance.configureWithDefaultBackground()
+        // Solid app tab bar — no glass / blur.
+        tabAppearance.configureWithOpaqueBackground()
+        tabAppearance.backgroundEffect = nil
+        tabAppearance.backgroundColor = UIColor(BrandTheme.surface)
+        tabAppearance.shadowColor = UIColor(BrandTheme.deepTeal).withAlphaComponent(0.12)
+
         let itemAppearance = UITabBarItemAppearance()
         itemAppearance.normal.titleTextAttributes = normal
+        itemAppearance.normal.iconColor = normalColor
         itemAppearance.selected.titleTextAttributes = selected
+        itemAppearance.selected.iconColor = selectedColor
         itemAppearance.disabled.titleTextAttributes = normal
+        itemAppearance.disabled.iconColor = normalColor
         itemAppearance.focused.titleTextAttributes = selected
+        itemAppearance.focused.iconColor = selectedColor
+
+        // No selection pill / glass highlight.
+        itemAppearance.normal.badgeBackgroundColor = selectedColor
+        itemAppearance.selected.badgeBackgroundColor = selectedColor
+
         tabAppearance.stackedLayoutAppearance = itemAppearance
         tabAppearance.inlineLayoutAppearance = itemAppearance
         tabAppearance.compactInlineLayoutAppearance = itemAppearance
@@ -259,8 +307,16 @@ enum AppAppearance {
 
     private static func configureTabBar() {
         let itemFont = AppFont.ui(.medium, size: 10)
-        let normal: [NSAttributedString.Key: Any] = [.font: itemFont]
-        let selected: [NSAttributedString.Key: Any] = [.font: itemFont]
+        let selectedColor = UIColor(BrandTheme.deepTeal)
+        let normalColor = UIColor(BrandTheme.muted)
+        let normal: [NSAttributedString.Key: Any] = [
+            .font: itemFont,
+            .foregroundColor: normalColor
+        ]
+        let selected: [NSAttributedString.Key: Any] = [
+            .font: itemFont,
+            .foregroundColor: selectedColor
+        ]
 
         let item = UITabBarItem.appearance()
         item.setTitleTextAttributes(normal, for: .normal)
@@ -272,6 +328,11 @@ enum AppAppearance {
         let tab = UITabBar.appearance()
         tab.standardAppearance = tabAppearance
         tab.scrollEdgeAppearance = tabAppearance
+        tab.isTranslucent = false
+        tab.barTintColor = UIColor(BrandTheme.surface)
+        tab.backgroundColor = UIColor(BrandTheme.surface)
+        tab.tintColor = selectedColor
+        tab.unselectedItemTintColor = normalColor
     }
 
     // MARK: - Bar buttons / toolbars
@@ -318,8 +379,12 @@ enum AppAppearance {
     // MARK: - Text fields / views
 
     private static func configureTextInputs() {
-        UITextField.appearance().font = AppFont.ui(.regular, size: 17)
+        let field = UITextField.appearance()
+        field.font = AppFont.ui(.regular, size: 17)
+        field.textColor = .label
+        field.tintColor = UIColor(BrandTheme.deepTeal)
         UITextView.appearance().font = AppFont.ui(.regular, size: 17)
+        UITextView.appearance().textColor = .label
         UISearchTextField.appearance().font = AppFont.ui(.regular, size: 17)
     }
 
@@ -359,16 +424,22 @@ struct MasarifyNavTitle: ViewModifier {
 
     func body(content: Content) -> some View {
         content
+            // Keep a11y / back context, but always draw Cairo in `.principal`
+            // so UIKit never flashes the system nav font.
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(large ? .large : .inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    if !large {
-                        Text(title)
-                            .font(AppFont.headline())
-                            .foregroundStyle(BrandTheme.ink)
-                    }
+                    Text(title)
+                        .font(large ? AppFont.custom(.bold, size: 28) : AppFont.custom(.bold, size: 17))
+                        .foregroundStyle(BrandTheme.ink)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.75)
                 }
+            }
+            .onAppear {
+                AppAppearance.apply()
+                DispatchQueue.main.async { AppAppearance.refreshLiveChrome() }
             }
     }
 }

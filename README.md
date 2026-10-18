@@ -4,11 +4,11 @@ Native **SwiftUI iOS** app for personal expense tracking. Arabic-first (RTL), Sw
 
 ## Typography
 
-Bundled **Tajawal** (OFL) for Arabic + Latin display/body text — not system SF.
+Bundled **Cairo** (OFL) for Arabic + Latin display/body text — not system SF.
 
 ## Features (MVP)
 
-1. **Expenses by category** — create, list, edit, delete (أكل، مواصلات، فواتير، ترفيه، تسوق، صحة، أخرى). Stored with **SwiftData**.
+1. **Expenses by category** — create, list, edit, delete. Default categories (أكل، مواصلات، فواتير، ترفيه، تسوق، صحة، أخرى) plus **custom categories** you add in the **الفئات** tab. Stored with **SwiftData**.
 2. **Voice entry** — Speech framework (`ar-EG` / `en-US`) + bilingual amount/category/note parser. If speech is unavailable, use **تجربة تجريبية**.
 3. **Receipt / invoice** — camera or photo library → Vision OCR (or heuristic/mock) → review → save.
 4. **Daily report**
@@ -71,4 +71,4 @@ Masarify/
 
 ## Stack
 
-SwiftUI · SwiftData · Speech · Vision · PhotosUI · Tajawal
+SwiftUI · SwiftData · Speech · Vision · PhotosUI · Cairo
