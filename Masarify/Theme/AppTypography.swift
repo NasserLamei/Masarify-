@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 /// Tajawal (OFL) — Arabic + Latin display/body family for Masarify.
 enum AppFont {
@@ -18,10 +19,27 @@ enum AppFont {
             case .extraBold: return "Tajawal-ExtraBold"
             }
         }
+
+        var uiFontWeight: UIFont.Weight {
+            switch self {
+            case .regular: return .regular
+            case .medium: return .medium
+            case .bold: return .bold
+            case .extraBold: return .heavy
+            }
+        }
     }
 
     static func custom(_ weight: Weight, size: CGFloat) -> Font {
         .custom(weight.postScriptName, size: size)
+    }
+
+    static func ui(_ weight: Weight, size: CGFloat) -> UIFont {
+        if let font = UIFont(name: weight.postScriptName, size: size) {
+            return font
+        }
+        // Fallback while fonts register / for previews
+        return .systemFont(ofSize: size, weight: weight.uiFontWeight)
     }
 
     static func display(_ size: CGFloat = 40) -> Font { custom(.extraBold, size: size) }

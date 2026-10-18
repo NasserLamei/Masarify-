@@ -23,50 +23,70 @@ struct ExpenseFormView: View {
 
     var body: some View {
         Form {
-            Section("المبلغ") {
+            Section {
                 TextField("٠٫٠٠", text: $amountText)
                     .keyboardType(.decimalPad)
                     .font(AppFont.title2())
+            } header: {
+                Text("المبلغ").font(AppFont.caption())
             }
 
-            Section("الفئة") {
-                Picker("الفئة", selection: $category) {
+            Section {
+                Picker(selection: $category) {
                     ForEach(ExpenseCategory.allCases) { cat in
-                        Label(cat.labelAr, systemImage: cat.systemImage)
+                        Text(cat.labelAr)
+                            .font(AppFont.body())
                             .tag(cat)
                     }
+                } label: {
+                    Text("الفئة").font(AppFont.body())
                 }
                 .pickerStyle(.navigationLink)
+                .font(AppFont.body())
+            } header: {
+                Text("الفئة").font(AppFont.caption())
             }
 
-            Section("التفاصيل") {
+            Section {
                 TextField("ملاحظة", text: $note)
+                    .font(AppFont.body())
                 TextField("التاجر (اختياري)", text: $merchant)
-                DatePicker("التاريخ", selection: $date, displayedComponents: .date)
+                    .font(AppFont.body())
+                DatePicker(selection: $date, displayedComponents: .date) {
+                    Text("التاريخ").font(AppFont.body())
+                }
+                .font(AppFont.body())
+            } header: {
+                Text("التفاصيل").font(AppFont.caption())
             }
 
             if showValidation {
                 Section {
                     Text("أدخل مبلغًا صحيحًا أكبر من صفر.")
+                        .font(AppFont.subheadline())
                         .foregroundStyle(.red)
                 }
             }
         }
+        .font(AppFont.body())
+        .environment(\.font, AppFont.body())
         .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("إلغاء") { dismiss() }
+                    .font(AppFont.headline())
             }
             ToolbarItem(placement: .confirmationAction) {
                 Button("حفظ") { save() }
-                    .fontWeight(.semibold)
+                    .font(AppFont.custom(.bold, size: 17))
             }
             if case .edit = mode {
                 ToolbarItem(placement: .bottomBar) {
                     Button("حذف المصروف", role: .destructive) {
                         deleteExpense()
                     }
+                    .font(AppFont.headline())
                 }
             }
         }

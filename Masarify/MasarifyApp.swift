@@ -3,6 +3,10 @@ import SwiftData
 
 @main
 struct MasarifyApp: App {
+    init() {
+        AppAppearance.apply()
+    }
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([Expense.self, MonthlyBudget.self])
         let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
@@ -29,8 +33,10 @@ struct MasarifyApp: App {
             RootTabView()
                 .environment(\.layoutDirection, .rightToLeft)
                 .environment(\.locale, Locale(identifier: "ar"))
+                .environment(\.font, AppFont.body())
                 .preferredColorScheme(.light)
                 .onAppear {
+                    AppAppearance.apply()
                     seedDemoDataIfNeeded()
                 }
         }

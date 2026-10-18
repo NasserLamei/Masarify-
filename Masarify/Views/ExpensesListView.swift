@@ -11,11 +11,13 @@ struct ExpensesListView: View {
     var body: some View {
         Group {
             if expenses.isEmpty {
-                ContentUnavailableView(
-                    "لسه مفيش مصروفات",
-                    systemImage: "tray",
-                    description: Text("أضف مصروف يدويًا أو استخدم الصوت والكاميرا.")
-                )
+                ContentUnavailableView {
+                    Label("لسه مفيش مصروفات", systemImage: "tray")
+                        .font(AppFont.title2())
+                } description: {
+                    Text("أضف مصروف يدويًا أو استخدم الصوت والكاميرا.")
+                        .font(AppFont.body())
+                }
             } else {
                 List {
                     ForEach(expenses) { expense in
@@ -30,8 +32,10 @@ struct ExpensesListView: View {
                     .onDelete(perform: delete)
                 }
                 .listStyle(.plain)
+                .font(AppFont.body())
             }
         }
+        .environment(\.font, AppFont.body())
         .background(BrandTheme.foam.ignoresSafeArea())
         .navigationTitle("المصروفات")
         .navigationBarTitleDisplayMode(.large)

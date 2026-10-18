@@ -34,6 +34,7 @@
 		3155F647D7E94DCD804ACF9E /* Tajawal-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90FD7895F34C42B29BF05997 /* Tajawal-ExtraBold.ttf */; };
 		461623485CFD4BED880F011B /* Tajawal-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB5CF610740BFBEFDFC02 /* Tajawal-Medium.ttf */; };
 		D485A87A3EC34421B870ECDB /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07A506BB6ECD44E09094A8FA /* Tajawal-Regular.ttf */; };
+		932A2165B86348C49929C36D /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60C028AF1E4CD0BF70EC06 /* AppAppearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		07A506BB6ECD44E09094A8FA /* Tajawal-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tajawal-Regular.ttf; sourceTree = "<group>"; };
 		A8A52C1C5B0145E9956F3A9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		644F06BDBAE34273BCC873B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA60C028AF1E4CD0BF70EC06 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		96ADE9A0A35B4C1E8964F493 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				DA60C028AF1E4CD0BF70EC06 /* AppAppearance.swift */,
 				6E53D50ECC794E02B90012F8 /* AppTypography.swift */,
 				501D7CCFAC2743998976CFB2 /* BrandTheme.swift */,
 			);
@@ -269,6 +272,7 @@
 				48AC6EC5B9C2472CAF529E2F /* SpeechRecognizer.swift in Sources */,
 				BEDEDDBB040B49DBB4EF266B /* VoiceParser.swift in Sources */,
 				D23F217714AD40B29C31875B /* AppTypography.swift in Sources */,
+				932A2165B86348C49929C36D /* AppAppearance.swift in Sources */,
 				7BB50CBAFEB94C97BC81068F /* BrandTheme.swift in Sources */,
 				D8DCFBA757BE4E4EB21B00B0 /* BudgetsView.swift in Sources */,
 				66A58FA9BC6C470CB5E7A126 /* BrandHeroView.swift in Sources */,

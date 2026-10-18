@@ -23,28 +23,58 @@ struct RootTabView: View {
                         onBudgets: { selectedTab = .budgets }
                     )
                 }
-                .tabItem { Label("الرئيسية", systemImage: "house.fill") }
+                .tabItem {
+                    Label {
+                        Text("الرئيسية").font(AppFont.caption(10))
+                    } icon: {
+                        Image(systemName: "house.fill")
+                    }
+                }
                 .tag(Tab.home)
 
                 NavigationStack {
                     ExpensesListView()
                 }
-                .tabItem { Label("المصروفات", systemImage: "list.bullet.rectangle") }
+                .tabItem {
+                    Label {
+                        Text("المصروفات").font(AppFont.caption(10))
+                    } icon: {
+                        Image(systemName: "list.bullet.rectangle")
+                    }
+                }
                 .tag(Tab.expenses)
 
                 NavigationStack {
                     BudgetsView()
                 }
-                .tabItem { Label("الميزانية", systemImage: "chart.pie.fill") }
+                .tabItem {
+                    Label {
+                        Text("الميزانية").font(AppFont.caption(10))
+                    } icon: {
+                        Image(systemName: "chart.pie.fill")
+                    }
+                }
                 .tag(Tab.budgets)
 
                 NavigationStack {
                     DailyReportView()
                 }
-                .tabItem { Label("تقرير اليوم", systemImage: "chart.bar.fill") }
+                .tabItem {
+                    Label {
+                        Text("تقرير اليوم").font(AppFont.caption(10))
+                    } icon: {
+                        Image(systemName: "chart.bar.fill")
+                    }
+                }
                 .tag(Tab.report)
             }
             .tint(BrandTheme.deepTeal)
+            .onAppear {
+                AppAppearance.apply()
+                DispatchQueue.main.async {
+                    AppAppearance.refreshLiveChrome()
+                }
+            }
 
             HStack(spacing: 16) {
                 PrimaryActionButton(
@@ -91,7 +121,7 @@ struct RootTabView: View {
             selectedTab = .report
         } else if args.contains("-demoExpenses") {
             selectedTab = .expenses
-        } else if args.contains("-demoBudgets") {
+        } else if args.contains("-demoBudgetEditor") || args.contains("-demoBudgets") {
             selectedTab = .budgets
         }
     }

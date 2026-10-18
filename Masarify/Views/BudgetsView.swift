@@ -98,32 +98,54 @@ struct BudgetsView: View {
                 }
             }
         }
+        .onAppear {
+            if ProcessInfo.processInfo.arguments.contains("-demoBudgetEditor") {
+                editingBudget = nil
+                isOverall = false
+                draftCategory = .food
+                draftLimit = ""
+                showValidation = false
+                showEditor = true
+            }
+        }
         .sheet(isPresented: $showEditor) {
             NavigationStack {
                 Form {
-                    Section("النوع") {
-                        Picker("النطاق", selection: $isOverall) {
-                            Text("إجمالي الشهر").tag(true)
-                            Text("حسب الفئة").tag(false)
+                    Section {
+                        Picker(selection: $isOverall) {
+                            Text("إجمالي الشهر").font(AppFont.body()).tag(true)
+                            Text("حسب الفئة").font(AppFont.body()).tag(false)
+                        } label: {
+                            Text("النطاق").font(AppFont.body())
                         }
                         .pickerStyle(.segmented)
+                        .font(AppFont.body())
 
                         if !isOverall {
-                            Picker("الفئة", selection: Binding(
+                            Picker(selection: Binding(
                                 get: { draftCategory ?? .food },
                                 set: { draftCategory = $0 }
                             )) {
                                 ForEach(ExpenseCategory.allCases) { cat in
-                                    Text(cat.labelAr).tag(cat)
+                                    Text(cat.labelAr)
+                                        .font(AppFont.body())
+                                        .tag(cat)
                                 }
+                            } label: {
+                                Text("الفئة").font(AppFont.body())
                             }
+                            .font(AppFont.body())
                         }
+                    } header: {
+                        Text("النوع").font(AppFont.caption())
                     }
 
-                    Section("الحد") {
+                    Section {
                         TextField("المبلغ بالجنيه", text: $draftLimit)
                             .keyboardType(.decimalPad)
                             .font(AppFont.title2())
+                    } header: {
+                        Text("الحد").font(AppFont.caption())
                     }
 
                     if showValidation {
@@ -142,18 +164,22 @@ struct BudgetsView: View {
                                 }
                                 showEditor = false
                             }
+                            .font(AppFont.headline())
                         }
                     }
                 }
+                .font(AppFont.body())
+                .environment(\.font, AppFont.body())
                 .navigationTitle(editingBudget == nil ? "حد جديد" : "تعديل الحد")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("إلغاء") { showEditor = false }
+                            .font(AppFont.headline())
                     }
                     ToolbarItem(placement: .confirmationAction) {
                         Button("حفظ") { saveDraft() }
-                            .fontWeight(.semibold)
+                            .font(AppFont.custom(.bold, size: 17))
                     }
                 }
             }
