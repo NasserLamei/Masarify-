@@ -153,7 +153,7 @@ struct ExpenseFormView: View {
             .masarifyScreenInsets()
             .padding(.vertical, 12)
         }
-        .background(BrandTheme.foam.ignoresSafeArea())
+        .masarifyScreenBackground()
         .environment(\.font, AppFont.body())
         .scrollDismissesKeyboard(.interactively)
         .toolbar(.hidden, for: .navigationBar)

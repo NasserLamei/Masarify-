@@ -27,9 +27,11 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>مصاريفي يحتاج الميكروفون لتسجيل المصروفات بالصوت.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>مصاريفي يحتاج الوصول للصور لاختيار فاتورة من المعرض.</string>
+	<string>مصاريفي يحتاج الوصول للصور لاختيار فاتورة أو أيقونة فئة من المعرض.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>مصاريفي يستخدم التعرّف على الكلام لفهم مبلغ وفئة المصروف.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>مصاريفي يستخدم Face ID لحماية بياناتك المالية عند فتح التطبيق.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -38,18 +40,33 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
-		<string>AccentColor</string>
+		<string>LaunchBackground</string>
+		<key>UIImageName</key>
+		<string>SplashBackground</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<false/>
 	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.masarify.app</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>masarify</string>
+			</array>
+		</dict>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Tajawal-Regular.ttf</string>
-		<string>Tajawal-Medium.ttf</string>
-		<string>Tajawal-Bold.ttf</string>
-		<string>Tajawal-ExtraBold.ttf</string>
+		<string>Cairo-Regular.ttf</string>
+		<string>Cairo-Medium.ttf</string>
+		<string>Cairo-Bold.ttf</string>
+		<string>Cairo-ExtraBold.ttf</string>
 	</array>
 </dict>
 </plist>

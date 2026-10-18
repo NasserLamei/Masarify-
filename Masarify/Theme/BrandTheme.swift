@@ -74,14 +74,14 @@ enum BrandTheme {
         )
     }
 
-    /// Soft wash — readable UI over abstract teal wallpaper.
+    /// Soft wash — keeps UI readable over the branded pattern wallpaper.
     static var atmosphereScrim: LinearGradient {
         LinearGradient(
             colors: [
-                foam.opacity(0.35),
-                Color.white.opacity(0.18),
-                seafoam.opacity(0.22),
-                mist.opacity(0.30)
+                foam.opacity(0.28),
+                Color.white.opacity(0.14),
+                seafoam.opacity(0.16),
+                mist.opacity(0.22)
             ],
             startPoint: .top,
             endPoint: .bottom

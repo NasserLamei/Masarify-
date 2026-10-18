@@ -365,7 +365,7 @@ struct SplashView: View {
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
-                .opacity(0.85)
+                .opacity(0.72)
 
             // Bills float around — no big coin
             SplashMoneyOrchestra()
