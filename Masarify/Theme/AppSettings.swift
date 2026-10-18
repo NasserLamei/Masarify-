@@ -7,12 +7,16 @@ enum AppLanguage: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
+    /// UI locale — Arabic keeps RTL/copy, but digits stay Western (0–9).
     var locale: Locale {
         switch self {
-        case .arabic: Locale(identifier: "ar_EG")
+        case .arabic: Locale(identifier: "ar_EG@numbers=latn")
         case .english: Locale(identifier: "en_US")
         }
     }
+
+    /// Always Western digits for currency / amount formatters.
+    static var latinDigitsLocale: Locale { Locale(identifier: "en_US_POSIX") }
 
     var layoutDirection: LayoutDirection {
         switch self {
@@ -157,6 +161,16 @@ final class AppSettings: ObservableObject {
         didSet { Self.persistChallenges(activeChallenges) }
     }
 
+    /// When on, the coach reads tips aloud (TTS).
+    @Published var coachVoiceEnabled: Bool {
+        didSet {
+            UserDefaults.standard.set(coachVoiceEnabled, forKey: Self.coachVoiceKey)
+            if !coachVoiceEnabled {
+                Task { @MainActor in CoachSpeechService.shared.stop() }
+            }
+        }
+    }
+
     /// Read before `ModelContainer` is created (not MainActor-bound).
     static var prefersICloudSync: Bool {
         if UserDefaults.standard.object(forKey: iCloudSyncKey) == nil { return true }
@@ -184,6 +198,7 @@ final class AppSettings: ObservableObject {
     private static let onboardingKey = "masarify.hasCompletedOnboarding"
     private static let featureTourKey = "masarify.hasCompletedFeatureTour"
     private static let challengesKey = "masarify.activeChallenges"
+    private static let coachVoiceKey = "masarify.coachVoiceEnabled"
 
     init() {
         let raw = UserDefaults.standard.string(forKey: Self.languageKey) ?? AppLanguage.arabic.rawValue
@@ -218,6 +233,7 @@ final class AppSettings: ObservableObject {
         hasCompletedOnboarding = UserDefaults.standard.bool(forKey: Self.onboardingKey)
         hasCompletedFeatureTour = UserDefaults.standard.bool(forKey: Self.featureTourKey)
         activeChallenges = Self.loadChallenges()
+        coachVoiceEnabled = UserDefaults.standard.bool(forKey: Self.coachVoiceKey)
     }
 
     func startChallenge(_ kind: FinancialCoachService.ChallengeKind) {
