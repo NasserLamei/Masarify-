@@ -142,6 +142,16 @@ final class AppSettings: ObservableObject {
         didSet { UserDefaults.standard.set(iCloudSyncEnabled, forKey: Self.iCloudSyncKey) }
     }
 
+    /// First-launch benefit carousel completed.
+    @Published var hasCompletedOnboarding: Bool {
+        didSet { UserDefaults.standard.set(hasCompletedOnboarding, forKey: Self.onboardingKey) }
+    }
+
+    /// In-app feature tour after onboarding completed.
+    @Published var hasCompletedFeatureTour: Bool {
+        didSet { UserDefaults.standard.set(hasCompletedFeatureTour, forKey: Self.featureTourKey) }
+    }
+
     /// Read before `ModelContainer` is created (not MainActor-bound).
     static var prefersICloudSync: Bool {
         if UserDefaults.standard.object(forKey: iCloudSyncKey) == nil { return true }
@@ -166,6 +176,8 @@ final class AppSettings: ObservableObject {
     private static let dailySummaryFocusDayKey = "masarify.dailySummaryFocusDay"
     private static let biometricLockKey = "masarify.biometricLockEnabled"
     private static let iCloudSyncKey = "masarify.iCloudSyncEnabled"
+    private static let onboardingKey = "masarify.hasCompletedOnboarding"
+    private static let featureTourKey = "masarify.hasCompletedFeatureTour"
 
     init() {
         let raw = UserDefaults.standard.string(forKey: Self.languageKey) ?? AppLanguage.arabic.rawValue
@@ -197,6 +209,8 @@ final class AppSettings: ObservableObject {
         dailySummaryFocusDay = DailySummaryFocusDay(rawValue: focusRaw ?? "") ?? .yesterday
         biometricLockEnabled = UserDefaults.standard.bool(forKey: Self.biometricLockKey)
         iCloudSyncEnabled = UserDefaults.standard.object(forKey: Self.iCloudSyncKey) as? Bool ?? true
+        hasCompletedOnboarding = UserDefaults.standard.bool(forKey: Self.onboardingKey)
+        hasCompletedFeatureTour = UserDefaults.standard.bool(forKey: Self.featureTourKey)
     }
 
     var hourlyRate: Double {

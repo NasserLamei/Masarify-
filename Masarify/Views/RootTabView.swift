@@ -13,6 +13,9 @@ struct RootTabView: View {
     @State private var showReceipt = false
     @State private var showManualAdd = false
     @State private var showSplash = true
+    @State private var showOnboarding = false
+    @State private var showFeatureTour = false
+    @State private var featureTourStep = 0
     @State private var showDailyReport = false
 
     enum Tab: Hashable {
@@ -29,12 +32,12 @@ struct RootTabView: View {
                 .animation(Motion.softSpring, value: selectedTab)
                 // Reserve tab content only — bar background paints into the home-indicator zone.
                 .safeAreaInset(edge: .bottom, spacing: 0) {
-                    if !showSplash {
+                    if !showSplash && !showOnboarding {
                         Color.clear.frame(height: 56)
                     }
                 }
                 .overlay(alignment: .bottom) {
-                    if !showSplash {
+                    if !showSplash && !showOnboarding {
                         MasarifyTabBar(selection: $selectedTab)
                             .transition(.move(edge: .bottom).combined(with: .opacity))
                     }
@@ -59,10 +62,42 @@ struct RootTabView: View {
                     .zIndex(10)
             }
 
-            if appLock.isLocked && settings.biometricLockEnabled && !showSplash {
+            if showOnboarding && !showSplash {
+                OnboardingView {
+                    showOnboarding = false
+                    if !settings.hasCompletedFeatureTour {
+                        featureTourStep = 0
+                        selectedTab = .home
+                        withAnimation(Motion.gentle) { showFeatureTour = true }
+                    }
+                }
+                .transition(.opacity)
+                .zIndex(15)
+            }
+
+            if showFeatureTour && !showSplash && !showOnboarding {
+                FeatureTourOverlay(
+                    stepIndex: $featureTourStep,
+                    onSelectTab: { selectedTab = $0 },
+                    onFinished: { showFeatureTour = false }
+                )
+                .transition(.opacity)
+                .zIndex(18)
+            }
+
+            if appLock.isLocked && settings.biometricLockEnabled && !showSplash && !showOnboarding {
                 BiometricLockOverlay(lock: appLock)
                     .transition(.opacity)
                     .zIndex(20)
+            }
+        }
+        .onChange(of: showSplash) { _, active in
+            guard !active else { return }
+            if !settings.hasCompletedOnboarding {
+                withAnimation(Motion.gentle) { showOnboarding = true }
+            } else if !settings.hasCompletedFeatureTour {
+                featureTourStep = 0
+                withAnimation(Motion.gentle) { showFeatureTour = true }
             }
         }
         .sheet(isPresented: $showVoice) {

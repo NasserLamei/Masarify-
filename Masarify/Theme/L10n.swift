@@ -41,6 +41,18 @@ enum L10n {
         case cloudSync, cloudSyncTitle, cloudSyncHint, cloudSyncRequiresICloud, cloudSyncRestart
         case appleAccount, appleAccountHint, appleSignedIn, appleSignOut, googleNotOnIOS
         case sendTestNotification, notificationsAllowed, notificationsDenied, openNotificationSettings
+        case onboardSkip, onboardNext, onboardStart, onboardContinue
+        case onboard1Title, onboard1Body
+        case onboard2Title, onboard2Body
+        case onboard3Title, onboard3Body
+        case onboard4Title, onboard4Body
+        case tourSkip, tourNext, tourDone
+        case tour1Title, tour1Body
+        case tour2Title, tour2Body
+        case tour3Title, tour3Body
+        case tour4Title, tour4Body
+        case tour5Title, tour5Body
+        case tour6Title, tour6Body
     }
 
     private static let table: [Key: (ar: String, en: String)] = [
@@ -212,7 +224,34 @@ enum L10n {
         .sendTestNotification: ("إرسال إشعار تجريبي", "Send test notification"),
         .notificationsAllowed: ("الإشعارات مسموحة لهذا التطبيق.", "Notifications are allowed for this app."),
         .notificationsDenied: ("الإشعارات مقفولة — افتح إعدادات النظام وفعّلها.", "Notifications are blocked — enable them in system Settings."),
-        .openNotificationSettings: ("فتح إعدادات الإشعارات", "Open notification settings")
+        .openNotificationSettings: ("فتح إعدادات الإشعارات", "Open notification settings"),
+        .onboardSkip: ("تخطي", "Skip"),
+        .onboardNext: ("التالي", "Next"),
+        .onboardStart: ("يلا نبدأ", "Let's go"),
+        .onboardContinue: ("كمّل الجولة", "Continue tour"),
+        .onboard1Title: ("مصاريفي… خطتك أوضح", "Masarify — clearer money"),
+        .onboard1Body: ("تتبّع مصاريفك بالجنيه بسهولة، وشوف رصيدك والمتبقي من ميزانيتك في نظرة واحدة.", "Track EGP spending easily and see balance plus budget left at a glance."),
+        .onboard2Title: ("صوت أو فاتورة… بضغطة", "Voice or receipt — one tap"),
+        .onboard2Body: ("قول الجملة عادي («دفعت ٥٠ أوبير») أو صوّر الإيصال — التطبيق يفهم المبلغ والقسم لوحده.", "Say it naturally (spent 50 on Uber) or snap a receipt — amount and category land for you."),
+        .onboard3Title: ("فين بتخرج فلوسك؟", "Where does money go?"),
+        .onboard3Body: ("رسوم أسبوعية وشهرية، ملخص يومي، وأكتر بند بيمصّ فلوسك — عشان تتحكم قبل ما الشهر يخلص.", "Weekly and monthly charts, a daily summary, and your biggest drain — so you stay ahead."),
+        .onboard4Title: ("خصوصية ونسخ احتياطي", "Private & backed up"),
+        .onboard4Body: ("قفل Face ID، مزامنة iCloud، وأهداف وتوفير — بياناتك المالية محمية ومتزامنة.", "Face ID lock, iCloud sync, goals and savings — your money data stays protected."),
+        .tourSkip: ("تخطي الجولة", "Skip tour"),
+        .tourNext: ("التالي", "Next"),
+        .tourDone: ("تمام، فهمت", "Got it"),
+        .tour1Title: ("هنا بيتك", "This is home"),
+        .tour1Body: ("ملخص النهاردة، الرصيد، وأسرع طريق لتسجيل مصروف.", "Today's summary, balance, and the fastest path to log a spend."),
+        .tour2Title: ("سجّل بالصوت", "Log with voice"),
+        .tour2Body: ("اضغط المايك وقول المبلغ والمكان — التصنيف يتظبط تلقائي.", "Tap the mic and say amount + place — category fills in automatically."),
+        .tour3Title: ("صوّر الفاتورة", "Scan a receipt"),
+        .tour3Body: ("الكاميرا تقرأ الإجمالي والتاريخ والمتجر وتسجّل المصروف.", "Camera reads total, date, and merchant, then logs the expense."),
+        .tour4Title: ("رؤى ورسوم", "Insights & charts"),
+        .tour4Body: ("شوف مصاصة الفلوس، قارن أيامك، وصدّر CSV أو PDF.", "Spot money drains, compare days, and export CSV or PDF."),
+        .tour5Title: ("أهدافك", "Your goals"),
+        .tour5Body: ("حط هدف توفير وتابع تقدّمك — كل مصروف يقرّبك أو يبعّدك.", "Set a savings goal and watch progress as you spend."),
+        .tour6Title: ("المزيد", "More tools"),
+        .tour6Body: ("ملخص يومي، أمان Face ID، التكلفة الحقيقية، وميزانياتك من هنا.", "Daily summary, Face ID, true cost, and budgets live here.")
     ]
 
     static func string(_ key: Key, language: AppLanguage) -> String {

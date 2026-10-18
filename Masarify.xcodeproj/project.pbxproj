@@ -7,73 +7,188 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C412434A623D49CEAE7D97D4 /* MasarifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4BBCE79C347CE95F21DAE /* MasarifyApp.swift */; };
-		B5E935659B1248478C064D51 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999A20F34BB4530A08802E5 /* Expense.swift */; };
-		EB253431E9B244BFAE034ED3 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AFB1C93379438286A2D01D /* ExpenseCategory.swift */; };
-		6F8CC8CC845842FCBEDE5C63 /* MonthlyBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E3C18A87C4FEABDF0A045 /* MonthlyBudget.swift */; };
-		F24E8F69F9BC44D298EE9D06 /* BudgetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A86F352984E87BD185FDF /* BudgetMonitor.swift */; };
-		4BAC4D212D804C73B12CCB8A /* ReceiptOCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0314D568842C896C78551 /* ReceiptOCRService.swift */; };
-		48AC6EC5B9C2472CAF529E2F /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E20F2376B4205840DB9E5 /* SpeechRecognizer.swift */; };
-		BEDEDDBB040B49DBB4EF266B /* VoiceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B82BCECBA46D9B8AB0D82 /* VoiceParser.swift */; };
-		D23F217714AD40B29C31875B /* AppTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53D50ECC794E02B90012F8 /* AppTypography.swift */; };
-		7BB50CBAFEB94C97BC81068F /* BrandTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D7CCFAC2743998976CFB2 /* BrandTheme.swift */; };
-		D8DCFBA757BE4E4EB21B00B0 /* BudgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2705401AA45D4C8A971F0F64 /* BudgetsView.swift */; };
-		66A58FA9BC6C470CB5E7A126 /* BrandHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F9796AAE34336A30F2678 /* BrandHeroView.swift */; };
-		E2016107D6F14536B418CE34 /* BudgetAlertBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5962AAF8F58046C89E2361B1 /* BudgetAlertBanner.swift */; };
-		CCE0C85E1A6A4D749F216411 /* BudgetProgressRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CA0A23258043ABB7115B5A /* BudgetProgressRow.swift */; };
-		91440A8D2514482582B356CF /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB8B9BB57BA4B11997D46B4 /* ExpenseRowView.swift */; };
-		FF002323DE5747008FCDE449 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54EFAFB47D4E5BA23311B6 /* DailyReportView.swift */; };
-		6410DF8B768B41DD9A2C839A /* ExpenseFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB4B2D8941241E6AB356AF9 /* ExpenseFormView.swift */; };
-		49D9DA1CAD9F4E6AA748922A /* ExpensesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EC440C75214F07A95061EE /* ExpensesListView.swift */; };
-		F94DB922BD324CD3BA7E683F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84478F65E345239D9B42AE /* HomeView.swift */; };
+		C81ONBOBF01B2C3D4E5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81ONBO01B2C3D4E5F607 /* OnboardingView.swift */; };
+		C81TOURBF01B2C3D4E5 /* FeatureTourOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81TOUR01B2C3D4E5F607 /* FeatureTourOverlay.swift */; };
+		C71TRUEBF01B2C3D4E5 /* TrueCostSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71TRUE01B2C3D4E5F607 /* TrueCostSettingsView.swift */; };
+		C71DSUMBF01B2C3D4E5 /* DailySummarySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71DSUM01B2C3D4E5F607 /* DailySummarySettingsView.swift */; };
+		C61PRIVBF01B2C3D4E5 /* PrivacySecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61PRIV01B2C3D4E5F607 /* PrivacySecurityView.swift */; };
+		C61LOCKBF01B2C3D4E5 /* BiometricLockOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61LOCK01B2C3D4E5F607 /* BiometricLockOverlay.swift */; };
+		C61CLDBF01B2C3D4E5F6 /* CloudAccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61CLD01B2C3D4E5F60718 /* CloudAccountStore.swift */; };
+		C61BIOBF01B2C3D4E5F6 /* BiometricAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61BIO01B2C3D4E5F60718 /* BiometricAuthService.swift */; };
+		C51CHARTBF01B2C3D4E5 /* SpendingChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51CHART01B2C3D4E5F6 /* SpendingChartsView.swift */; };
+		C51EXPBF01B2C3D4E5F6 /* ExpenseExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51EXP01B2C3D4E5F60718 /* ExpenseExportService.swift */; };
+		C51ANALBF01B2C3D4E5 /* SpendingAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51ANAL01B2C3D4E5F607 /* SpendingAnalytics.swift */; };
+		C41DNOTIBF01B2C3D4E5 /* DailySummaryNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DNOTI01B2C3D4E5F607 /* DailySummaryNotifier.swift */; };
+		C41DSNAPBF01B2C3D4E5 /* DailySummarySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DSNAP01B2C3D4E5F607 /* DailySummarySnapshot.swift */; };
+		C41RFIELDBF01B2C3D4E5 /* ReceiptFieldParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41RFIELD01B2C3D4E5F6 /* ReceiptFieldParser.swift */; };
+		C41MATCHBF01B2C3D4E5 /* CategoryMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41MATCH01B2C3D4E5F607 /* CategoryMatcher.swift */; };
+		A31TripModel01B2C3D4 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31TripModel01B2C3D5 /* Trip.swift */; };
+		A31TripView01B2C3D4 /* TripModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31TripView01B2C3D5 /* TripModeView.swift */; };
 		0349FE91794E4B77B2D228C8 /* ReceiptCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD6AAFA56B24E8FAD0625B5 /* ReceiptCaptureView.swift */; };
-		78AE6AF0D7D14860984A5FA0 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E678973906C49F1B115089E /* RootTabView.swift */; };
-		DEC6D119E3584438849AFB3E /* VoiceEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CDD42A26C1476F938C6ED3 /* VoiceEntryView.swift */; };
+		03DB75A22E5A435D976B0B40 /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 321E789898464E95A9B298DF /* Cairo-Bold.ttf */; };
+		3155F647D7E94DCD804ACF9E /* Cairo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90FD7895F34C42B29BF05997 /* Cairo-ExtraBold.ttf */; };
+		461623485CFD4BED880F011B /* Cairo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB5CF610740BFBEFDFC02 /* Cairo-Medium.ttf */; };
+		48AC6EC5B9C2472CAF529E2F /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E20F2376B4205840DB9E5 /* SpeechRecognizer.swift */; };
+		49D9DA1CAD9F4E6AA748922A /* ExpensesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EC440C75214F07A95061EE /* ExpensesListView.swift */; };
+		4BAC4D212D804C73B12CCB8A /* ReceiptOCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0314D568842C896C78551 /* ReceiptOCRService.swift */; };
+		6410DF8B768B41DD9A2C839A /* ExpenseFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB4B2D8941241E6AB356AF9 /* ExpenseFormView.swift */; };
+		66A58FA9BC6C470CB5E7A126 /* BrandHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F9796AAE34336A30F2678 /* BrandHeroView.swift */; };
 		688C0961009B4692BBE02F86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8A52C1C5B0145E9956F3A9D /* Assets.xcassets */; };
-		03DB75A22E5A435D976B0B40 /* Tajawal-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 321E789898464E95A9B298DF /* Tajawal-Bold.ttf */; };
-		3155F647D7E94DCD804ACF9E /* Tajawal-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90FD7895F34C42B29BF05997 /* Tajawal-ExtraBold.ttf */; };
-		461623485CFD4BED880F011B /* Tajawal-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB5CF610740BFBEFDFC02 /* Tajawal-Medium.ttf */; };
-		D485A87A3EC34421B870ECDB /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07A506BB6ECD44E09094A8FA /* Tajawal-Regular.ttf */; };
+		6F8CC8CC845842FCBEDE5C63 /* MonthlyBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E3C18A87C4FEABDF0A045 /* MonthlyBudget.swift */; };
+		78AE6AF0D7D14860984A5FA0 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E678973906C49F1B115089E /* RootTabView.swift */; };
+		7BB50CBAFEB94C97BC81068F /* BrandTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D7CCFAC2743998976CFB2 /* BrandTheme.swift */; };
+		91440A8D2514482582B356CF /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB8B9BB57BA4B11997D46B4 /* ExpenseRowView.swift */; };
 		932A2165B86348C49929C36D /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60C028AF1E4CD0BF70EC06 /* AppAppearance.swift */; };
 		A1B2C3D4E5F60718293A4B5C /* MasarifyFormControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E2D3C4B5A69788796A5B4C /* MasarifyFormControls.swift */; };
+		B2C3D4E5F60718293A4B5C6D /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4E5F60718293A4B5C6D7E /* CategoryItem.swift */; };
+		B5E935659B1248478C064D51 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999A20F34BB4530A08802E5 /* Expense.swift */; };
+		BEDEDDBB040B49DBB4EF266B /* VoiceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B82BCECBA46D9B8AB0D82 /* VoiceParser.swift */; };
+		C412434A623D49CEAE7D97D4 /* MasarifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4BBCE79C347CE95F21DAE /* MasarifyApp.swift */; };
+		CBB0480D4D24085E641B2E1F /* Pods_Masarify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F619A8200D189564DEBFF89 /* Pods_Masarify.framework */; };
+		CCE0C85E1A6A4D749F216411 /* BudgetProgressRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CA0A23258043ABB7115B5A /* BudgetProgressRow.swift */; };
+		D23F217714AD40B29C31875B /* AppTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53D50ECC794E02B90012F8 /* AppTypography.swift */; };
+		D485A87A3EC34421B870ECDB /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07A506BB6ECD44E09094A8FA /* Cairo-Regular.ttf */; };
+		D4E5F60718293A4B5C6D7E8F /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F60718293A4B5C6D7E8F90 /* CategoriesView.swift */; };
+		D8DCFBA757BE4E4EB21B00B0 /* BudgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2705401AA45D4C8A971F0F64 /* BudgetsView.swift */; };
+		DEC6D119E3584438849AFB3E /* VoiceEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CDD42A26C1476F938C6ED3 /* VoiceEntryView.swift */; };
+		E2016107D6F14536B418CE34 /* BudgetAlertBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5962AAF8F58046C89E2361B1 /* BudgetAlertBanner.swift */; };
+		EB253431E9B244BFAE034ED3 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AFB1C93379438286A2D01D /* ExpenseCategory.swift */; };
+		F24E8F69F9BC44D298EE9D06 /* BudgetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A86F352984E87BD185FDF /* BudgetMonitor.swift */; };
+		F60718293A4B5C6D7E8F9012 /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60718293A4B5C6D7E8F9012 /* Motion.swift */; };
+		F94DB922BD324CD3BA7E683F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84478F65E345239D9B42AE /* HomeView.swift */; };
+		FF002323DE5747008FCDE449 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54EFAFB47D4E5BA23311B6 /* DailyReportView.swift */; };
+		AA11BB22CC33DD44EE55FF01 /* PodIntegrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB22CC33DD44EE55FF010203 /* PodIntegrations.swift */; };
+		EE55FF010203040506070809 /* coin-spin.json in Resources */ = {isa = PBXBuildFile; fileRef = FF0102030405060708090A0B /* coin-spin.json */; };
+		0102030405060708090A0B0C /* success-check.json in Resources */ = {isa = PBXBuildFile; fileRef = 02030405060708090A0B0C0D /* success-check.json */; };
+		A11Settings01B2C3D4E5F607 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11Settings01B2C3D4E5F608 /* AppSettings.swift */; };
+		A11L10n0001B2C3D4E5F60718 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11L10n0001B2C3D4E5F60719 /* L10n.swift */; };
+		A11SettingsViewB2C3D4E5F6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11SettingsViewB2C3D4E5F7 /* SettingsView.swift */; };
+		A61MoreViewBF01B2C3D4E5 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61MoreView01B2C3D4E5F6 /* MoreView.swift */; };
+		A21SavingsGoal01B2C3D4 /* SavingsGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21SavingsGoal01B2C3D5 /* SavingsGoal.swift */; };
+		A21SmartMoney01B2C3D4 /* SmartMoneyServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21SmartMoney01B2C3D5 /* SmartMoneyServices.swift */; };
+		A21VoicePlan01B2C3D4 /* VoicePlanParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21VoicePlan01B2C3D5 /* VoicePlanParser.swift */; };
+		A21Emergency01B2C3D4 /* EmergencyModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21Emergency01B2C3D5 /* EmergencyModeView.swift */; };
+		A21GoalsView01B2C3D4 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21GoalsView01B2C3D5 /* GoalsView.swift */; };
+		A21Insights01B2C3D4 /* InsightsHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21Insights01B2C3D5 /* InsightsHubView.swift */; };
+		A21VoicePlanV01B2C3D4 /* VoicePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21VoicePlanV01B2C3D5 /* VoicePlanView.swift */; };
+		A22MoneyMotion01B2C3D4 /* MoneyMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22MoneyMotion01B2C3D5 /* MoneyMotion.swift */; };
+
+		W41STOREAPP01B2C3D4E5 /* WidgetBudgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41STORE01B2C3D4E5F607 /* WidgetBudgetStore.swift */; };
+		W41PUBLISHAPP01B2C3D4 /* WidgetBudgetPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41PUBLISH01B2C3D4E5 /* WidgetBudgetPublisher.swift */; };
+		W41DEEPLINKAPP01B2C3 /* MasarifyDeepLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41DEEPLINK01B2C3D4 /* MasarifyDeepLinks.swift */; };
+		W41INTENTAPP01B2C3D4 /* OpenVoiceIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41INTENT01B2C3D4E5F6 /* OpenVoiceIntent.swift */; };
+		W41STOREW01B2C3D4E5F6 /* WidgetBudgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41STORE01B2C3D4E5F607 /* WidgetBudgetStore.swift */; };
+		W41BUNDLEW01B2C3D4E5F6 /* MasarifyWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41BUNDLE01B2C3D4E5F6 /* MasarifyWidgetsBundle.swift */; };
+		W41REMAINW01B2C3D4E5 /* RemainingBudgetWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41REMAIN01B2C3D4E5F6 /* RemainingBudgetWidget.swift */; };
+		W41INTENTW01B2C3D4E5F6 /* OpenVoiceIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41INTENT01B2C3D4E5F6 /* OpenVoiceIntent.swift */; };
+		W41ASSETSW01B2C3D4E5F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = W41ASSETS01B2C3D4E5F6 /* Assets.xcassets */; };
+		W41EMBEDBF01B2C3D4E5F6 /* MasarifyWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = W41APPEX01B2C3D4E5F607 /* MasarifyWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		W41CHROMEW01B2C3D4E5 /* WidgetChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = W41CHROME01B2C3D4E5F6 /* WidgetChrome.swift */; };
+		W41FONTBOLDW01B2C3D4 /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 321E789898464E95A9B298DF /* Cairo-Bold.ttf */; };
+		W41FONTEXTRAW01B2C3 /* Cairo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90FD7895F34C42B29BF05997 /* Cairo-ExtraBold.ttf */; };
+		W41FONTMEDW01B2C3D4 /* Cairo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB5CF610740BFBEFDFC02 /* Cairo-Medium.ttf */; };
+		W41FONTREGW01B2C3D4 /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07A506BB6ECD44E09094A8FA /* Cairo-Regular.ttf */; };
+		A41AMOUNTBF01B2C3D4E5F6 /* MasarifyAmountField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41AMOUNT01B2C3D4E5F607 /* MasarifyAmountField.swift */; };
+		A51MYEXPBF01B2C3D4E5F6 /* MyExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51MYEXP01B2C3D4E5F607 /* MyExpensesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13C5FA2E8243454D8195E919 /* Masarify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masarify.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		67A4BBCE79C347CE95F21DAE /* MasarifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyApp.swift; sourceTree = "<group>"; };
-		3999A20F34BB4530A08802E5 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
-		36AFB1C93379438286A2D01D /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
-		F81E3C18A87C4FEABDF0A045 /* MonthlyBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyBudget.swift; sourceTree = "<group>"; };
-		783A86F352984E87BD185FDF /* BudgetMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetMonitor.swift; sourceTree = "<group>"; };
-		16A0314D568842C896C78551 /* ReceiptOCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptOCRService.swift; sourceTree = "<group>"; };
-		EF8E20F2376B4205840DB9E5 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
-		B59B82BCECBA46D9B8AB0D82 /* VoiceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceParser.swift; sourceTree = "<group>"; };
-		6E53D50ECC794E02B90012F8 /* AppTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTypography.swift; sourceTree = "<group>"; };
-		501D7CCFAC2743998976CFB2 /* BrandTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandTheme.swift; sourceTree = "<group>"; };
-		2705401AA45D4C8A971F0F64 /* BudgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsView.swift; sourceTree = "<group>"; };
-		A59F9796AAE34336A30F2678 /* BrandHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandHeroView.swift; sourceTree = "<group>"; };
-		5962AAF8F58046C89E2361B1 /* BudgetAlertBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetAlertBanner.swift; sourceTree = "<group>"; };
-		97CA0A23258043ABB7115B5A /* BudgetProgressRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetProgressRow.swift; sourceTree = "<group>"; };
+		C81ONBO01B2C3D4E5F607 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		C81TOUR01B2C3D4E5F607 /* FeatureTourOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTourOverlay.swift; sourceTree = "<group>"; };
+		C71TRUE01B2C3D4E5F607 /* TrueCostSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueCostSettingsView.swift; sourceTree = "<group>"; };
+		C71DSUM01B2C3D4E5F607 /* DailySummarySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummarySettingsView.swift; sourceTree = "<group>"; };
+		C61PRIV01B2C3D4E5F607 /* PrivacySecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySecurityView.swift; sourceTree = "<group>"; };
+		C61LOCK01B2C3D4E5F607 /* BiometricLockOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricLockOverlay.swift; sourceTree = "<group>"; };
+		C61CLD01B2C3D4E5F60718 /* CloudAccountStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAccountStore.swift; sourceTree = "<group>"; };
+		C61BIO01B2C3D4E5F60718 /* BiometricAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthService.swift; sourceTree = "<group>"; };
+		C51CHART01B2C3D4E5F6 /* SpendingChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingChartsView.swift; sourceTree = "<group>"; };
+		C51EXP01B2C3D4E5F60718 /* ExpenseExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseExportService.swift; sourceTree = "<group>"; };
+		C51ANAL01B2C3D4E5F607 /* SpendingAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingAnalytics.swift; sourceTree = "<group>"; };
+		C41DNOTI01B2C3D4E5F607 /* DailySummaryNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryNotifier.swift; sourceTree = "<group>"; };
+		C41DSNAP01B2C3D4E5F607 /* DailySummarySnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummarySnapshot.swift; sourceTree = "<group>"; };
+		C41RFIELD01B2C3D4E5F6 /* ReceiptFieldParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptFieldParser.swift; sourceTree = "<group>"; };
+		C41MATCH01B2C3D4E5F607 /* CategoryMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMatcher.swift; sourceTree = "<group>"; };
+		A31TripModel01B2C3D5 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		A31TripView01B2C3D5 /* TripModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModeView.swift; sourceTree = "<group>"; };
+		07A506BB6ECD44E09094A8FA /* Cairo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Regular.ttf"; sourceTree = "<group>"; };
 		0AB8B9BB57BA4B11997D46B4 /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
+		12759B8AC4BDC7917C549CED /* Pods-Masarify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Masarify.release.xcconfig"; path = "Target Support Files/Pods-Masarify/Pods-Masarify.release.xcconfig"; sourceTree = "<group>"; };
+		13C5FA2E8243454D8195E919 /* Masarify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masarify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16A0314D568842C896C78551 /* ReceiptOCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptOCRService.swift; sourceTree = "<group>"; };
+		2705401AA45D4C8A971F0F64 /* BudgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsView.swift; sourceTree = "<group>"; };
+		29CDD42A26C1476F938C6ED3 /* VoiceEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceEntryView.swift; sourceTree = "<group>"; };
+		2E678973906C49F1B115089E /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		321E789898464E95A9B298DF /* Cairo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Bold.ttf"; sourceTree = "<group>"; };
+		36AFB1C93379438286A2D01D /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
+		3999A20F34BB4530A08802E5 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		43EC440C75214F07A95061EE /* ExpensesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesListView.swift; sourceTree = "<group>"; };
+		4DD6AAFA56B24E8FAD0625B5 /* ReceiptCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCaptureView.swift; sourceTree = "<group>"; };
+		501D7CCFAC2743998976CFB2 /* BrandTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandTheme.swift; sourceTree = "<group>"; };
+		5962AAF8F58046C89E2361B1 /* BudgetAlertBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetAlertBanner.swift; sourceTree = "<group>"; };
 		5B54EFAFB47D4E5BA23311B6 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportView.swift; sourceTree = "<group>"; };
 		5BB4B2D8941241E6AB356AF9 /* ExpenseFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseFormView.swift; sourceTree = "<group>"; };
-		43EC440C75214F07A95061EE /* ExpensesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesListView.swift; sourceTree = "<group>"; };
-		BA84478F65E345239D9B42AE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		4DD6AAFA56B24E8FAD0625B5 /* ReceiptCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCaptureView.swift; sourceTree = "<group>"; };
-		2E678973906C49F1B115089E /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
-		29CDD42A26C1476F938C6ED3 /* VoiceEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceEntryView.swift; sourceTree = "<group>"; };
-		321E789898464E95A9B298DF /* Tajawal-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tajawal-Bold.ttf; sourceTree = "<group>"; };
-		90FD7895F34C42B29BF05997 /* Tajawal-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tajawal-ExtraBold.ttf; sourceTree = "<group>"; };
-		DC9AB5CF610740BFBEFDFC02 /* Tajawal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tajawal-Medium.ttf; sourceTree = "<group>"; };
-		07A506BB6ECD44E09094A8FA /* Tajawal-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tajawal-Regular.ttf; sourceTree = "<group>"; };
-		A8A52C1C5B0145E9956F3A9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5CF113FBB9C6F74EC60CA684 /* Pods-Masarify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Masarify.debug.xcconfig"; path = "Target Support Files/Pods-Masarify/Pods-Masarify.debug.xcconfig"; sourceTree = "<group>"; };
 		644F06BDBAE34273BCC873B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67A4BBCE79C347CE95F21DAE /* MasarifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyApp.swift; sourceTree = "<group>"; };
+		6E53D50ECC794E02B90012F8 /* AppTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTypography.swift; sourceTree = "<group>"; };
+		783A86F352984E87BD185FDF /* BudgetMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetMonitor.swift; sourceTree = "<group>"; };
+		90FD7895F34C42B29BF05997 /* Cairo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-ExtraBold.ttf"; sourceTree = "<group>"; };
+		97CA0A23258043ABB7115B5A /* BudgetProgressRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetProgressRow.swift; sourceTree = "<group>"; };
+		9F619A8200D189564DEBFF89 /* Pods_Masarify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Masarify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A59F9796AAE34336A30F2678 /* BrandHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandHeroView.swift; sourceTree = "<group>"; };
+		A60718293A4B5C6D7E8F9012 /* Motion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
+		BB22CC33DD44EE55FF010203 /* PodIntegrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodIntegrations.swift; sourceTree = "<group>"; };
+		FF0102030405060708090A0B /* coin-spin.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "coin-spin.json"; sourceTree = "<group>"; };
+		A11Settings01B2C3D4E5F608 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		A11L10n0001B2C3D4E5F60719 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		A11SettingsViewB2C3D4E5F7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A61MoreView01B2C3D4E5F6 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		02030405060708090A0B0C0D /* success-check.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "success-check.json"; sourceTree = "<group>"; };
+		A8A52C1C5B0145E9956F3A9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B59B82BCECBA46D9B8AB0D82 /* VoiceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceParser.swift; sourceTree = "<group>"; };
+		BA84478F65E345239D9B42AE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C3D4E5F60718293A4B5C6D7E /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		DA60C028AF1E4CD0BF70EC06 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		DC9AB5CF610740BFBEFDFC02 /* Cairo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Medium.ttf"; sourceTree = "<group>"; };
+		E5F60718293A4B5C6D7E8F90 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		EF8E20F2376B4205840DB9E5 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		F1E2D3C4B5A69788796A5B4C /* MasarifyFormControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyFormControls.swift; sourceTree = "<group>"; };
+		F81E3C18A87C4FEABDF0A045 /* MonthlyBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyBudget.swift; sourceTree = "<group>"; };
+		A21SavingsGoal01B2C3D5 /* SavingsGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoal.swift; sourceTree = "<group>"; };
+		A21SmartMoney01B2C3D5 /* SmartMoneyServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartMoneyServices.swift; sourceTree = "<group>"; };
+		A21VoicePlan01B2C3D5 /* VoicePlanParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePlanParser.swift; sourceTree = "<group>"; };
+		A21Emergency01B2C3D5 /* EmergencyModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyModeView.swift; sourceTree = "<group>"; };
+		A21GoalsView01B2C3D5 /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
+		A21Insights01B2C3D5 /* InsightsHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsHubView.swift; sourceTree = "<group>"; };
+		A21VoicePlanV01B2C3D5 /* VoicePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePlanView.swift; sourceTree = "<group>"; };
+		A22MoneyMotion01B2C3D5 /* MoneyMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyMotion.swift; sourceTree = "<group>"; };
+
+		W41STORE01B2C3D4E5F607 /* WidgetBudgetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBudgetStore.swift; sourceTree = "<group>"; };
+		W41PUBLISH01B2C3D4E5 /* WidgetBudgetPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBudgetPublisher.swift; sourceTree = "<group>"; };
+		W41DEEPLINK01B2C3D4 /* MasarifyDeepLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyDeepLinks.swift; sourceTree = "<group>"; };
+		W41BUNDLE01B2C3D4E5F6 /* MasarifyWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyWidgetsBundle.swift; sourceTree = "<group>"; };
+		W41REMAIN01B2C3D4E5F6 /* RemainingBudgetWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingBudgetWidget.swift; sourceTree = "<group>"; };
+		W41INTENT01B2C3D4E5F6 /* OpenVoiceIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenVoiceIntent.swift; sourceTree = "<group>"; };
+		W41INFO01B2C3D4E5F607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		W41ASSETS01B2C3D4E5F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		W41APPENT01B2C3D4E5F6 /* Masarify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Masarify.entitlements; sourceTree = "<group>"; };
+		W41WIDENT01B2C3D4E5F6 /* MasarifyWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MasarifyWidgets.entitlements; sourceTree = "<group>"; };
+		W41APPEX01B2C3D4E5F607 /* MasarifyWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MasarifyWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		W41CHROME01B2C3D4E5F6 /* WidgetChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetChrome.swift; sourceTree = "<group>"; };
+		A41AMOUNT01B2C3D4E5F607 /* MasarifyAmountField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasarifyAmountField.swift; sourceTree = "<group>"; };
+		A51MYEXP01B2C3D4E5F607 /* MyExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExpensesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4BD0E1FF89C94DD3897580F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBB0480D4D24085E641B2E1F /* Pods_Masarify.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		W41WFRAME01B2C3D4E5F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -83,26 +198,82 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C959F7B9271940C6BF3018F3 = {
+		11DD056499DD4A4DAD34CD26 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6FE7DEAD6CEC4E358CF29169 /* Masarify */,
-				4AB9FD0126424EC5892E65D3 /* Products */,
+				2705401AA45D4C8A971F0F64 /* BudgetsView.swift */,
+				E5F60718293A4B5C6D7E8F90 /* CategoriesView.swift */,
+				5B54EFAFB47D4E5BA23311B6 /* DailyReportView.swift */,
+				5BB4B2D8941241E6AB356AF9 /* ExpenseFormView.swift */,
+				43EC440C75214F07A95061EE /* ExpensesListView.swift */,
+				BA84478F65E345239D9B42AE /* HomeView.swift */,
+				A51MYEXP01B2C3D4E5F607 /* MyExpensesView.swift */,
+				A21Emergency01B2C3D5 /* EmergencyModeView.swift */,
+				A21GoalsView01B2C3D5 /* GoalsView.swift */,
+				A21Insights01B2C3D5 /* InsightsHubView.swift */,
+				C81ONBO01B2C3D4E5F607 /* OnboardingView.swift */,
+				C81TOUR01B2C3D4E5F607 /* FeatureTourOverlay.swift */,
+				C71TRUE01B2C3D4E5F607 /* TrueCostSettingsView.swift */,
+				C71DSUM01B2C3D4E5F607 /* DailySummarySettingsView.swift */,
+				C61PRIV01B2C3D4E5F607 /* PrivacySecurityView.swift */,
+				C61LOCK01B2C3D4E5F607 /* BiometricLockOverlay.swift */,
+				C51CHART01B2C3D4E5F6 /* SpendingChartsView.swift */,
+				A31TripView01B2C3D5 /* TripModeView.swift */,
+				A21VoicePlanV01B2C3D5 /* VoicePlanView.swift */,
+				4DD6AAFA56B24E8FAD0625B5 /* ReceiptCaptureView.swift */,
+				2E678973906C49F1B115089E /* RootTabView.swift */,
+				A11SettingsViewB2C3D4E5F7 /* SettingsView.swift */,
+				A61MoreView01B2C3D4E5F6 /* MoreView.swift */,
+				29CDD42A26C1476F938C6ED3 /* VoiceEntryView.swift */,
+				9133C7553E25425EB0BEF843 /* Components */,
 			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4AB9FD0126424EC5892E65D3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				13C5FA2E8243454D8195E919 /* Masarify.app */,
+				W41APPEX01B2C3D4E5F607 /* MasarifyWidgets.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4AF3E7D2FF06AEDFC2A8D23A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F619A8200D189564DEBFF89 /* Pods_Masarify.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		500FCD471ABE499DB161FD04 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				321E789898464E95A9B298DF /* Cairo-Bold.ttf */,
+				90FD7895F34C42B29BF05997 /* Cairo-ExtraBold.ttf */,
+				DC9AB5CF610740BFBEFDFC02 /* Cairo-Medium.ttf */,
+				07A506BB6ECD44E09094A8FA /* Cairo-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		658DBAAB25DAB3032A9EE905 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CF113FBB9C6F74EC60CA684 /* Pods-Masarify.debug.xcconfig */,
+				12759B8AC4BDC7917C549CED /* Pods-Masarify.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		6FE7DEAD6CEC4E358CF29169 /* Masarify */ = {
 			isa = PBXGroup;
 			children = (
 				67A4BBCE79C347CE95F21DAE /* MasarifyApp.swift */,
+				W41APPENT01B2C3D4E5F6 /* Masarify.entitlements */,
+				W41SHAREDGRP01B2C3D4 /* Shared */,
 				ABD512936C5249319210C812 /* Models */,
 				D2E93A7A4F3649B182712C8F /* Services */,
 				96ADE9A0A35B4C1E8964F493 /* Theme */,
@@ -114,14 +285,74 @@
 			path = Masarify;
 			sourceTree = "<group>";
 		};
+		9133C7553E25425EB0BEF843 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A59F9796AAE34336A30F2678 /* BrandHeroView.swift */,
+				5962AAF8F58046C89E2361B1 /* BudgetAlertBanner.swift */,
+				97CA0A23258043ABB7115B5A /* BudgetProgressRow.swift */,
+				0AB8B9BB57BA4B11997D46B4 /* ExpenseRowView.swift */,
+				F1E2D3C4B5A69788796A5B4C /* MasarifyFormControls.swift */,
+				A41AMOUNT01B2C3D4E5F607 /* MasarifyAmountField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		96ADE9A0A35B4C1E8964F493 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				DA60C028AF1E4CD0BF70EC06 /* AppAppearance.swift */,
+				A11Settings01B2C3D4E5F608 /* AppSettings.swift */,
+				6E53D50ECC794E02B90012F8 /* AppTypography.swift */,
+				501D7CCFAC2743998976CFB2 /* BrandTheme.swift */,
+				A11L10n0001B2C3D4E5F60719 /* L10n.swift */,
+				A22MoneyMotion01B2C3D5 /* MoneyMotion.swift */,
+				A60718293A4B5C6D7E8F9012 /* Motion.swift */,
+				BB22CC33DD44EE55FF010203 /* PodIntegrations.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		ABD512936C5249319210C812 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C3D4E5F60718293A4B5C6D7E /* CategoryItem.swift */,
+				A21SavingsGoal01B2C3D5 /* SavingsGoal.swift */,
+				A31TripModel01B2C3D5 /* Trip.swift */,
 				3999A20F34BB4530A08802E5 /* Expense.swift */,
 				36AFB1C93379438286A2D01D /* ExpenseCategory.swift */,
 				F81E3C18A87C4FEABDF0A045 /* MonthlyBudget.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B4BCB98BBD834034877398B3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				500FCD471ABE499DB161FD04 /* Fonts */,
+				0A0B0C0D0E0F101112131415 /* Animations */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0A0B0C0D0E0F101112131415 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				FF0102030405060708090A0B /* coin-spin.json */,
+				02030405060708090A0B0C0D /* success-check.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		C959F7B9271940C6BF3018F3 = {
+			isa = PBXGroup;
+			children = (
+				6FE7DEAD6CEC4E358CF29169 /* Masarify */,
+				W41WIDGETGRP01B2C3D4 /* MasarifyWidgets */,
+				4AB9FD0126424EC5892E65D3 /* Products */,
+				658DBAAB25DAB3032A9EE905 /* Pods */,
+				4AF3E7D2FF06AEDFC2A8D23A /* Frameworks */,
+			);
 			sourceTree = "<group>";
 		};
 		D2E93A7A4F3649B182712C8F /* Services */ = {
@@ -131,65 +362,43 @@
 				16A0314D568842C896C78551 /* ReceiptOCRService.swift */,
 				EF8E20F2376B4205840DB9E5 /* SpeechRecognizer.swift */,
 				B59B82BCECBA46D9B8AB0D82 /* VoiceParser.swift */,
+				C61CLD01B2C3D4E5F60718 /* CloudAccountStore.swift */,
+				C61BIO01B2C3D4E5F60718 /* BiometricAuthService.swift */,
+				C51EXP01B2C3D4E5F60718 /* ExpenseExportService.swift */,
+				C51ANAL01B2C3D4E5F607 /* SpendingAnalytics.swift */,
+				C41DNOTI01B2C3D4E5F607 /* DailySummaryNotifier.swift */,
+				C41DSNAP01B2C3D4E5F607 /* DailySummarySnapshot.swift */,
+				C41RFIELD01B2C3D4E5F6 /* ReceiptFieldParser.swift */,
+				C41MATCH01B2C3D4E5F607 /* CategoryMatcher.swift */,
+				A21SmartMoney01B2C3D5 /* SmartMoneyServices.swift */,
+				A21VoicePlan01B2C3D5 /* VoicePlanParser.swift */,
+				W41PUBLISH01B2C3D4E5 /* WidgetBudgetPublisher.swift */,
+				W41DEEPLINK01B2C3D4 /* MasarifyDeepLinks.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		96ADE9A0A35B4C1E8964F493 /* Theme */ = {
+
+		W41SHAREDGRP01B2C3D4 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				DA60C028AF1E4CD0BF70EC06 /* AppAppearance.swift */,
-				6E53D50ECC794E02B90012F8 /* AppTypography.swift */,
-				501D7CCFAC2743998976CFB2 /* BrandTheme.swift */,
+				W41STORE01B2C3D4E5F607 /* WidgetBudgetStore.swift */,
 			);
-			path = Theme;
+			path = Shared;
 			sourceTree = "<group>";
 		};
-		11DD056499DD4A4DAD34CD26 /* Views */ = {
+		W41WIDGETGRP01B2C3D4 /* MasarifyWidgets */ = {
 			isa = PBXGroup;
 			children = (
-				2705401AA45D4C8A971F0F64 /* BudgetsView.swift */,
-				5B54EFAFB47D4E5BA23311B6 /* DailyReportView.swift */,
-				5BB4B2D8941241E6AB356AF9 /* ExpenseFormView.swift */,
-				43EC440C75214F07A95061EE /* ExpensesListView.swift */,
-				BA84478F65E345239D9B42AE /* HomeView.swift */,
-				4DD6AAFA56B24E8FAD0625B5 /* ReceiptCaptureView.swift */,
-				2E678973906C49F1B115089E /* RootTabView.swift */,
-				29CDD42A26C1476F938C6ED3 /* VoiceEntryView.swift */,
-				9133C7553E25425EB0BEF843 /* Components */,
+				W41BUNDLE01B2C3D4E5F6 /* MasarifyWidgetsBundle.swift */,
+				W41REMAIN01B2C3D4E5F6 /* RemainingBudgetWidget.swift */,
+				W41CHROME01B2C3D4E5F6 /* WidgetChrome.swift */,
+				W41INTENT01B2C3D4E5F6 /* OpenVoiceIntent.swift */,
+				W41ASSETS01B2C3D4E5F6 /* Assets.xcassets */,
+				W41INFO01B2C3D4E5F607 /* Info.plist */,
+				W41WIDENT01B2C3D4E5F6 /* MasarifyWidgets.entitlements */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		9133C7553E25425EB0BEF843 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				A59F9796AAE34336A30F2678 /* BrandHeroView.swift */,
-				5962AAF8F58046C89E2361B1 /* BudgetAlertBanner.swift */,
-				97CA0A23258043ABB7115B5A /* BudgetProgressRow.swift */,
-				0AB8B9BB57BA4B11997D46B4 /* ExpenseRowView.swift */,
-				F1E2D3C4B5A69788796A5B4C /* MasarifyFormControls.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		B4BCB98BBD834034877398B3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				500FCD471ABE499DB161FD04 /* Fonts */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		500FCD471ABE499DB161FD04 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				321E789898464E95A9B298DF /* Tajawal-Bold.ttf */,
-				90FD7895F34C42B29BF05997 /* Tajawal-ExtraBold.ttf */,
-				DC9AB5CF610740BFBEFDFC02 /* Tajawal-Medium.ttf */,
-				07A506BB6ECD44E09094A8FA /* Tajawal-Regular.ttf */,
-			);
-			path = Fonts;
+			path = MasarifyWidgets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,18 +408,40 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2404B6D342A44808B60F21FD /* Build configuration list for PBXNativeTarget "Masarify" */;
 			buildPhases = (
+				F82DAA781E03EDDF57761CDD /* [CP] Check Pods Manifest.lock */,
 				6F9809AC51964C13BE56DF4C /* Sources */,
 				4BD0E1FF89C94DD3897580F1 /* Frameworks */,
 				1F55763F75824358B94F9BFD /* Resources */,
+				9F23533934E1C3DA45A11B15 /* [CP] Embed Pods Frameworks */,
+				W41EMBEDPH01B2C3D4E5F6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				W41WDEP01B2C3D4E5F60718 /* PBXTargetDependency */,
 			);
 			name = Masarify;
 			productName = Masarify;
 			productReference = 13C5FA2E8243454D8195E919 /* Masarify.app */;
 			productType = "com.apple.product-type.application";
+		};
+
+		W41WTARGET01B2C3D4E5F6 /* MasarifyWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = W41WCFGLIST01B2C3D4E5 /* Build configuration list for PBXNativeTarget "MasarifyWidgets" */;
+			buildPhases = (
+				W41WSOURCES01B2C3D4E5 /* Sources */,
+				W41WFRAME01B2C3D4E5F6 /* Frameworks */,
+				W41WRES01B2C3D4E5F607 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MasarifyWidgets;
+			productName = MasarifyWidgets;
+			productReference = W41APPEX01B2C3D4E5F607 /* MasarifyWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -223,6 +454,9 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					AB672BF0FD664635B4DE48FF = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					W41WTARGET01B2C3D4E5F6 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -242,24 +476,113 @@
 			projectRoot = "";
 			targets = (
 				AB672BF0FD664635B4DE48FF /* Masarify */,
+				W41WTARGET01B2C3D4E5F6 /* MasarifyWidgets */,
 			);
 		};
 /* End PBXProject section */
 
+
+/* Begin PBXCopyFilesBuildPhase section */
+		W41EMBEDPH01B2C3D4E5F6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				W41EMBEDBF01B2C3D4E5F6 /* MasarifyWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXContainerItemProxy section */
+		W41WPROXY01B2C3D4E5F607 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 043E97EF6D6F484CBDF7D277 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = W41WTARGET01B2C3D4E5F6;
+			remoteInfo = MasarifyWidgets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		W41WDEP01B2C3D4E5F60718 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = W41WTARGET01B2C3D4E5F6 /* MasarifyWidgets */;
+			targetProxy = W41WPROXY01B2C3D4E5F607 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 /* Begin PBXResourcesBuildPhase section */
 		1F55763F75824358B94F9BFD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				688C0961009B4692BBE02F86 /* Assets.xcassets in Resources */,
-				03DB75A22E5A435D976B0B40 /* Tajawal-Bold.ttf in Resources */,
-				3155F647D7E94DCD804ACF9E /* Tajawal-ExtraBold.ttf in Resources */,
-				461623485CFD4BED880F011B /* Tajawal-Medium.ttf in Resources */,
-				D485A87A3EC34421B870ECDB /* Tajawal-Regular.ttf in Resources */,
+				03DB75A22E5A435D976B0B40 /* Cairo-Bold.ttf in Resources */,
+				3155F647D7E94DCD804ACF9E /* Cairo-ExtraBold.ttf in Resources */,
+				461623485CFD4BED880F011B /* Cairo-Medium.ttf in Resources */,
+				D485A87A3EC34421B870ECDB /* Cairo-Regular.ttf in Resources */,
+				EE55FF010203040506070809 /* coin-spin.json in Resources */,
+				0102030405060708090A0B0C /* success-check.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		W41WRES01B2C3D4E5F607 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				W41ASSETSW01B2C3D4E5F6 /* Assets.xcassets in Resources */,
+				W41FONTBOLDW01B2C3D4 /* Cairo-Bold.ttf in Resources */,
+				W41FONTEXTRAW01B2C3 /* Cairo-ExtraBold.ttf in Resources */,
+				W41FONTMEDW01B2C3D4 /* Cairo-Medium.ttf in Resources */,
+				W41FONTREGW01B2C3D4 /* Cairo-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9F23533934E1C3DA45A11B15 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Masarify/Pods-Masarify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Masarify/Pods-Masarify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Masarify/Pods-Masarify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F82DAA781E03EDDF57761CDD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Masarify-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6F9809AC51964C13BE56DF4C /* Sources */ = {
@@ -268,34 +591,129 @@
 			files = (
 				C412434A623D49CEAE7D97D4 /* MasarifyApp.swift in Sources */,
 				B5E935659B1248478C064D51 /* Expense.swift in Sources */,
+				B2C3D4E5F60718293A4B5C6D /* CategoryItem.swift in Sources */,
 				EB253431E9B244BFAE034ED3 /* ExpenseCategory.swift in Sources */,
 				6F8CC8CC845842FCBEDE5C63 /* MonthlyBudget.swift in Sources */,
+				D4E5F60718293A4B5C6D7E8F /* CategoriesView.swift in Sources */,
 				F24E8F69F9BC44D298EE9D06 /* BudgetMonitor.swift in Sources */,
 				4BAC4D212D804C73B12CCB8A /* ReceiptOCRService.swift in Sources */,
 				48AC6EC5B9C2472CAF529E2F /* SpeechRecognizer.swift in Sources */,
 				BEDEDDBB040B49DBB4EF266B /* VoiceParser.swift in Sources */,
+				C41MATCHBF01B2C3D4E5 /* CategoryMatcher.swift in Sources */,
+				C41RFIELDBF01B2C3D4E5 /* ReceiptFieldParser.swift in Sources */,
+				C41DSNAPBF01B2C3D4E5 /* DailySummarySnapshot.swift in Sources */,
+				C41DNOTIBF01B2C3D4E5 /* DailySummaryNotifier.swift in Sources */,
 				D23F217714AD40B29C31875B /* AppTypography.swift in Sources */,
 				932A2165B86348C49929C36D /* AppAppearance.swift in Sources */,
 				7BB50CBAFEB94C97BC81068F /* BrandTheme.swift in Sources */,
+				F60718293A4B5C6D7E8F9012 /* Motion.swift in Sources */,
+				AA11BB22CC33DD44EE55FF01 /* PodIntegrations.swift in Sources */,
+				A11Settings01B2C3D4E5F607 /* AppSettings.swift in Sources */,
+				A11L10n0001B2C3D4E5F60718 /* L10n.swift in Sources */,
+				A22MoneyMotion01B2C3D4 /* MoneyMotion.swift in Sources */,
+				A11SettingsViewB2C3D4E5F6 /* SettingsView.swift in Sources */,
+				A61MoreViewBF01B2C3D4E5 /* MoreView.swift in Sources */,
 				D8DCFBA757BE4E4EB21B00B0 /* BudgetsView.swift in Sources */,
 				66A58FA9BC6C470CB5E7A126 /* BrandHeroView.swift in Sources */,
 				E2016107D6F14536B418CE34 /* BudgetAlertBanner.swift in Sources */,
 				CCE0C85E1A6A4D749F216411 /* BudgetProgressRow.swift in Sources */,
 				91440A8D2514482582B356CF /* ExpenseRowView.swift in Sources */,
 				A1B2C3D4E5F60718293A4B5C /* MasarifyFormControls.swift in Sources */,
+				A41AMOUNTBF01B2C3D4E5F6 /* MasarifyAmountField.swift in Sources */,
 				FF002323DE5747008FCDE449 /* DailyReportView.swift in Sources */,
 				6410DF8B768B41DD9A2C839A /* ExpenseFormView.swift in Sources */,
 				49D9DA1CAD9F4E6AA748922A /* ExpensesListView.swift in Sources */,
 				F94DB922BD324CD3BA7E683F /* HomeView.swift in Sources */,
+				A51MYEXPBF01B2C3D4E5F6 /* MyExpensesView.swift in Sources */,
 				0349FE91794E4B77B2D228C8 /* ReceiptCaptureView.swift in Sources */,
 				78AE6AF0D7D14860984A5FA0 /* RootTabView.swift in Sources */,
 				DEC6D119E3584438849AFB3E /* VoiceEntryView.swift in Sources */,
+				A21SavingsGoal01B2C3D4 /* SavingsGoal.swift in Sources */,
+				A21SmartMoney01B2C3D4 /* SmartMoneyServices.swift in Sources */,
+				A21VoicePlan01B2C3D4 /* VoicePlanParser.swift in Sources */,
+				A21Emergency01B2C3D4 /* EmergencyModeView.swift in Sources */,
+				A21GoalsView01B2C3D4 /* GoalsView.swift in Sources */,
+				A21Insights01B2C3D4 /* InsightsHubView.swift in Sources */,
+				C81ONBOBF01B2C3D4E5 /* OnboardingView.swift in Sources */,
+				C81TOURBF01B2C3D4E5 /* FeatureTourOverlay.swift in Sources */,
+				C71TRUEBF01B2C3D4E5 /* TrueCostSettingsView.swift in Sources */,
+				C71DSUMBF01B2C3D4E5 /* DailySummarySettingsView.swift in Sources */,
+				C61PRIVBF01B2C3D4E5 /* PrivacySecurityView.swift in Sources */,
+				C61LOCKBF01B2C3D4E5 /* BiometricLockOverlay.swift in Sources */,
+				C61CLDBF01B2C3D4E5F6 /* CloudAccountStore.swift in Sources */,
+				C61BIOBF01B2C3D4E5F6 /* BiometricAuthService.swift in Sources */,
+				C51CHARTBF01B2C3D4E5 /* SpendingChartsView.swift in Sources */,
+				C51EXPBF01B2C3D4E5F6 /* ExpenseExportService.swift in Sources */,
+				C51ANALBF01B2C3D4E5 /* SpendingAnalytics.swift in Sources */,
+				A31TripModel01B2C3D4 /* Trip.swift in Sources */,
+				A31TripView01B2C3D4 /* TripModeView.swift in Sources */,
+				A21VoicePlanV01B2C3D4 /* VoicePlanView.swift in Sources */,
+				W41STOREAPP01B2C3D4E5 /* WidgetBudgetStore.swift in Sources */,
+				W41PUBLISHAPP01B2C3D4 /* WidgetBudgetPublisher.swift in Sources */,
+				W41DEEPLINKAPP01B2C3 /* MasarifyDeepLinks.swift in Sources */,
+				W41INTENTAPP01B2C3D4 /* OpenVoiceIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		W41WSOURCES01B2C3D4E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				W41STOREW01B2C3D4E5F6 /* WidgetBudgetStore.swift in Sources */,
+				W41BUNDLEW01B2C3D4E5F6 /* MasarifyWidgetsBundle.swift in Sources */,
+				W41REMAINW01B2C3D4E5 /* RemainingBudgetWidget.swift in Sources */,
+				W41INTENTW01B2C3D4E5F6 /* OpenVoiceIntent.swift in Sources */,
+				W41CHROMEW01B2C3D4E5 /* WidgetChrome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		22BD9F6A34094908BF0AB1B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8302DEF011554EFFAE9E8FF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CF113FBB9C6F74EC60CA684 /* Pods-Masarify.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Masarify/Masarify.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QGAKD3KM8V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Masarify/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "مصاريفي";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.masarify.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
 		DB32235BBC3E4AB6ABB95783 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -315,29 +733,16 @@
 			};
 			name = Debug;
 		};
-		22BD9F6A34094908BF0AB1B9 /* Release */ = {
+		F213E749169747F9A79EBF6B /* Release */ = {
 			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		8302DEF011554EFFAE9E8FF0 /* Debug */ = {
-			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12759B8AC4BDC7917C549CED /* Pods-Masarify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Masarify/Masarify.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QGAKD3KM8V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Masarify/Info.plist;
@@ -355,27 +760,55 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Debug;
+			name = Release;
 		};
-		F213E749169747F9A79EBF6B /* Release */ = {
+
+		W41WDEBUG01B2C3D4E5F607 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MasarifyWidgets/MasarifyWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				ENABLE_PREVIEWS = YES;
+				DEVELOPMENT_TEAM = QGAKD3KM8V;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = Masarify/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "مصاريفي";
+				INFOPLIST_FILE = MasarifyWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.masarify.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.masarify.app.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		W41WRELEASE01B2C3D4E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MasarifyWidgets/MasarifyWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QGAKD3KM8V;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MasarifyWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.masarify.app.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -387,6 +820,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2404B6D342A44808B60F21FD /* Build configuration list for PBXNativeTarget "Masarify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8302DEF011554EFFAE9E8FF0 /* Debug */,
+				F213E749169747F9A79EBF6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B7CBCEB40F2C44949E8D651E /* Build configuration list for PBXProject "Masarify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -396,11 +838,12 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2404B6D342A44808B60F21FD /* Build configuration list for PBXNativeTarget "Masarify" */ = {
+
+		W41WCFGLIST01B2C3D4E5 /* Build configuration list for PBXNativeTarget "MasarifyWidgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8302DEF011554EFFAE9E8FF0 /* Debug */,
-				F213E749169747F9A79EBF6B /* Release */,
+				W41WDEBUG01B2C3D4E5F607 /* Debug */,
+				W41WRELEASE01B2C3D4E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
