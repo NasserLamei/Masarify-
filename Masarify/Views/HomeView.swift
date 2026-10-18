@@ -26,7 +26,12 @@ struct HomeView: View {
     @State private var showMyExpenses = false
     @State private var showDailyReport = false
     @State private var showCoach = false
+    @State private var showDebt = false
+    @State private var showCashFlow = false
+    @State private var showShopTips = false
     @Query(filter: #Predicate<Trip> { $0.isActive }) private var activeTrips: [Trip]
+    @Query(filter: #Predicate<DebtLoan> { !$0.isSettled }, sort: \DebtLoan.dueDate)
+    private var openDebts: [DebtLoan]
 
     private var coachTip: FinancialCoachService.Tip {
         FinancialCoachService.primaryTip(
@@ -35,6 +40,15 @@ struct HomeView: View {
             categories: categories,
             language: settings.language,
             activeChallenges: settings.activeChallenges
+        )
+    }
+
+    private var cashFlowForecast: PredictiveCashFlowService.Forecast {
+        PredictiveCashFlowService.forecast(
+            expenses: expenses,
+            budgets: budgets,
+            categories: categories,
+            language: settings.language
         )
     }
 
@@ -108,10 +122,23 @@ struct HomeView: View {
                 coachStrip
                     .masarifyAppear(1)
 
+                if cashFlowForecast.upcomingTotal > 0 {
+                    cashFlowStrip
+                        .masarifyAppear(1)
+                }
+
+                if !openDebts.isEmpty {
+                    debtStrip
+                        .masarifyAppear(1)
+                }
+
                 // Horizontal money quick actions
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
                         moneyAction(settings.t(.coachTitle), "person.wave.2.fill", BrandTheme.deepTeal) { showCoach = true }
+                        moneyAction(settings.t(.debtTitle), "person.2.fill", BrandTheme.highlight) { showDebt = true }
+                        moneyAction(settings.t(.cashFlowTitle), "calendar.badge.exclamationmark", BrandTheme.coral) { showCashFlow = true }
+                        moneyAction(settings.t(.shopTipsTitle), "cart.fill", BrandTheme.azure) { showShopTips = true }
                         moneyAction(settings.t(.voicePlan), "waveform", BrandTheme.azure) { showVoicePlan = true }
                         moneyAction(settings.t(.emergency), "lifepreserver.fill", BrandTheme.coral) { showEmergency = true }
                         moneyAction(settings.t(.insights), "chart.line.uptrend.xyaxis", BrandTheme.deepTeal) { onInsights?() }
@@ -224,9 +251,93 @@ struct HomeView: View {
                 .environmentObject(settings)
                 .environment(\.layoutDirection, settings.language.layoutDirection)
         }
+        .sheet(isPresented: $showDebt) {
+            NavigationStack { DebtLoanView() }
+                .environmentObject(settings)
+                .environment(\.layoutDirection, settings.language.layoutDirection)
+        }
+        .sheet(isPresented: $showCashFlow) {
+            NavigationStack { PredictiveCashFlowView() }
+                .environmentObject(settings)
+                .environment(\.layoutDirection, settings.language.layoutDirection)
+        }
+        .sheet(isPresented: $showShopTips) {
+            NavigationStack { SmartShoppingView() }
+                .environmentObject(settings)
+                .environment(\.layoutDirection, settings.language.layoutDirection)
+        }
         .onAppear {
             withAnimation(Motion.gentle) { contentReady = true }
         }
+    }
+
+    private var cashFlowStrip: some View {
+        Button { showCashFlow = true } label: {
+            HStack(alignment: .top, spacing: 12) {
+                Image(systemName: "calendar.badge.exclamationmark")
+                    .foregroundStyle(.white)
+                    .frame(width: 44, height: 44)
+                    .background(BrandTheme.coral)
+                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(settings.t(.cashFlowTitle))
+                        .font(AppFont.caption())
+                        .foregroundStyle(BrandTheme.coral)
+                    Text(cashFlowForecast.summary)
+                        .font(AppFont.subheadline())
+                        .foregroundStyle(BrandTheme.ink)
+                        .lineLimit(3)
+                        .multilineTextAlignment(.leading)
+                }
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.forward")
+                    .foregroundStyle(BrandTheme.coral.opacity(0.7))
+            }
+            .padding(14)
+            .background(BrandTheme.coral.opacity(0.08))
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .strokeBorder(BrandTheme.cardBorder, lineWidth: 1.6)
+            )
+        }
+        .buttonStyle(PressableStyle())
+    }
+
+    private var debtStrip: some View {
+        Button { showDebt = true } label: {
+            let total = openDebts.reduce(0) { $0 + $1.amount }
+            HStack(spacing: 12) {
+                Image(systemName: "person.2.fill")
+                    .foregroundStyle(.white)
+                    .frame(width: 44, height: 44)
+                    .background(BrandTheme.highlight)
+                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(settings.t(.debtTitle))
+                        .font(AppFont.headline())
+                        .foregroundStyle(BrandTheme.ink)
+                    Text(
+                        settings.language == .arabic
+                            ? "\(openDebts.count) حركة مفتوحة · \(CurrencyFormat.egp(total, language: .arabic))"
+                            : "\(openDebts.count) open · \(CurrencyFormat.egp(total, language: .english))"
+                    )
+                    .font(AppFont.caption())
+                    .foregroundStyle(BrandTheme.muted)
+                }
+                Spacer()
+                Image(systemName: "chevron.forward")
+                    .foregroundStyle(BrandTheme.highlight)
+            }
+            .padding(14)
+            .background(BrandTheme.highlight.opacity(0.10))
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .strokeBorder(BrandTheme.cardBorder, lineWidth: 1.6)
+            )
+        }
+        .buttonStyle(PressableStyle())
     }
 
     private var coachStrip: some View {

@@ -56,6 +56,11 @@ enum L10n {
         case coachTitle, coachName, coachSubtitle, coachTipsSection, coachChallengesSection
         case coachStartChallenge, coachChallengeActive, coachDismissChallenge, coachChallengeWon
         case coachVoice, coachVoiceHint, coachSpeak, coachStopSpeak
+        case debtTitle, debtHint, debtAdd, debtKind, debtPerson, debtAmount, debtDue, debtReminder
+        case debtSettle, debtEmpty, debtOverdue, debtValidation, debtLentTotal, debtBorrowedTotal
+        case cashFlowTitle, cashFlowHint, cashFlowSummary, cashFlowUpcomingTotal, cashFlowSurplus
+        case cashFlowList, cashFlowEmpty
+        case shopTipsTitle, shopTipsHint, shopTipsEmpty, shopTipsEmptyDetail
     }
 
     private static let table: [Key: (ar: String, en: String)] = [
@@ -267,7 +272,32 @@ enum L10n {
         .coachVoice: ("صوت المساعد", "Coach voice"),
         .coachVoiceHint: ("لما يكون مفعّل، باشا المصاريف يقرأ النصيحة بصوت عالي.", "When on, Coach Basha reads tips out loud."),
         .coachSpeak: ("اسمعلي النصيحة", "Hear this tip"),
-        .coachStopSpeak: ("وقف الصوت", "Stop speaking")
+        .coachStopSpeak: ("وقف الصوت", "Stop speaking"),
+        .debtTitle: ("سلف ودين", "Lend & borrow"),
+        .debtHint: ("سجّل بسرعة اللي سلّفته أو استلفته، وهنذكّرك بميعاد الرد عشان الذاكرة الخائنة.", "Quickly log what you lent or borrowed — we’ll remind you before due day."),
+        .debtAdd: ("تسجيل سلف/دين", "Add lend / debt"),
+        .debtKind: ("النوع", "Type"),
+        .debtPerson: ("الاسم", "Person"),
+        .debtAmount: ("المبلغ", "Amount"),
+        .debtDue: ("ميعاد الرد", "Due date"),
+        .debtReminder: ("تذكير ذكي", "Smart reminder"),
+        .debtSettle: ("اتسدد ✓", "Mark settled"),
+        .debtEmpty: ("مفيش سلف أو دين مفتوح — سجّل أول حركة.", "No open lends or debts — log the first one."),
+        .debtOverdue: ("متأخر", "Overdue"),
+        .debtValidation: ("اكتب الاسم ومبلغ صحيح.", "Enter a name and valid amount."),
+        .debtLentTotal: ("ليه عند الناس", "Owed to me"),
+        .debtBorrowedTotal: ("عليّا", "I owe"),
+        .cashFlowTitle: ("توقع الفواتير", "Bill forecast"),
+        .cashFlowHint: ("من فواتير الكهرباء والنت والإيجار والاشتراكات اللي اتعلمتها، نتوقّع الإجبارية الجاية.", "From learned electricity, net, rent, and subscriptions, we forecast upcoming must-pays."),
+        .cashFlowSummary: ("تنبيه الأسبوع", "Week ahead"),
+        .cashFlowUpcomingTotal: ("فواتير متوقعة", "Expected bills"),
+        .cashFlowSurplus: ("فائض فعلي تقريبي", "Approx. real surplus"),
+        .cashFlowList: ("الفواتير الجاية", "Upcoming bills"),
+        .cashFlowEmpty: ("لسه مفيش نمط واضح — صوّر فواتيرك كام شهر.", "No clear pattern yet — scan bills for a couple months."),
+        .shopTipsTitle: ("نصائح تسوّق ذكية", "Smart shopping tips"),
+        .shopTipsHint: ("من فواتير السوبرماركت والصيدلية بنتعلّم الأسعار ونقترح بدائل أوفر.", "From supermarket and pharmacy receipts we learn prices and suggest cheaper options."),
+        .shopTipsEmpty: ("لسه بنتعلّم", "Still learning"),
+        .shopTipsEmptyDetail: ("صوّر كام فاتورة سوبرماركت أو صيدلية، وهنبدأ نقارن لك الأسعار.", "Scan a few supermarket or pharmacy receipts and we’ll start comparing.")
     ]
 
     static func string(_ key: Key, language: AppLanguage) -> String {

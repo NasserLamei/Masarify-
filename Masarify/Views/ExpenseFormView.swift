@@ -155,6 +155,7 @@ struct ExpenseFormView: View {
         }
         .background(BrandTheme.foam.ignoresSafeArea())
         .environment(\.font, AppFont.body())
+        .scrollDismissesKeyboard(.interactively)
         .toolbar(.hidden, for: .navigationBar)
         .safeAreaInset(edge: .top, spacing: 0) {
             MasarifyCustomHeader(title: title) {
@@ -370,6 +371,12 @@ struct ExpenseFormView: View {
             expense.date = date
         }
         try? modelContext.save()
+        SmartShoppingService.record(
+            merchant: merchant.isEmpty ? nil : merchant,
+            amount: amount,
+            categoryId: categoryId,
+            note: note
+        )
         WidgetBudgetPublisher.publish(from: modelContext, language: settings.language)
         showSavedToast = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {

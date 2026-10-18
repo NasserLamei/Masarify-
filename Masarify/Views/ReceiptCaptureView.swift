@@ -1,9 +1,12 @@
 import PhotosUI
 import SwiftUI
+import SwiftData
 import UIKit
 
 struct ReceiptCaptureView: View {
+    @EnvironmentObject private var settings: AppSettings
     @Environment(\.dismiss) private var dismiss
+    @Query(sort: \CategoryItem.sortOrder) private var categories: [CategoryItem]
     @State private var pickerItem: PhotosPickerItem?
     @State private var showCamera = false
     @State private var isProcessing = false
@@ -15,13 +18,10 @@ struct ReceiptCaptureView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Text("فاتورة")
-                    .font(AppFont.title())
-                    .foregroundStyle(BrandTheme.ink)
-
                 Text("صورة → قراءة النص → مراجعة → حفظ.")
-                    .font(AppFont.body())
+                    .font(AppFont.subheadline())
                     .foregroundStyle(BrandTheme.muted)
+                    .padding(.top, 4)
 
                 if let previewImage {
                     Image(uiImage: previewImage)
@@ -55,18 +55,53 @@ struct ReceiptCaptureView: View {
 
                 if let extract {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("نتيجة القراءة · \(extract.confidence.rawValue)")
+                        Text(confidenceLabel(extract.confidence))
                             .font(AppFont.caption())
-                            .foregroundStyle(BrandTheme.azure)
-                        ForEach(extract.rawHints, id: \.self) { hint in
+                            .foregroundStyle(
+                                extract.confidence == .lowOCR || extract.confidence == .mock
+                                ? BrandTheme.coral
+                                : BrandTheme.azure
+                            )
+                        ForEach(extract.rawHints.filter { !$0.hasPrefix("parsed:") }, id: \.self) { hint in
                             Text("• \(hint)")
                                 .font(AppFont.caption())
                                 .foregroundStyle(BrandTheme.muted)
                         }
+                        if let amount = extract.draft.amount {
+                            Text("المبلغ المقترح: \(CurrencyFormat.egp(amount, language: settings.language))")
+                                .font(AppFont.headline())
+                                .foregroundStyle(BrandTheme.deepTeal)
+                        }
+                        if let categoryId = extract.draft.categoryId,
+                           let cat = CategoryItem.resolve(id: categoryId, in: categories) {
+                            Text("\(settings.t(.categories)): \(settings.categoryLabel(cat))")
+                                .font(AppFont.subheadline())
+                                .foregroundStyle(cat.tint)
+                        }
+                        if let tip = SmartShoppingService.tip(
+                            forMerchant: extract.draft.merchant,
+                            amount: extract.draft.amount,
+                            categoryId: extract.draft.categoryId,
+                            language: settings.language
+                        ) {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Label(tip.title, systemImage: tip.systemImage)
+                                    .font(AppFont.headline())
+                                    .foregroundStyle(BrandTheme.azure)
+                                Text(tip.message)
+                                    .font(AppFont.caption())
+                                    .foregroundStyle(BrandTheme.muted)
+                            }
+                            .padding(12)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(BrandTheme.azure.opacity(0.10))
+                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        }
                         if !extract.recognizedText.isEmpty {
                             Text(extract.recognizedText)
                                 .font(AppFont.footnote())
-                                .foregroundStyle(BrandTheme.ink)
+                                .foregroundStyle(BrandTheme.ink.opacity(0.75))
+                                .lineLimit(8)
                                 .padding(12)
                                 .background(Color.white.opacity(0.85))
                                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
@@ -110,12 +145,10 @@ struct ReceiptCaptureView: View {
                         .frame(maxWidth: .infinity)
                 }
             }
-            .padding(20)
+            .masarifyScreenInsets()
+            .padding(.vertical, 20)
         }
-        .background(
-            LinearGradient(colors: [BrandTheme.foam, BrandTheme.mist], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-        )
+        .masarifyScreenBackground()
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
@@ -138,6 +171,17 @@ struct ReceiptCaptureView: View {
                     ExpenseFormView(mode: .draft(extract.draft))
                 }
             }
+            .environmentObject(settings)
+            .environment(\.layoutDirection, settings.language.layoutDirection)
+        }
+    }
+
+    private func confidenceLabel(_ confidence: ReceiptExtractResult.Confidence) -> String {
+        switch confidence {
+        case .vision: return "قراءة جيدة — راجع قبل الحفظ"
+        case .lowOCR: return "قراءة ضعيفة — صحّح المبلغ والفئة"
+        case .heuristic: return "تخمين من التلميحات"
+        case .mock: return "مفيش نص واضح من الصورة"
         }
     }
 
@@ -159,7 +203,17 @@ struct ReceiptCaptureView: View {
             isProcessing = true
             status = "جارٍ استخراج البيانات…"
         }
-        let result = await ReceiptOCRService.extract(from: image, fileNameHint: fileName)
+        let result = await ReceiptOCRService.extract(
+            from: image,
+            fileNameHint: fileName,
+            categories: categories
+        )
+        SmartShoppingService.record(
+            merchant: result.draft.merchant,
+            amount: result.draft.amount,
+            categoryId: result.draft.categoryId,
+            note: result.draft.note
+        )
         withAnimation {
             extract = result
             isProcessing = false

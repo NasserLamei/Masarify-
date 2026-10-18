@@ -77,6 +77,45 @@ struct MoreView: View {
                 .masarifyAppear(3)
 
                 NavigationLink {
+                    DebtLoanView()
+                } label: {
+                    moreRow(
+                        title: settings.t(.debtTitle),
+                        detail: settings.t(.debtHint),
+                        systemImage: "person.2.fill",
+                        tint: BrandTheme.highlight
+                    )
+                }
+                .buttonStyle(PressableStyle())
+                .masarifyAppear(3)
+
+                NavigationLink {
+                    PredictiveCashFlowView()
+                } label: {
+                    moreRow(
+                        title: settings.t(.cashFlowTitle),
+                        detail: settings.t(.cashFlowHint),
+                        systemImage: "calendar.badge.exclamationmark",
+                        tint: BrandTheme.coral
+                    )
+                }
+                .buttonStyle(PressableStyle())
+                .masarifyAppear(3)
+
+                NavigationLink {
+                    SmartShoppingView()
+                } label: {
+                    moreRow(
+                        title: settings.t(.shopTipsTitle),
+                        detail: settings.t(.shopTipsHint),
+                        systemImage: "cart.fill",
+                        tint: BrandTheme.azure
+                    )
+                }
+                .buttonStyle(PressableStyle())
+                .masarifyAppear(3)
+
+                NavigationLink {
                     DailySummarySettingsView()
                 } label: {
                     moreRow(

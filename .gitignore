@@ -24,6 +24,7 @@
 .swiftpm/
 Carthage/Build/
 DerivedData/
+.derivedData/
 Package.resolved
 Packages/
 Pods/

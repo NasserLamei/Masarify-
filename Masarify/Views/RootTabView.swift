@@ -425,5 +425,5 @@ struct SplashView: View {
 #Preview {
     RootTabView()
         .environmentObject(AppSettings())
-        .modelContainer(for: [Expense.self, MonthlyBudget.self, CategoryItem.self, SavingsGoal.self, Trip.self], inMemory: true)
+        .modelContainer(for: [Expense.self, MonthlyBudget.self, CategoryItem.self, SavingsGoal.self, Trip.self, DebtLoan.self], inMemory: true)
 }
