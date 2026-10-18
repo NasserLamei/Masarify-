@@ -22,75 +22,82 @@ struct ExpenseFormView: View {
     @State private var showValidation = false
 
     var body: some View {
-        Form {
-            Section {
-                TextField("٠٫٠٠", text: $amountText)
-                    .keyboardType(.decimalPad)
-                    .font(AppFont.title2())
-            } header: {
-                Text("المبلغ").font(AppFont.caption())
-            }
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                MasarifyFormCard(header: "المبلغ") {
+                    TextField("٠٫٠٠", text: $amountText)
+                        .keyboardType(.decimalPad)
+                        .font(AppFont.title2())
+                        .foregroundStyle(BrandTheme.ink)
+                }
 
-            Section {
-                Picker(selection: $category) {
-                    ForEach(ExpenseCategory.allCases) { cat in
-                        Text(cat.labelAr)
+                MasarifyFormCard(header: "الفئة") {
+                    MasarifyMenuPicker(
+                        title: "الفئة",
+                        options: ExpenseCategory.allCases.map { ($0, $0.labelAr) },
+                        selection: $category
+                    )
+                }
+
+                MasarifyFormCard(header: "التفاصيل") {
+                    VStack(alignment: .leading, spacing: 14) {
+                        TextField("ملاحظة", text: $note)
                             .font(AppFont.body())
-                            .tag(cat)
+                            .foregroundStyle(BrandTheme.ink)
+
+                        TextField("التاجر (اختياري)", text: $merchant)
+                            .font(AppFont.body())
+                            .foregroundStyle(BrandTheme.ink)
+
+                        DatePicker(selection: $date, displayedComponents: .date) {
+                            Text("التاريخ")
+                                .font(AppFont.body())
+                                .foregroundStyle(BrandTheme.ink)
+                        }
+                        .environment(\.locale, Locale(identifier: "ar"))
+                        .font(AppFont.body())
                     }
-                } label: {
-                    Text("الفئة").font(AppFont.body())
                 }
-                .pickerStyle(.navigationLink)
-                .font(AppFont.body())
-            } header: {
-                Text("الفئة").font(AppFont.caption())
-            }
 
-            Section {
-                TextField("ملاحظة", text: $note)
-                    .font(AppFont.body())
-                TextField("التاجر (اختياري)", text: $merchant)
-                    .font(AppFont.body())
-                DatePicker(selection: $date, displayedComponents: .date) {
-                    Text("التاريخ").font(AppFont.body())
-                }
-                .font(AppFont.body())
-            } header: {
-                Text("التفاصيل").font(AppFont.caption())
-            }
-
-            if showValidation {
-                Section {
+                if showValidation {
                     Text("أدخل مبلغًا صحيحًا أكبر من صفر.")
                         .font(AppFont.subheadline())
                         .foregroundStyle(.red)
                 }
-            }
-        }
-        .font(AppFont.body())
-        .environment(\.font, AppFont.body())
-        .navigationTitle(title)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Button("إلغاء") { dismiss() }
-                    .font(AppFont.headline())
-            }
-            ToolbarItem(placement: .confirmationAction) {
-                Button("حفظ") { save() }
-                    .font(AppFont.custom(.bold, size: 17))
-            }
-            if case .edit = mode {
-                ToolbarItem(placement: .bottomBar) {
-                    Button("حذف المصروف", role: .destructive) {
+
+                if case .edit = mode {
+                    Button(role: .destructive) {
                         deleteExpense()
+                    } label: {
+                        Text("حذف المصروف")
+                            .font(AppFont.headline())
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 12)
                     }
-                    .font(AppFont.headline())
+                    .buttonStyle(.bordered)
                 }
             }
+            .padding(20)
         }
-        .onAppear(perform: hydrate)
+        .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
+        .environment(\.font, AppFont.body())
+        .masarifyInlineTitle(title)
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                MasarifyToolbarButton(title: "إلغاء") { dismiss() }
+            }
+            ToolbarItem(placement: .confirmationAction) {
+                MasarifyToolbarButton(title: "حفظ", prominent: true) { save() }
+            }
+        }
+        .background(MasarifyChromeHost())
+        .onAppear {
+            hydrate()
+            AppAppearance.apply()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                AppAppearance.refreshLiveChrome()
+            }
+        }
     }
 
     private var title: String {

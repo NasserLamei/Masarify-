@@ -69,8 +69,17 @@ struct RootTabView: View {
                 .tag(Tab.report)
             }
             .tint(BrandTheme.deepTeal)
+            .background(MasarifyChromeHost())
             .onAppear {
                 AppAppearance.apply()
+                DispatchQueue.main.async {
+                    AppAppearance.refreshLiveChrome()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                        AppAppearance.refreshLiveChrome()
+                    }
+                }
+            }
+            .onChange(of: selectedTab) { _, _ in
                 DispatchQueue.main.async {
                     AppAppearance.refreshLiveChrome()
                 }

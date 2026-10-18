@@ -98,6 +98,7 @@ struct BudgetsView: View {
                 }
             }
         }
+        .background(MasarifyChromeHost())
         .onAppear {
             if ProcessInfo.processInfo.arguments.contains("-demoBudgetEditor") {
                 editingBudget = nil
@@ -109,81 +110,33 @@ struct BudgetsView: View {
             }
         }
         .sheet(isPresented: $showEditor) {
-            NavigationStack {
-                Form {
-                    Section {
-                        Picker(selection: $isOverall) {
-                            Text("إجمالي الشهر").font(AppFont.body()).tag(true)
-                            Text("حسب الفئة").font(AppFont.body()).tag(false)
-                        } label: {
-                            Text("النطاق").font(AppFont.body())
-                        }
-                        .pickerStyle(.segmented)
-                        .font(AppFont.body())
-
-                        if !isOverall {
-                            Picker(selection: Binding(
-                                get: { draftCategory ?? .food },
-                                set: { draftCategory = $0 }
-                            )) {
-                                ForEach(ExpenseCategory.allCases) { cat in
-                                    Text(cat.labelAr)
-                                        .font(AppFont.body())
-                                        .tag(cat)
-                                }
-                            } label: {
-                                Text("الفئة").font(AppFont.body())
-                            }
-                            .font(AppFont.body())
-                        }
-                    } header: {
-                        Text("النوع").font(AppFont.caption())
+            BudgetEditorSheet(
+                editingBudget: editingBudget,
+                isOverall: $isOverall,
+                draftCategory: $draftCategory,
+                draftLimit: $draftLimit,
+                showValidation: $showValidation,
+                onCancel: { showEditor = false },
+                onSave: saveDraft,
+                onDelete: {
+                    if let editingBudget {
+                        modelContext.delete(editingBudget)
                     }
-
-                    Section {
-                        TextField("المبلغ بالجنيه", text: $draftLimit)
-                            .keyboardType(.decimalPad)
-                            .font(AppFont.title2())
-                    } header: {
-                        Text("الحد").font(AppFont.caption())
-                    }
-
-                    if showValidation {
-                        Section {
-                            Text("أدخل مبلغًا صحيحًا أكبر من صفر.")
-                                .foregroundStyle(.red)
-                                .font(AppFont.subheadline())
-                        }
-                    }
-
-                    if editingBudget != nil {
-                        Section {
-                            Button("حذف الحد", role: .destructive) {
-                                if let editingBudget {
-                                    modelContext.delete(editingBudget)
-                                }
-                                showEditor = false
-                            }
-                            .font(AppFont.headline())
-                        }
-                    }
+                    showEditor = false
                 }
-                .font(AppFont.body())
-                .environment(\.font, AppFont.body())
-                .navigationTitle(editingBudget == nil ? "حد جديد" : "تعديل الحد")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button("إلغاء") { showEditor = false }
-                            .font(AppFont.headline())
-                    }
-                    ToolbarItem(placement: .confirmationAction) {
-                        Button("حفظ") { saveDraft() }
-                            .font(AppFont.custom(.bold, size: 17))
+            )
+            .environment(\.layoutDirection, .rightToLeft)
+            .environment(\.font, AppFont.body())
+        }
+        .onChange(of: showEditor) { _, open in
+            if open {
+                DispatchQueue.main.async {
+                    AppAppearance.refreshLiveChrome()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        AppAppearance.refreshLiveChrome()
                     }
                 }
             }
-            .environment(\.layoutDirection, .rightToLeft)
         }
     }
 
@@ -223,7 +176,6 @@ struct BudgetsView: View {
             editingBudget.monthKey = monthKey
             editingBudget.updatedAt = .now
         } else {
-            // Replace existing budget for same scope/month if present
             if let existing = budgets.first(where: {
                 $0.monthKey == monthKey && $0.categoryRaw == category?.rawValue
             }) {
@@ -236,5 +188,116 @@ struct BudgetsView: View {
             }
         }
         showEditor = false
+    }
+}
+
+private struct BudgetEditorSheet: View {
+    let editingBudget: MonthlyBudget?
+    @Binding var isOverall: Bool
+    @Binding var draftCategory: ExpenseCategory?
+    @Binding var draftLimit: String
+    @Binding var showValidation: Bool
+    let onCancel: () -> Void
+    let onSave: () -> Void
+    let onDelete: () -> Void
+
+    private var categoryBinding: Binding<ExpenseCategory> {
+        Binding(
+            get: { draftCategory ?? .food },
+            set: { draftCategory = $0 }
+        )
+    }
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    MasarifyFormCard(header: "النوع") {
+                        VStack(alignment: .leading, spacing: 14) {
+                            MasarifySegmentedControl(
+                                options: [
+                                    (true, "إجمالي الشهر"),
+                                    (false, "حسب الفئة")
+                                ],
+                                selection: $isOverall
+                            )
+
+                            if !isOverall {
+                                MasarifyMenuPicker(
+                                    title: "الفئة",
+                                    options: ExpenseCategory.allCases.map { ($0, $0.labelAr) },
+                                    selection: categoryBinding
+                                )
+                            }
+                        }
+                    }
+
+                    MasarifyFormCard(header: "الحد") {
+                        TextField("المبلغ بالجنيه", text: $draftLimit)
+                            .keyboardType(.decimalPad)
+                            .font(AppFont.title2())
+                            .foregroundStyle(BrandTheme.ink)
+                    }
+
+                    if showValidation {
+                        Text("أدخل مبلغًا صحيحًا أكبر من صفر.")
+                            .font(AppFont.subheadline())
+                            .foregroundStyle(.red)
+                    }
+
+                    if editingBudget != nil {
+                        Button(role: .destructive, action: onDelete) {
+                            Text("حذف الحد")
+                                .font(AppFont.headline())
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 12)
+                        }
+                        .buttonStyle(.bordered)
+                    }
+                }
+                .padding(20)
+            }
+            .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
+            .masarifyInlineTitle(editingBudget == nil ? "حد جديد" : "تعديل الحد")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    MasarifyToolbarButton(title: "إلغاء", action: onCancel)
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    MasarifyToolbarButton(title: "حفظ", prominent: true, action: onSave)
+                }
+            }
+            .background(MasarifyChromeHost())
+            .onAppear {
+                AppAppearance.apply()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                    AppAppearance.refreshLiveChrome()
+                }
+            }
+        }
+    }
+}
+
+/// Invisible UIKit host that refreshes Tajawal chrome after SwiftUI layout.
+struct MasarifyChromeHost: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView(frame: .zero)
+        view.isUserInteractionEnabled = false
+        view.backgroundColor = .clear
+        scheduleRefresh()
+        return view
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {
+        scheduleRefresh()
+    }
+
+    private func scheduleRefresh() {
+        DispatchQueue.main.async {
+            AppAppearance.refreshLiveChrome()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) {
+                AppAppearance.refreshLiveChrome()
+            }
+        }
     }
 }
