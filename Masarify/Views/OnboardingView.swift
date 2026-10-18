@@ -172,7 +172,7 @@ struct OnboardingView: View {
             .ignoresSafeArea()
             .animation(.easeInOut(duration: 0.55), value: page)
 
-            Image("AppBackground")
+            Image("SplashBackground")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()

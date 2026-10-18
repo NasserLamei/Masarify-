@@ -59,7 +59,7 @@ struct WidgetAtmosphere: View {
                 endPoint: .bottomTrailing
             )
 
-            Image("AppBackground")
+            Image("SplashBackground")
                 .resizable()
                 .scaledToFill()
                 .opacity(intense ? 0.55 : 0.38)

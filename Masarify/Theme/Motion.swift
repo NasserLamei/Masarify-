@@ -12,7 +12,7 @@ enum Motion {
     }
 }
 
-/// Brand pattern wallpaper (مصاريفي) with alpha — one continuous full-window layer.
+/// Brand wallpaper from `SplashBackground` — one continuous full-window layer with alpha.
 struct ScreenAtmosphere: View {
     @Environment(\.colorScheme) private var colorScheme
     @State private var shimmer = false
@@ -39,7 +39,7 @@ struct ScreenAtmosphere: View {
                     endPoint: .bottomTrailing
                 )
 
-                Image("AppBackground")
+                Image("SplashBackground")
                     .resizable()
                     .scaledToFill()
                     .frame(width: screen.width, height: screen.height)
