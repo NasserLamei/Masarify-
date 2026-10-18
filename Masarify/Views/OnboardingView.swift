@@ -48,37 +48,29 @@ struct OnboardingView: View {
             VStack(spacing: 0) {
                 topBar
                     .padding(.horizontal, BrandTheme.screenInset)
-                    .padding(.top, 10)
+                    .padding(.top, 8)
 
-                // Middle band: true vertical center for art + copy
+                // Pages fill leftover space; each page centers its own block.
                 GeometryReader { geo in
                     let width = geo.size.width
                     ZStack {
                         ForEach(Array(pages.enumerated()), id: \.offset) { index, item in
                             OnboardingPageView(page: item, isActive: page == index)
                                 .frame(width: width, height: geo.size.height)
-                                .offset(x: CGFloat(index - page) * width + dragOffset)
+                                .offset(x: pageOffset(for: index, width: width))
                         }
                     }
-                    .frame(width: width, height: geo.size.height, alignment: .center)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .clipped()
+                    .contentShape(Rectangle())
                     .gesture(pageDrag(width: width))
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-
-                pageDots
-                    .padding(.top, 8)
-                    .padding(.bottom, 14)
-
-                primaryButton
-                    .padding(.horizontal, BrandTheme.screenInset)
-                    .padding(.bottom, 22)
             }
-            .safeAreaPadding(.top, 4)
-            .safeAreaPadding(.bottom, 6)
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                bottomChrome
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
         .onAppear {
             withAnimation(.easeInOut(duration: 3.6).repeatForever(autoreverses: true)) {
                 orbPhase = true
@@ -86,20 +78,60 @@ struct OnboardingView: View {
         }
     }
 
+    private var bottomChrome: some View {
+        VStack(spacing: 14) {
+            pageDots
+
+            Button {
+                if page == pages.count - 1 {
+                    finish()
+                } else {
+                    withAnimation(.spring(response: 0.48, dampingFraction: 0.86)) { page += 1 }
+                }
+            } label: {
+                Text(page == pages.count - 1 ? settings.t(.onboardStart) : settings.t(.onboardNext))
+                    .font(AppFont.headline())
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 54)
+                    .background(
+                        LinearGradient(
+                            colors: [pages[page].accent, pages[page].secondary],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        ),
+                        in: RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    )
+                    .shadow(color: pages[page].accent.opacity(0.32), radius: 12, y: 5)
+            }
+            .buttonStyle(PressableStyle())
+            .padding(.horizontal, BrandTheme.screenInset)
+            .animation(.easeInOut(duration: 0.3), value: page)
+        }
+        .padding(.top, 10)
+        .padding(.bottom, 10)
+        .frame(maxWidth: .infinity)
+        .background(BrandTheme.foam.opacity(0.001)) // keep safe-area layout stable
+    }
+
+    private func pageOffset(for index: Int, width: CGFloat) -> CGFloat {
+        let dir: CGFloat = settings.language == .arabic ? -1 : 1
+        return dir * (CGFloat(index - page) * width) + dragOffset
+    }
+
     private func pageDrag(width: CGFloat) -> some Gesture {
         DragGesture(minimumDistance: 24)
             .onChanged { value in
-                // RTL: swipe right advances in Arabic layout feel; keep LTR math and flip by layout
-                let dx = settings.language == .arabic ? -value.translation.width : value.translation.width
-                dragOffset = dx
+                dragOffset = value.translation.width
             }
             .onEnded { value in
-                let dx = settings.language == .arabic ? -value.translation.width : value.translation.width
-                let threshold = width * 0.22
+                let dir: CGFloat = settings.language == .arabic ? -1 : 1
+                let progress = dir * value.translation.width
+                let threshold = width * 0.2
                 withAnimation(.spring(response: 0.48, dampingFraction: 0.86)) {
-                    if dx < -threshold, page < pages.count - 1 {
+                    if progress < -threshold, page < pages.count - 1 {
                         page += 1
-                    } else if dx > threshold, page > 0 {
+                    } else if progress > threshold, page > 0 {
                         page -= 1
                     }
                     dragOffset = 0
@@ -190,34 +222,7 @@ struct OnboardingView: View {
                     .animation(.spring(response: 0.4, dampingFraction: 0.7), value: page)
             }
         }
-    }
-
-    private var primaryButton: some View {
-        let isLast = page == pages.count - 1
-        return Button {
-            if isLast {
-                finish()
-            } else {
-                withAnimation(.spring(response: 0.48, dampingFraction: 0.86)) { page += 1 }
-            }
-        } label: {
-            Text(isLast ? settings.t(.onboardStart) : settings.t(.onboardNext))
-                .font(AppFont.headline())
-                .foregroundStyle(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
-                .background(
-                    LinearGradient(
-                        colors: [pages[page].accent, pages[page].secondary],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    )
-                )
-                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-                .shadow(color: pages[page].accent.opacity(0.35), radius: 14, y: 6)
-        }
-        .buttonStyle(PressableStyle())
-        .animation(.easeInOut(duration: 0.35), value: page)
+        .frame(maxWidth: .infinity)
     }
 
     private func finish() {
@@ -246,51 +251,49 @@ private struct OnboardingPageView: View {
     @State private var bob = false
     @State private var ring = false
 
+    private var chipBudget: String {
+        settings.language == .arabic ? "ميزانية" : "Budget"
+    }
+    private var chipWeek: String {
+        settings.t(.chartsWeek)
+    }
+    private var chipTop: String {
+        settings.language == .arabic ? "أعلى بند" : "Top spend"
+    }
+
     var body: some View {
-        // Equal spacers = true vertical center of art + copy as one block
-        VStack(spacing: 0) {
-            Spacer(minLength: 0)
+        VStack(spacing: 18) {
+            artStage
+                .frame(height: 200)
+                .frame(maxWidth: 300)
+                .scaleEffect(entered ? 1 : 0.82)
+                .opacity(entered ? 1 : 0)
 
-            VStack(spacing: 20) {
-                artStage
-                    .frame(maxWidth: 300)
-                    .frame(height: 210)
-                    .scaleEffect(entered ? 1 : 0.78)
-                    .opacity(entered ? 1 : 0)
+            VStack(spacing: 10) {
+                Text(settings.t(.appName))
+                    .font(AppFont.brand(32))
+                    .foregroundStyle(page.accent)
+                    .minimumScaleFactor(0.8)
+                    .lineLimit(1)
 
-                VStack(spacing: 10) {
-                    Text(settings.t(.appName))
-                        .font(AppFont.brand(32))
-                        .foregroundStyle(page.accent)
-                        .minimumScaleFactor(0.8)
-                        .lineLimit(1)
-                        .opacity(entered ? 1 : 0)
-                        .offset(y: entered ? 0 : 16)
+                Text(settings.t(page.titleKey))
+                    .font(AppFont.display(24))
+                    .foregroundStyle(BrandTheme.ink)
+                    .multilineTextAlignment(.center)
+                    .minimumScaleFactor(0.85)
 
-                    Text(settings.t(page.titleKey))
-                        .font(AppFont.display(24))
-                        .foregroundStyle(BrandTheme.ink)
-                        .multilineTextAlignment(.center)
-                        .minimumScaleFactor(0.85)
-                        .opacity(entered ? 1 : 0)
-                        .offset(y: entered ? 0 : 18)
-
-                    Text(settings.t(page.bodyKey))
-                        .font(AppFont.subheadline())
-                        .foregroundStyle(BrandTheme.muted)
-                        .multilineTextAlignment(.center)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(.horizontal, 8)
-                        .opacity(entered ? 1 : 0)
-                        .offset(y: entered ? 0 : 20)
-                }
-                .padding(.horizontal, BrandTheme.screenInset)
+                Text(settings.t(page.bodyKey))
+                    .font(AppFont.subheadline())
+                    .foregroundStyle(BrandTheme.muted)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(4)
+                    .padding(.horizontal, 4)
             }
-            .frame(maxWidth: .infinity)
-
-            Spacer(minLength: 0)
+            .padding(.horizontal, BrandTheme.screenInset)
+            .opacity(entered ? 1 : 0)
+            .offset(y: entered ? 0 : 16)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .onAppear { playEntrance() }
         .onChange(of: isActive) { _, active in
             if active { playEntrance() }
@@ -320,7 +323,7 @@ private struct OnboardingPageView: View {
 
             Circle()
                 .stroke(page.accent.opacity(ring ? 0.0 : 0.35), lineWidth: 2)
-                .frame(width: ring ? 200 : 80, height: ring ? 200 : 80)
+                .frame(width: ring ? 190 : 72, height: ring ? 190 : 72)
                 .animation(.easeOut(duration: 2.2).repeatForever(autoreverses: false), value: ring)
 
             switch page.art {
@@ -338,15 +341,15 @@ private struct OnboardingPageView: View {
             Image("AppLogo")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 100, height: 100)
-                .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
-                .shadow(color: page.accent.opacity(0.35), radius: 16, y: 8)
+                .frame(width: 96, height: 96)
+                .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+                .shadow(color: page.accent.opacity(0.35), radius: 14, y: 7)
                 .scaleEffect(bob ? 1.05 : 0.96)
                 .rotationEffect(.degrees(bob ? 2 : -2))
 
             orbitChip("EGP", angle: spin)
             orbitChip("−85", angle: spin + 120)
-            orbitChip("ميزانية", angle: spin + 240)
+            orbitChip(chipBudget, angle: spin + 240)
         }
     }
 
@@ -367,8 +370,8 @@ private struct OnboardingPageView: View {
                 .rotationEffect(.degrees(spin * 0.15))
                 .scaleEffect(bob ? 1.06 : 0.96)
 
-            orbitChip("مصاصة", angle: spin)
-            orbitChip("أسبوعي", angle: spin + 180)
+            orbitChip(chipTop, angle: spin)
+            orbitChip(chipWeek, angle: spin + 180)
         }
     }
 
@@ -397,7 +400,7 @@ private struct OnboardingPageView: View {
 
     private func orbitChip(_ text: String, angle: Double) -> some View {
         let radians = angle * .pi / 180
-        let radius: CGFloat = 86
+        let radius: CGFloat = 82
         return Text(text)
             .font(AppFont.caption())
             .foregroundStyle(BrandTheme.ink)

@@ -234,7 +234,7 @@ enum L10n {
         .onboard2Title: ("صوت أو فاتورة… بضغطة", "Voice or receipt — one tap"),
         .onboard2Body: ("قول الجملة عادي («دفعت ٥٠ أوبير») أو صوّر الإيصال — التطبيق يفهم المبلغ والقسم لوحده.", "Say it naturally (spent 50 on Uber) or snap a receipt — amount and category land for you."),
         .onboard3Title: ("فين بتخرج فلوسك؟", "Where does money go?"),
-        .onboard3Body: ("رسوم أسبوعية وشهرية، ملخص يومي، وأكتر بند بيمصّ فلوسك — عشان تتحكم قبل ما الشهر يخلص.", "Weekly and monthly charts, a daily summary, and your biggest drain — so you stay ahead."),
+        .onboard3Body: ("رسوم أسبوعية وشهرية، ملخص يومي، وأعلى بند صرف — عشان تتحكم قبل ما الشهر يخلص.", "Weekly and monthly charts, a daily summary, and your top spend — so you stay ahead."),
         .onboard4Title: ("خصوصية ونسخ احتياطي", "Private & backed up"),
         .onboard4Body: ("قفل Face ID، مزامنة iCloud، وأهداف وتوفير — بياناتك المالية محمية ومتزامنة.", "Face ID lock, iCloud sync, goals and savings — your money data stays protected."),
         .tourSkip: ("تخطي الجولة", "Skip tour"),
