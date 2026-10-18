@@ -55,6 +55,7 @@ enum L10n {
         case tour6Title, tour6Body
         case coachTitle, coachName, coachSubtitle, coachTipsSection, coachChallengesSection
         case coachStartChallenge, coachChallengeActive, coachDismissChallenge, coachChallengeWon
+        case coachVoice, coachVoiceHint, coachSpeak, coachStopSpeak
     }
 
     private static let table: [Key: (ar: String, en: String)] = [
@@ -262,7 +263,11 @@ enum L10n {
         .coachStartChallenge: ("ابدأ التحدي", "Start challenge"),
         .coachChallengeActive: ("التحدي شغّال", "Challenge running"),
         .coachDismissChallenge: ("إنهاء", "Dismiss"),
-        .coachChallengeWon: ("كسبت! فخور بيك — اختار تحدي جديد لما تحب.", "You won! Proud of you — pick another when ready.")
+        .coachChallengeWon: ("كسبت! فخور بيك — اختار تحدي جديد لما تحب.", "You won! Proud of you — pick another when ready."),
+        .coachVoice: ("صوت المساعد", "Coach voice"),
+        .coachVoiceHint: ("لما يكون مفعّل، باشا المصاريف يقرأ النصيحة بصوت عالي.", "When on, Coach Basha reads tips out loud."),
+        .coachSpeak: ("اسمعلي النصيحة", "Hear this tip"),
+        .coachStopSpeak: ("وقف الصوت", "Stop speaking")
     ]
 
     static func string(_ key: Key, language: AppLanguage) -> String {

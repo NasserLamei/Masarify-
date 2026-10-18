@@ -4,11 +4,13 @@ import SwiftData
 /// Friendly on-device financial coach + saving challenges.
 struct FinancialCoachView: View {
     @EnvironmentObject private var settings: AppSettings
+    @ObservedObject private var speech = CoachSpeechService.shared
     @Query(sort: \Expense.date, order: .reverse) private var expenses: [Expense]
     @Query private var budgets: [MonthlyBudget]
     @Query(sort: \CategoryItem.sortOrder) private var categories: [CategoryItem]
 
     @State private var pulse = false
+    @State private var didAutoSpeak = false
 
     private var tips: [FinancialCoachService.Tip] {
         FinancialCoachService.tips(
@@ -24,6 +26,9 @@ struct FinancialCoachView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
                 heroCard
+                    .masarifyAppear(0)
+
+                voiceToggleCard
                     .masarifyAppear(0)
 
                 Text(settings.t(.coachTipsSection))
@@ -61,6 +66,18 @@ struct FinancialCoachView: View {
                 pulse = true
             }
             pruneFinishedChallenges()
+            autoSpeakPrimaryTipIfNeeded()
+        }
+        .onDisappear {
+            speech.stop()
+        }
+        .onChange(of: settings.coachVoiceEnabled) { _, enabled in
+            if enabled {
+                didAutoSpeak = false
+                autoSpeakPrimaryTipIfNeeded()
+            } else {
+                speech.stop()
+            }
         }
     }
 
@@ -98,6 +115,53 @@ struct FinancialCoachView: View {
         .masarifyCard(cornerRadius: 20, accent: BrandTheme.deepTeal, fillOpacity: 0.55)
     }
 
+    private var voiceToggleCard: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Toggle(isOn: $settings.coachVoiceEnabled) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Label(settings.t(.coachVoice), systemImage: "speaker.wave.2.fill")
+                        .font(AppFont.headline())
+                        .foregroundStyle(BrandTheme.ink)
+                    Text(settings.t(.coachVoiceHint))
+                        .font(AppFont.caption())
+                        .foregroundStyle(BrandTheme.muted)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+            .tint(BrandTheme.deepTeal)
+
+            if settings.coachVoiceEnabled, let tip = tips.first {
+                Button {
+                    if speech.isSpeaking {
+                        speech.stop()
+                    } else {
+                        speech.speak(
+                            title: tip.title,
+                            message: tip.message,
+                            language: settings.language,
+                            enabled: true
+                        )
+                    }
+                } label: {
+                    HStack {
+                        Image(systemName: speech.isSpeaking ? "stop.fill" : "play.fill")
+                        Text(speech.isSpeaking ? settings.t(.coachStopSpeak) : settings.t(.coachSpeak))
+                            .font(AppFont.headline())
+                    }
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+                    .background(BrandTheme.deepTeal)
+                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                }
+                .buttonStyle(PressableStyle())
+            }
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .masarifyCard(cornerRadius: 18, accent: BrandTheme.azure, fillOpacity: 0.45)
+    }
+
     private func tipCard(_ tip: FinancialCoachService.Tip) -> some View {
         let tint: Color = {
             switch tip.tone {
@@ -116,7 +180,7 @@ struct FinancialCoachView: View {
                 .background(tint)
                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
 
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 6) {
                 Text(tip.title)
                     .font(AppFont.headline())
                     .foregroundStyle(BrandTheme.ink)
@@ -124,6 +188,22 @@ struct FinancialCoachView: View {
                     .font(AppFont.subheadline())
                     .foregroundStyle(BrandTheme.muted)
                     .fixedSize(horizontal: false, vertical: true)
+
+                if settings.coachVoiceEnabled {
+                    Button {
+                        speech.speak(
+                            title: tip.title,
+                            message: tip.message,
+                            language: settings.language,
+                            enabled: true
+                        )
+                    } label: {
+                        Label(settings.t(.coachSpeak), systemImage: "speaker.wave.2.fill")
+                            .font(AppFont.caption())
+                            .foregroundStyle(tint)
+                    }
+                    .buttonStyle(.plain)
+                }
             }
         }
         .padding(14)
@@ -134,6 +214,19 @@ struct FinancialCoachView: View {
             RoundedRectangle(cornerRadius: 18, style: .continuous)
                 .strokeBorder(tint.opacity(0.28), lineWidth: 1.2)
         )
+    }
+
+    private func autoSpeakPrimaryTipIfNeeded() {
+        guard settings.coachVoiceEnabled, !didAutoSpeak, let tip = tips.first else { return }
+        didAutoSpeak = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
+            speech.speak(
+                title: tip.title,
+                message: tip.message,
+                language: settings.language,
+                enabled: settings.coachVoiceEnabled
+            )
+        }
     }
 
     private func activeChallengeCard(_ challenge: FinancialCoachService.ActiveChallenge) -> some View {

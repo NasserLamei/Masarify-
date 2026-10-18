@@ -230,48 +230,73 @@ struct HomeView: View {
     }
 
     private var coachStrip: some View {
-        Button { showCoach = true } label: {
-            HStack(alignment: .top, spacing: 12) {
-                Image(systemName: "person.wave.2.fill")
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundStyle(.white)
-                    .frame(width: 44, height: 44)
-                    .background(
-                        LinearGradient(
-                            colors: [BrandTheme.deepTeal, BrandTheme.lagoon],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
+        HStack(alignment: .top, spacing: 12) {
+            Button { showCoach = true } label: {
+                HStack(alignment: .top, spacing: 12) {
+                    Image(systemName: "person.wave.2.fill")
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundStyle(.white)
+                        .frame(width: 44, height: 44)
+                        .background(
+                            LinearGradient(
+                                colors: [BrandTheme.deepTeal, BrandTheme.lagoon],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
                         )
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
 
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(settings.t(.coachName))
-                        .font(AppFont.caption())
-                        .foregroundStyle(BrandTheme.deepTeal)
-                    Text(coachTip.title)
-                        .font(AppFont.headline())
-                        .foregroundStyle(BrandTheme.ink)
-                        .lineLimit(1)
-                    Text(coachTip.message)
-                        .font(AppFont.caption())
-                        .foregroundStyle(BrandTheme.muted)
-                        .lineLimit(3)
-                        .multilineTextAlignment(.leading)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(settings.t(.coachName))
+                            .font(AppFont.caption())
+                            .foregroundStyle(BrandTheme.deepTeal)
+                        Text(coachTip.title)
+                            .font(AppFont.headline())
+                            .foregroundStyle(BrandTheme.ink)
+                            .lineLimit(1)
+                        Text(coachTip.message)
+                            .font(AppFont.caption())
+                            .foregroundStyle(BrandTheme.muted)
+                            .lineLimit(3)
+                            .multilineTextAlignment(.leading)
+                    }
+                    Spacer(minLength: 0)
                 }
-                Spacer(minLength: 0)
+            }
+            .buttonStyle(PressableStyle())
+
+            if settings.coachVoiceEnabled {
+                Button {
+                    CoachSpeechService.shared.speak(
+                        title: coachTip.title,
+                        message: coachTip.message,
+                        language: settings.language,
+                        enabled: true
+                    )
+                } label: {
+                    Image(systemName: "speaker.wave.2.fill")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundStyle(BrandTheme.deepTeal)
+                        .frame(width: 40, height: 40)
+                        .background(BrandTheme.surface)
+                        .clipShape(Circle())
+                        .overlay(Circle().strokeBorder(BrandTheme.deepTeal.opacity(0.28), lineWidth: 1))
+                }
+                .buttonStyle(PressableStyle())
+                .accessibilityLabel(settings.t(.coachSpeak))
+            } else {
                 Image(systemName: "chevron.forward")
                     .foregroundStyle(BrandTheme.deepTeal.opacity(0.7))
+                    .padding(.top, 12)
             }
-            .padding(14)
-            .background(BrandTheme.deepTeal.opacity(0.08))
-            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-            .overlay(
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .strokeBorder(BrandTheme.cardBorder, lineWidth: 1.6)
-            )
         }
-        .buttonStyle(PressableStyle())
+        .padding(14)
+        .background(BrandTheme.deepTeal.opacity(0.08))
+        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .strokeBorder(BrandTheme.cardBorder, lineWidth: 1.6)
+        )
     }
 
     private var trueCostStrip: some View {
