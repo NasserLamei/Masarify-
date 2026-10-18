@@ -62,7 +62,7 @@ struct WidgetAtmosphere: View {
             Image("AppBackground")
                 .resizable()
                 .scaledToFill()
-                .opacity(intense ? 0.58 : 0.48)
+                .opacity(intense ? 0.55 : 0.38)
                 .clipped()
 
             // Soft brand bloom for depth

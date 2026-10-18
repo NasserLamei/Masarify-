@@ -9,12 +9,6 @@ struct BiometricLockOverlay: View {
             BrandTheme.deepTeal.opacity(0.92)
                 .ignoresSafeArea()
 
-            Image("AppBackground")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-                .opacity(0.35)
-
             LinearGradient(
                 colors: [BrandTheme.seafoam.opacity(0.35), BrandTheme.deepTeal.opacity(0.2)],
                 startPoint: .topLeading,

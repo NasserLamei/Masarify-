@@ -176,7 +176,7 @@ struct OnboardingView: View {
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
-                .opacity(0.50)
+                .opacity(0.55)
                 .scaleEffect(orbPhase ? 1.05 : 1.0)
                 .allowsHitTesting(false)
 

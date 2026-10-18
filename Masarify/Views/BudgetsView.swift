@@ -285,7 +285,7 @@ private struct BudgetEditorSheet: View {
                 .masarifyScreenInsets()
                 .padding(.vertical, 20)
             }
-            .masarifyScreenBackground()
+            .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
             .masarifyInlineTitle(editingBudget == nil ? "حد جديد" : "تعديل الحد")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {

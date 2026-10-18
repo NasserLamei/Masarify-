@@ -294,7 +294,7 @@ private struct CategoryEditorSheet: View {
                 .masarifyScreenInsets()
                 .padding(.vertical, 20)
             }
-            .masarifyScreenBackground()
+            .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
             .masarifyInlineTitle(title)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
