@@ -328,7 +328,8 @@ private struct MasarifyTabBar: View {
         // Small fixed pad only — avoid safeAreaPadding (it adds the full ~34pt home-indicator band).
         .padding(.bottom, 10)
         .background {
-            BrandTheme.surface
+            BrandTheme.surface.opacity(0.90)
+                .background(.ultraThinMaterial)
                 .shadow(color: BrandTheme.ink.opacity(0.08), radius: 10, y: -2)
                 .overlay(alignment: .top) {
                     Rectangle()

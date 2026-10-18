@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 enum Motion {
     static let softSpring = Animation.spring(response: 0.55, dampingFraction: 0.82)
@@ -11,10 +12,9 @@ enum Motion {
     }
 }
 
-/// Brand pattern wallpaper (مصاريفي) with alpha over a soft teal wash — used on every screen.
+/// Brand pattern wallpaper (مصاريفي) with alpha — one continuous full-window layer.
 struct ScreenAtmosphere: View {
     @Environment(\.colorScheme) private var colorScheme
-    @State private var drift = false
     @State private var shimmer = false
 
     /// Pattern alpha: readable brand texture without fighting UI.
@@ -23,52 +23,54 @@ struct ScreenAtmosphere: View {
     }
 
     var body: some View {
-        ZStack {
-            LinearGradient(
-                colors: [
-                    BrandTheme.foam,
-                    BrandTheme.seafoam.opacity(0.9),
-                    BrandTheme.mist
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
+        // Global-aligned so any sheet copy still matches the root wallpaper (no seams).
+        GeometryReader { geo in
+            let global = geo.frame(in: .global)
+            let screen = UIScreen.main.bounds
 
-            Image("AppBackground")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-                .opacity(patternAlpha)
-                .scaleEffect(drift ? 1.02 : 1.0)
-                .offset(y: drift ? -3 : 3)
+            ZStack {
+                LinearGradient(
+                    colors: [
+                        BrandTheme.foam,
+                        BrandTheme.seafoam.opacity(0.9),
+                        BrandTheme.mist
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
 
-            RadialGradient(
-                colors: [
-                    BrandTheme.highlight.opacity(shimmer ? 0.08 : 0.03),
-                    Color.clear
-                ],
-                center: .top,
-                startRadius: 10,
-                endRadius: 380
-            )
-            .ignoresSafeArea()
-            .blendMode(.softLight)
+                Image("AppBackground")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: screen.width, height: screen.height)
+                    .opacity(patternAlpha)
+                    .offset(x: -global.minX, y: -global.minY)
 
-            BrandTheme.atmosphereScrim
-                .ignoresSafeArea()
+                RadialGradient(
+                    colors: [
+                        BrandTheme.highlight.opacity(shimmer ? 0.08 : 0.03),
+                        Color.clear
+                    ],
+                    center: .top,
+                    startRadius: 10,
+                    endRadius: 380
+                )
+                .blendMode(.softLight)
+                .offset(x: -global.minX, y: -global.minY)
+                .frame(width: screen.width, height: screen.height)
 
-            if colorScheme == .dark {
-                Color.black.opacity(0.28)
-                    .ignoresSafeArea()
+                BrandTheme.atmosphereScrim
+
+                if colorScheme == .dark {
+                    Color.black.opacity(0.28)
+                }
             }
+            .frame(width: screen.width, height: screen.height)
+            .offset(x: -global.minX, y: -global.minY)
         }
         .ignoresSafeArea()
         .allowsHitTesting(false)
         .onAppear {
-            withAnimation(.easeInOut(duration: 8).repeatForever(autoreverses: true)) {
-                drift = true
-            }
             withAnimation(.easeInOut(duration: 3.4).repeatForever(autoreverses: true)) {
                 shimmer = true
             }
@@ -146,9 +148,12 @@ extension View {
         modifier(AppearMotion(index: index))
     }
 
+    /// Keeps content transparent so the single root `ScreenAtmosphere` shows through.
+    /// Sheets still get their own atmosphere via `presentationBackground`.
     func masarifyScreenBackground() -> some View {
-        background { ScreenAtmosphere() }
+        background(Color.clear)
             .toolbarBackground(.hidden, for: .navigationBar)
+            .presentationBackground { ScreenAtmosphere() }
     }
 
     /// Shared screen leading / trailing inset (content + headers share this).
@@ -385,7 +390,8 @@ struct MasarifyCustomHeader<Leading: View, Trailing: View>: View {
         .padding(.top, 8)
         .padding(.bottom, 12)
         .background {
-            BrandTheme.surface
+            BrandTheme.surface.opacity(0.88)
+                .background(.ultraThinMaterial)
                 .shadow(color: BrandTheme.ink.opacity(0.06), radius: 8, y: 3)
                 .ignoresSafeArea(edges: .top)
         }
