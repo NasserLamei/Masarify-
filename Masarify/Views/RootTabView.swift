@@ -22,39 +22,40 @@ struct RootTabView: View {
         case home, expenses, insights, goals, more
     }
 
+    private var isIntroActive: Bool { showSplash || showOnboarding }
+
     var body: some View {
         ZStack {
             ScreenAtmosphere()
 
-            tabContent
-                .environment(\.onVoiceCapture, { showVoice = true })
-                .environment(\.onCameraCapture, { showReceipt = true })
-                .animation(Motion.softSpring, value: selectedTab)
-                // Reserve tab content only — bar background paints into the home-indicator zone.
-                .safeAreaInset(edge: .bottom, spacing: 0) {
-                    if !showSplash && !showOnboarding {
+            if !isIntroActive {
+                tabContent
+                    .environment(\.onVoiceCapture, { showVoice = true })
+                    .environment(\.onCameraCapture, { showReceipt = true })
+                    .animation(Motion.softSpring, value: selectedTab)
+                    // Reserve tab content only — bar background paints into the home-indicator zone.
+                    .safeAreaInset(edge: .bottom, spacing: 0) {
                         Color.clear.frame(height: 56)
                     }
-                }
-                .overlay(alignment: .bottom) {
-                    if !showSplash && !showOnboarding {
+                    .overlay(alignment: .bottom) {
                         MasarifyTabBar(selection: $selectedTab)
                             .transition(.move(edge: .bottom).combined(with: .opacity))
                     }
-                }
-                .background(MasarifyChromeHost())
-                .onAppear {
-                    AppAppearance.apply()
-                    DispatchQueue.main.async {
-                        AppAppearance.refreshLiveChrome()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                    .background(MasarifyChromeHost())
+                    .onAppear {
+                        AppAppearance.apply()
+                        DispatchQueue.main.async {
                             AppAppearance.refreshLiveChrome()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                                AppAppearance.refreshLiveChrome()
+                            }
                         }
                     }
-                }
-                .onChange(of: selectedTab) { _, _ in
-                    DispatchQueue.main.async { AppAppearance.refreshLiveChrome() }
-                }
+                    .onChange(of: selectedTab) { _, _ in
+                        DispatchQueue.main.async { AppAppearance.refreshLiveChrome() }
+                    }
+                    .transition(.opacity)
+            }
 
             if showSplash {
                 SplashView(isActive: $showSplash)

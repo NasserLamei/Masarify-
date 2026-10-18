@@ -45,6 +45,10 @@ struct OnboardingView: View {
 
     var body: some View {
         ZStack {
+            // Fully opaque base so Home never bleeds through.
+            BrandTheme.foam
+                .ignoresSafeArea()
+
             animatedBackdrop
 
             VStack(spacing: 0) {
@@ -55,6 +59,10 @@ struct OnboardingView: View {
                         Button(settings.t(.onboardSkip)) { finish() }
                             .font(AppFont.subheadline())
                             .foregroundStyle(BrandTheme.ink.opacity(0.72))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 8)
+                            .background(BrandTheme.surface.opacity(0.92))
+                            .clipShape(Capsule())
                     }
                 }
                 .padding(.horizontal, BrandTheme.screenInset)
@@ -64,9 +72,11 @@ struct OnboardingView: View {
                     ForEach(Array(pages.enumerated()), id: \.offset) { index, item in
                         OnboardingPageView(page: item, isActive: page == index)
                             .tag(index)
+                            .background(Color.clear)
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
+                .background(Color.clear)
                 .animation(Motion.softSpring, value: page)
 
                 pageDots
@@ -77,7 +87,8 @@ struct OnboardingView: View {
                     .padding(.bottom, 28)
             }
         }
-        .ignoresSafeArea(edges: .bottom)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
         .onAppear {
             withAnimation(Motion.softSpring) { appeared = true }
         }
@@ -88,9 +99,10 @@ struct OnboardingView: View {
         return ZStack {
             LinearGradient(
                 colors: [
-                    current.accent.opacity(0.28),
                     BrandTheme.foam,
-                    current.secondary.opacity(0.22),
+                    current.accent.opacity(0.34),
+                    BrandTheme.seafoam,
+                    current.secondary.opacity(0.28),
                     BrandTheme.mist
                 ],
                 startPoint: .topLeading,
@@ -103,23 +115,24 @@ struct OnboardingView: View {
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
-                .opacity(0.35)
+                .opacity(0.22)
                 .allowsHitTesting(false)
 
             Circle()
-                .fill(current.accent.opacity(0.22))
+                .fill(current.accent.opacity(0.28))
                 .frame(width: 280, height: 280)
                 .blur(radius: 40)
                 .offset(x: appeared ? -90 : -40, y: appeared ? -220 : -160)
                 .animation(.easeInOut(duration: 4).repeatForever(autoreverses: true), value: appeared)
 
             Circle()
-                .fill(current.secondary.opacity(0.18))
+                .fill(current.secondary.opacity(0.22))
                 .frame(width: 220, height: 220)
                 .blur(radius: 36)
                 .offset(x: appeared ? 110 : 60, y: appeared ? 260 : 200)
                 .animation(.easeInOut(duration: 5.2).repeatForever(autoreverses: true), value: appeared)
         }
+        .allowsHitTesting(false)
     }
 
     private var languageChip: some View {
