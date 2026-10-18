@@ -152,6 +152,11 @@ final class AppSettings: ObservableObject {
         didSet { UserDefaults.standard.set(hasCompletedFeatureTour, forKey: Self.featureTourKey) }
     }
 
+    /// Active saving challenges from the financial coach.
+    @Published var activeChallenges: [FinancialCoachService.ActiveChallenge] {
+        didSet { Self.persistChallenges(activeChallenges) }
+    }
+
     /// Read before `ModelContainer` is created (not MainActor-bound).
     static var prefersICloudSync: Bool {
         if UserDefaults.standard.object(forKey: iCloudSyncKey) == nil { return true }
@@ -178,6 +183,7 @@ final class AppSettings: ObservableObject {
     private static let iCloudSyncKey = "masarify.iCloudSyncEnabled"
     private static let onboardingKey = "masarify.hasCompletedOnboarding"
     private static let featureTourKey = "masarify.hasCompletedFeatureTour"
+    private static let challengesKey = "masarify.activeChallenges"
 
     init() {
         let raw = UserDefaults.standard.string(forKey: Self.languageKey) ?? AppLanguage.arabic.rawValue
@@ -211,6 +217,36 @@ final class AppSettings: ObservableObject {
         iCloudSyncEnabled = UserDefaults.standard.object(forKey: Self.iCloudSyncKey) as? Bool ?? true
         hasCompletedOnboarding = UserDefaults.standard.bool(forKey: Self.onboardingKey)
         hasCompletedFeatureTour = UserDefaults.standard.bool(forKey: Self.featureTourKey)
+        activeChallenges = Self.loadChallenges()
+    }
+
+    func startChallenge(_ kind: FinancialCoachService.ChallengeKind) {
+        // One active challenge at a time keeps the coach clear.
+        let challenge = FinancialCoachService.start(kind: kind, roundUpTotal: totalRoundUpSaved)
+        activeChallenges = [challenge]
+        if kind == .spareChange {
+            roundUpEnabled = true
+        }
+    }
+
+    func clearChallenge(id: String) {
+        activeChallenges.removeAll { $0.id == id }
+    }
+
+    func clearAllChallenges() {
+        activeChallenges = []
+    }
+
+    private static func loadChallenges() -> [FinancialCoachService.ActiveChallenge] {
+        guard let data = UserDefaults.standard.data(forKey: challengesKey),
+              let decoded = try? JSONDecoder().decode([FinancialCoachService.ActiveChallenge].self, from: data)
+        else { return [] }
+        return decoded
+    }
+
+    private static func persistChallenges(_ value: [FinancialCoachService.ActiveChallenge]) {
+        guard let data = try? JSONEncoder().encode(value) else { return }
+        UserDefaults.standard.set(data, forKey: challengesKey)
     }
 
     var hourlyRate: Double {

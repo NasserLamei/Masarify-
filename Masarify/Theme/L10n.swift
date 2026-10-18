@@ -53,6 +53,8 @@ enum L10n {
         case tour4Title, tour4Body
         case tour5Title, tour5Body
         case tour6Title, tour6Body
+        case coachTitle, coachName, coachSubtitle, coachTipsSection, coachChallengesSection
+        case coachStartChallenge, coachChallengeActive, coachDismissChallenge, coachChallengeWon
     }
 
     private static let table: [Key: (ar: String, en: String)] = [
@@ -251,7 +253,16 @@ enum L10n {
         .tour5Title: ("أهدافك", "Your goals"),
         .tour5Body: ("حط هدف توفير وتابع تقدّمك — كل مصروف يقرّبك أو يبعّدك.", "Set a savings goal and watch progress as you spend."),
         .tour6Title: ("المزيد", "More tools"),
-        .tour6Body: ("ملخص يومي، أمان Face ID، التكلفة الحقيقية، وميزانياتك من هنا.", "Daily summary, Face ID, true cost, and budgets live here.")
+        .tour6Body: ("ملخص يومي، أمان Face ID، التكلفة الحقيقية، وميزانياتك من هنا.", "Daily summary, Face ID, true cost, and budgets live here."),
+        .coachTitle: ("المساعد المالي", "Money coach"),
+        .coachName: ("باشا المصاريف", "Coach Basha"),
+        .coachSubtitle: ("نصيحة ودّية، تحذير ذكي، وتحديات ادخار قصيرة — من غير محاضرات جافة.", "Friendly tips, smart nudges, and short saving challenges — no dry lectures."),
+        .coachTipsSection: ("بيقول إيه دلوقتي؟", "What’s the coach saying?"),
+        .coachChallengesSection: ("تحديات الادخار", "Saving challenges"),
+        .coachStartChallenge: ("ابدأ التحدي", "Start challenge"),
+        .coachChallengeActive: ("التحدي شغّال", "Challenge running"),
+        .coachDismissChallenge: ("إنهاء", "Dismiss"),
+        .coachChallengeWon: ("كسبت! فخور بيك — اختار تحدي جديد لما تحب.", "You won! Proud of you — pick another when ready.")
     ]
 
     static func string(_ key: Key, language: AppLanguage) -> String {

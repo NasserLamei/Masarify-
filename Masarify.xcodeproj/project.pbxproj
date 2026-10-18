@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C81ONBOBF01B2C3D4E5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81ONBO01B2C3D4E5F607 /* OnboardingView.swift */; };
 		C81TOURBF01B2C3D4E5 /* FeatureTourOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81TOUR01B2C3D4E5F607 /* FeatureTourOverlay.swift */; };
+		C91COACHBF01B2C3D4E /* FinancialCoachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91COACH01B2C3D4E5F6 /* FinancialCoachView.swift */; };
+		C91COACHSVCBF01B2C3 /* FinancialCoachService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91COACHSVC01B2C3D4E /* FinancialCoachService.swift */; };
 		C71TRUEBF01B2C3D4E5 /* TrueCostSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71TRUE01B2C3D4E5F607 /* TrueCostSettingsView.swift */; };
 		C71DSUMBF01B2C3D4E5 /* DailySummarySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71DSUM01B2C3D4E5F607 /* DailySummarySettingsView.swift */; };
 		C61PRIVBF01B2C3D4E5 /* PrivacySecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61PRIV01B2C3D4E5F607 /* PrivacySecurityView.swift */; };
@@ -95,6 +97,8 @@
 /* Begin PBXFileReference section */
 		C81ONBO01B2C3D4E5F607 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C81TOUR01B2C3D4E5F607 /* FeatureTourOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTourOverlay.swift; sourceTree = "<group>"; };
+		C91COACH01B2C3D4E5F6 /* FinancialCoachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialCoachView.swift; sourceTree = "<group>"; };
+		C91COACHSVC01B2C3D4E /* FinancialCoachService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialCoachService.swift; sourceTree = "<group>"; };
 		C71TRUE01B2C3D4E5F607 /* TrueCostSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueCostSettingsView.swift; sourceTree = "<group>"; };
 		C71DSUM01B2C3D4E5F607 /* DailySummarySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummarySettingsView.swift; sourceTree = "<group>"; };
 		C61PRIV01B2C3D4E5F607 /* PrivacySecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySecurityView.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 				A21Insights01B2C3D5 /* InsightsHubView.swift */,
 				C81ONBO01B2C3D4E5F607 /* OnboardingView.swift */,
 				C81TOUR01B2C3D4E5F607 /* FeatureTourOverlay.swift */,
+				C91COACH01B2C3D4E5F6 /* FinancialCoachView.swift */,
 				C71TRUE01B2C3D4E5F607 /* TrueCostSettingsView.swift */,
 				C71DSUM01B2C3D4E5F607 /* DailySummarySettingsView.swift */,
 				C61PRIV01B2C3D4E5F607 /* PrivacySecurityView.swift */,
@@ -366,6 +371,7 @@
 				C61BIO01B2C3D4E5F60718 /* BiometricAuthService.swift */,
 				C51EXP01B2C3D4E5F60718 /* ExpenseExportService.swift */,
 				C51ANAL01B2C3D4E5F607 /* SpendingAnalytics.swift */,
+				C91COACHSVC01B2C3D4E /* FinancialCoachService.swift */,
 				C41DNOTI01B2C3D4E5F607 /* DailySummaryNotifier.swift */,
 				C41DSNAP01B2C3D4E5F607 /* DailySummarySnapshot.swift */,
 				C41RFIELD01B2C3D4E5F6 /* ReceiptFieldParser.swift */,
@@ -636,6 +642,8 @@
 				A21Insights01B2C3D4 /* InsightsHubView.swift in Sources */,
 				C81ONBOBF01B2C3D4E5 /* OnboardingView.swift in Sources */,
 				C81TOURBF01B2C3D4E5 /* FeatureTourOverlay.swift in Sources */,
+				C91COACHBF01B2C3D4E /* FinancialCoachView.swift in Sources */,
+				C91COACHSVCBF01B2C3 /* FinancialCoachService.swift in Sources */,
 				C71TRUEBF01B2C3D4E5 /* TrueCostSettingsView.swift in Sources */,
 				C71DSUMBF01B2C3D4E5 /* DailySummarySettingsView.swift in Sources */,
 				C61PRIVBF01B2C3D4E5 /* PrivacySecurityView.swift in Sources */,

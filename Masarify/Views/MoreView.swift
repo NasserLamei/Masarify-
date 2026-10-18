@@ -64,13 +64,26 @@ struct MoreView: View {
                 .masarifyAppear(2)
 
                 NavigationLink {
+                    FinancialCoachView()
+                } label: {
+                    moreRow(
+                        title: settings.t(.coachTitle),
+                        detail: settings.t(.coachSubtitle),
+                        systemImage: "person.wave.2.fill",
+                        tint: BrandTheme.deepTeal
+                    )
+                }
+                .buttonStyle(PressableStyle())
+                .masarifyAppear(3)
+
+                NavigationLink {
                     DailySummarySettingsView()
                 } label: {
                     moreRow(
                         title: settings.t(.dailySummary),
                         detail: summaryDetail,
                         systemImage: "bell.badge.fill",
-                        tint: BrandTheme.deepTeal
+                        tint: BrandTheme.lagoon
                     )
                 }
                 .buttonStyle(PressableStyle())
